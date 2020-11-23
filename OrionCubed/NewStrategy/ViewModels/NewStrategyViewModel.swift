@@ -6,13 +6,26 @@
 //
 
 import SwiftUI
+import Combine
 
-struct NewStrategyViewModel {
-    @Binding var strategyList: [Strategy]
-    var dataManager = NewStrategyDataManager()
+class NewStrategyViewModel: ObservableObject {
+    @Published var strategyList: [Strategy]
+    private var disposables = Set<AnyCancellable>()
+    var dataManager = NewStrategyDataManager(networkManager: NetworkManager())
+    
+    init(strategyList: [Strategy]) {
+        self.strategyList = strategyList
+    }
     
     func saveStrategy(_ strategy: Strategy) {
-        strategyList.append(strategy)
-        self.dataManager.sendNewStrategyToServer(strategy)
+        self.strategyList.append(strategy)
+        self.dataManager.createStrategy(strategy)
+//            .sink { (error) in
+//                print(error)
+//            } receiveValue: { (response) in
+//                print(response)
+//            }
+//            .store(in: &disposables)
+        
     }
 }

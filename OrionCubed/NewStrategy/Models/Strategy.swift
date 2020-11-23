@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Strategy: Hashable {
+struct Strategy: Hashable, Codable, CustomStringConvertible {
     let identifier = UUID()
     var strategyName: String
     var strategyUnderlying: String

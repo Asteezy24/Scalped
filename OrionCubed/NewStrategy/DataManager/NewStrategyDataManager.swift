@@ -8,41 +8,51 @@
 import Foundation
 import Combine
 
-
-
-
-
-class NewStrategyDataManager {
-    func sendNewStrategyToServer(_ strategy: Strategy) {
-        let url = String(format: "http://127.0.0.1:3000/strategy/")
-        guard let serviceUrl = URL(string: url) else { return }
-        let parameters: [String: String] = [
-            "action" : strategy.action,
-            "underlying": strategy.strategyUnderlying
-        ]
+class NewStrategyDataManager: StrategyDataManaging {
+    
+    let networkManager: NetworkManagerProtocol
+    var disposables = Set<AnyCancellable>()
+    
+    init(networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
+    
+    func createStrategy(_ strategy: Strategy) {
+        let endpoint = Endpoint.createStrategy
         
+        let parameters: [String: String] = [
+            "action" : "foo",
+            "underlying": "bar"
+        ]
+        let url = String(format: "http://127.0.0.1:3000/strategy/")
+
+        let serviceUrl = URL(string: url)!
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
-            return
-        }
+        let httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         request.httpBody = httpBody
         request.timeoutInterval = 3
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                //print(response)
-            }
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    //print(json)
-                } catch {
-                    //print(error)
+        
+        URLSession.shared.dataTaskPublisher(for: request)
+            .sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        fatalError(error.localizedDescription)
+                    }
+                },
+                receiveValue: {
+                    print($0.data)
+                    print($0.response)
+                    
                 }
-            }
-        }.resume()
+            )
+            .store(in: &disposables)
+            //.eraseToAnyPublisher()
+            
+        
     }
 }
-
