@@ -8,24 +8,42 @@
 import SwiftUI
 import Combine
 
-class NewStrategyViewModel: ObservableObject {
-    @Published var strategyList: [Strategy]
-    private var disposables = Set<AnyCancellable>()
-    var dataManager = NewStrategyDataManager(networkManager: NetworkManager())
+class NewStrategyViewModel {
+    @Binding var strategyList: [Strategy]
     
-    init(strategyList: [Strategy]) {
-        self.strategyList = strategyList
+    private var disposables = Set<AnyCancellable>()
+    private let dataManager = NewStrategyDataManager(networkManager: NetworkManager())
+    
+    init(strategyList: Binding<[Strategy]>) {
+        self._strategyList = strategyList
     }
     
+    
     func saveStrategy(_ strategy: Strategy) {
-        self.strategyList.append(strategy)
         self.dataManager.createStrategy(strategy)
-//            .sink { (error) in
-//                print(error)
-//            } receiveValue: { (response) in
-//                print(response)
-//            }
-//            .store(in: &disposables)
+            .map { response in
+                if !response.error {
+                    self.strategyList.append(strategy)
+                }
+                print(response)
+            }
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                    case .failure:
+                        print(value)
+                    case .finished:
+                        print(value)
+                        break
+                    }
+                },
+                receiveValue: { [weak self] response in
+                    guard let self = self else { return }
+                    print(response)
+                })
+            .store(in: &disposables)
         
     }
 }

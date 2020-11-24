@@ -15,7 +15,7 @@ enum APIError: Error {
 }
 
 struct NetworkResponse: Codable {
-    let success: Bool
+    let error:Bool
     let message: String
 }
 
@@ -114,5 +114,5 @@ extension CustomStringConvertible where Self: Codable {
 // MARK: - Logic Controller
 protocol StrategyDataManaging: class {
     var networkManager: NetworkManagerProtocol { get }
-    func createStrategy(_ strategy: Strategy)
+    func createStrategy(_ strategy: Strategy) -> AnyPublisher<NetworkResponse, Error>
 }

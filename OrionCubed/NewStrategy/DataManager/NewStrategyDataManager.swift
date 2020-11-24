@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class NewStrategyDataManager: StrategyDataManaging {
-    
+        
     let networkManager: NetworkManagerProtocol
     var disposables = Set<AnyCancellable>()
     
@@ -17,7 +17,7 @@ class NewStrategyDataManager: StrategyDataManaging {
         self.networkManager = networkManager
     }
     
-    func createStrategy(_ strategy: Strategy) {
+    func createStrategy(_ strategy: Strategy) -> AnyPublisher<NetworkResponse, Error> {
         let endpoint = Endpoint.createStrategy
         
         let parameters: [String: String] = [
@@ -34,25 +34,15 @@ class NewStrategyDataManager: StrategyDataManaging {
         request.httpBody = httpBody
         request.timeoutInterval = 3
         
-        URLSession.shared.dataTaskPublisher(for: request)
-            .sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let error):
-                        fatalError(error.localizedDescription)
-                    }
-                },
-                receiveValue: {
-                    print($0.data)
-                    print($0.response)
-                    
-                }
-            )
-            .store(in: &disposables)
-            //.eraseToAnyPublisher()
-            
-        
+        return  URLSession.shared.dataTaskPublisher(for: request)
+            .map {value in
+                let responseData = String(data: value.data, encoding: .utf8)!
+//                print("\n")
+//                print(responseData)
+//                print("\n")
+                return Data.init(value.data)
+            }
+            .decode(type: NetworkResponse.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
 }

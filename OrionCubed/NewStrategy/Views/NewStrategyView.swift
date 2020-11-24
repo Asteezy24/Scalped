@@ -99,6 +99,6 @@ struct NewStrategyView: View {
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        NewStrategyView(viewModel: NewStrategyViewModel(strategyList:[]))
+        NewStrategyView(viewModel: NewStrategyViewModel(strategyList: .constant([])))
     }
 }
