@@ -18,7 +18,7 @@ struct HomeView: View {
             VStack {
                 List {
                     Section(header: Text("Alerts")) {
-                        ForEach(viewModel.alerts.reversed(), id: \.self) { alert in
+                        ForEach(viewModel.alerts.reversed().prefix(5), id: \.self) { alert in
                             HomeAlertItem(alert: alert)
                         }
                     }
@@ -30,11 +30,22 @@ struct HomeView: View {
                 }
                 .listStyle(GroupedListStyle())
                 .navigationBarTitle("Orion Cubed")
+                .navigationBarItems(trailing:
+                      HStack {
+                        Text("Server Connection: ")
+                            .font(.subheadline)
+                            .fixedSize()
+                       Circle()
+                        .fill($viewModel.connectedToServer.wrappedValue ? Color.green : Color.red)
+                      }.padding()
+                                    
+                )
                 NavigationLink(destination: NewStrategyView(viewModel: NewStrategyViewModel(strategyList: $viewModel.strategies))) {
                     Text("Add Strategy")
                 }
             }
         }
+        
     }
 }
 

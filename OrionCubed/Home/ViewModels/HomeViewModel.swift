@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 var stocks = ["AAPL", "SPY", "GLD", "NIO", "TSLA", "EBAY", "IBM"]
 var actions = ["Buy", "Sell"]
@@ -14,12 +15,19 @@ var actions = ["Buy", "Sell"]
 class HomeViewModel: ObservableObject {
     @Published var alerts = [Alert]()
     @Published var strategies = [Strategy]()
-    private var dataManager = HomeAlertDataManager()
+    var disposables = Set<AnyCancellable>()
+    var connectedToServer = false
+    private var dataManager: HomeAlertDataManager?
     
     init() {
-        self.dataManager.listenForUpdates(completion: {[weak self] alert in
+        self.dataManager = HomeAlertDataManager()
+        self.dataManager?.listenForUpdates(completion: {[weak self] alert in
             self?.handleAlert(alert)
         })
+        self.dataManager?.$connectedToServer.sink(receiveValue: { isConnected in
+            self.connectedToServer = isConnected
+        })
+            .store(in: &disposables)
     }
     
     private func handleAlert(_ alert: Alert) {

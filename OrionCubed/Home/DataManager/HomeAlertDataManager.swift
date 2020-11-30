@@ -7,22 +7,24 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-class HomeAlertDataManager {
-    
+class HomeAlertDataManager: NSObject, ObservableObject {
+    @Published var connectedToServer = false
     private var websocketURL = "ws://127.0.0.1:1337"
-    private var urlSession: URLSession
-    public private(set) var webSocketTask: URLSessionWebSocketTask
+    private var urlSession: URLSession?
+    public private(set) var webSocketTask: URLSessionWebSocketTask?
     
-    init() {
-        self.urlSession = URLSession(configuration: .default)
-        webSocketTask = urlSession.webSocketTask(with: URL(string: websocketURL)!, protocols: ["echo-protocol"])
-        webSocketTask.resume()
+    override init() {
+        super.init()
+        self.urlSession = URLSession(configuration: .default, delegate:self, delegateQueue: OperationQueue())
+        webSocketTask = urlSession?.webSocketTask(with: URL(string: websocketURL)!, protocols: ["echo-protocol"])
+        webSocketTask?.resume()
     }
     
     func sendMessage(_ message: String) {
         let message = URLSessionWebSocketTask.Message.string(message)
-        webSocketTask.send(message) { error in
+        webSocketTask?.send(message) { error in
             if let error = error {
                 print("WebSocket couldn’t send message because: \(error)")
             }
@@ -30,7 +32,7 @@ class HomeAlertDataManager {
     }
     
     func listenForUpdates(completion: @escaping (Alert) -> Void) {
-        webSocketTask.receive {[weak self] result in
+        webSocketTask?.receive {[weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case .failure(let error):
@@ -48,11 +50,10 @@ class HomeAlertDataManager {
     }
     
     func sendPing() {
-        webSocketTask.sendPing { (error) in
+        webSocketTask?.sendPing { (error) in
             if let error = error {
                 print("Sending PING failed: \(error)")
             }
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                 self.sendPing()
             }
@@ -60,11 +61,25 @@ class HomeAlertDataManager {
     }
     
     func closeConnection() {
-        webSocketTask.cancel(with: .goingAway, reason: nil)
-    }
+        let reason = "Closing connection".data(using: .utf8)
+        webSocketTask?.cancel(with: .goingAway, reason: reason)    }
     
     func getAlert(from text: String) -> Alert {
         print("Received: \(text)")
         return try! JSONDecoder().decode(Alert.self, from: text.data(using: .utf8)!)
+    }
+}
+
+extension HomeAlertDataManager: URLSessionWebSocketDelegate {
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+        print("Web Socket did connect")
+        self.connectedToServer = true
+//        self.connectedToServer = true
+//        self._connectedToServer = true
+//        self.$connectedToServer = true
+    }
+    
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        print("Web Socket did disconnect")
     }
 }

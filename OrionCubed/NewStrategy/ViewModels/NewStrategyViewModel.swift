@@ -18,16 +18,14 @@ class NewStrategyViewModel {
         self._strategyList = strategyList
     }
     
-    
     func saveStrategy(_ strategy: Strategy) {
         self.dataManager.createStrategy(strategy)
+            .receive(on: DispatchQueue.main)
             .map { response in
                 if !response.error {
                     self.strategyList.append(strategy)
                 }
-                print(response)
             }
-            .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] value in
                     guard let self = self else { return }
@@ -36,14 +34,12 @@ class NewStrategyViewModel {
                         print(value)
                     case .finished:
                         print(value)
-                        break
                     }
                 },
                 receiveValue: { [weak self] response in
                     guard let self = self else { return }
-                    print(response)
+                    //print(response)
                 })
             .store(in: &disposables)
-        
     }
 }

@@ -23,6 +23,8 @@
 		FB8FAF0225638ACF00053D50 /* NewStrategyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0125638ACF00053D50 /* NewStrategyViewModel.swift */; };
 		FB8FAF0B2564AE8900053D50 /* HomeAlertDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0A2564AE8900053D50 /* HomeAlertDataManager.swift */; };
 		FB8FAF102564C09600053D50 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0F2564C09600053D50 /* Strategy.swift */; };
+		FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */; };
+		FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52EB256F341F00FFED3B /* Endpoint.swift */; };
 		FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */; };
 		FBD80371256A410B00F22ACB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD80370256A410B00F22ACB /* Alert.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,7 @@
 		FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStrategyItem.swift; sourceTree = "<group>"; };
 		FB09BE0825636EE400BD4B48 /* HomeAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertItem.swift; sourceTree = "<group>"; };
 		FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FB28430B2572C7B000881533 /* OrionCubed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OrionCubed.entitlements; sourceTree = "<group>"; };
 		FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyDataManager.swift; sourceTree = "<group>"; };
 		FB5A4727256724500017D1EA /* StrategyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDetailView.swift; sourceTree = "<group>"; };
 		FB735DF7256B2DEE0026841A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 		FB8FAF0125638ACF00053D50 /* NewStrategyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyViewModel.swift; sourceTree = "<group>"; };
 		FB8FAF0A2564AE8900053D50 /* HomeAlertDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertDataManager.swift; sourceTree = "<group>"; };
 		FB8FAF0F2564C09600053D50 /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		FB9B52EB256F341F00FFED3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		FBD80370256A410B00F22ACB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +132,7 @@
 				FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */,
 				FB09BD552560CD9700BD4B48 /* Assets.xcassets */,
 				FB09BD5A2560CD9700BD4B48 /* Info.plist */,
+				FB28430B2572C7B000881533 /* OrionCubed.entitlements */,
 				FB09BD572560CD9700BD4B48 /* Preview Content */,
 			);
 			path = OrionCubed;
@@ -274,6 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				FB735DF7256B2DEE0026841A /* NetworkManager.swift */,
+				FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */,
+				FB9B52EB256F341F00FFED3B /* Endpoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -417,7 +425,9 @@
 				FB8FAF0B2564AE8900053D50 /* HomeAlertDataManager.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* NewStrategyView.swift in Sources */,
 				FB8FAF102564C09600053D50 /* Strategy.swift in Sources */,
+				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,
 				FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */,
+				FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */,
 				FB09BE0925636EE400BD4B48 /* HomeAlertItem.swift in Sources */,
 				FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */,
 				FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */,
@@ -577,6 +587,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OrionCubed/OrionCubed.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"OrionCubed/Preview Content\"";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
@@ -599,6 +610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OrionCubed/OrionCubed.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"OrionCubed/Preview Content\"";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
