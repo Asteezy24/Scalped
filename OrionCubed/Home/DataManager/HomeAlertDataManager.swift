@@ -20,6 +20,7 @@ class HomeAlertDataManager: NSObject, ObservableObject {
         self.urlSession = URLSession(configuration: .default, delegate:self, delegateQueue: OperationQueue())
         webSocketTask = urlSession?.webSocketTask(with: URL(string: websocketURL)!, protocols: ["echo-protocol"])
         webSocketTask?.resume()
+        sendPing()
     }
     
     func sendMessage(_ message: String) {
@@ -49,14 +50,17 @@ class HomeAlertDataManager: NSObject, ObservableObject {
         }
     }
     
-    func sendPing() {
+    @objc private func sendPing() {
         webSocketTask?.sendPing { (error) in
             if let error = error {
                 print("Sending PING failed: \(error)")
+                print("\n\n\n\n")
+                print(error)
+                self.connectedToServer = false
+            } else {
+                print("ping sent")
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                self.sendPing()
-            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {self.sendPing()}
         }
     }
     
@@ -74,12 +78,10 @@ extension HomeAlertDataManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("Web Socket did connect")
         self.connectedToServer = true
-//        self.connectedToServer = true
-//        self._connectedToServer = true
-//        self.$connectedToServer = true
     }
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
         print("Web Socket did disconnect")
+        self.connectedToServer = false
     }
 }

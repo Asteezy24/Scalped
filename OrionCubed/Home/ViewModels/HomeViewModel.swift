@@ -16,7 +16,7 @@ class HomeViewModel: ObservableObject {
     @Published var alerts = [Alert]()
     @Published var strategies = [Strategy]()
     var disposables = Set<AnyCancellable>()
-    var connectedToServer = false
+    @Published var connectedToServer = false
     private var dataManager: HomeAlertDataManager?
     
     init() {
