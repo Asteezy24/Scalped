@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-class HomeAlertDataManager: NSObject, ObservableObject {
+class HomeDataManager: NSObject, ObservableObject {
     @Published var connectedToServer = false
     private var websocketURL = "ws://127.0.0.1:1337"
     private var urlSession: URLSession?
@@ -51,16 +51,16 @@ class HomeAlertDataManager: NSObject, ObservableObject {
     }
     
     @objc private func sendPing() {
-        webSocketTask?.sendPing { (error) in
+        webSocketTask?.sendPing {[weak self] (error) in
+            guard let self = self else { return }
             if let error = error {
-                print("Sending PING failed: \(error)")
-                print("\n\n\n\n")
-                print(error)
-                self.connectedToServer = false
+              print("Error when sending PING \(error)")
             } else {
-                print("ping sent")
+                print("Web Socket connection is alive")
+                DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+                    self.sendPing()
+                }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {self.sendPing()}
         }
     }
     
@@ -74,7 +74,7 @@ class HomeAlertDataManager: NSObject, ObservableObject {
     }
 }
 
-extension HomeAlertDataManager: URLSessionWebSocketDelegate {
+extension HomeDataManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("Web Socket did connect")
         self.connectedToServer = true

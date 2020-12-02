@@ -38,4 +38,7 @@ extension Endpoint {
     static var createStrategy: Self {
         return Endpoint(path: "/strategy/")
     }
+    static var sendDeviceId: Self {
+        return Endpoint(path: "/notification/provider")
+    }
 }

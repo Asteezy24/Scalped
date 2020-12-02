@@ -21,7 +21,7 @@
 		FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB735DF7256B2DEE0026841A /* NetworkManager.swift */; };
 		FB8FAEFD2563777C00053D50 /* NewStrategyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAEFC2563777C00053D50 /* NewStrategyView.swift */; };
 		FB8FAF0225638ACF00053D50 /* NewStrategyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0125638ACF00053D50 /* NewStrategyViewModel.swift */; };
-		FB8FAF0B2564AE8900053D50 /* HomeAlertDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0A2564AE8900053D50 /* HomeAlertDataManager.swift */; };
+		FB8FAF0B2564AE8900053D50 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0A2564AE8900053D50 /* HomeDataManager.swift */; };
 		FB8FAF102564C09600053D50 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0F2564C09600053D50 /* Strategy.swift */; };
 		FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */; };
 		FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52EB256F341F00FFED3B /* Endpoint.swift */; };
@@ -68,7 +68,7 @@
 		FB735DF7256B2DEE0026841A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FB8FAEFC2563777C00053D50 /* NewStrategyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyView.swift; sourceTree = "<group>"; };
 		FB8FAF0125638ACF00053D50 /* NewStrategyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyViewModel.swift; sourceTree = "<group>"; };
-		FB8FAF0A2564AE8900053D50 /* HomeAlertDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertDataManager.swift; sourceTree = "<group>"; };
+		FB8FAF0A2564AE8900053D50 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		FB8FAF0F2564C09600053D50 /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
 		FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		FB9B52EB256F341F00FFED3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		FB8FAF092564AE7A00053D50 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				FB8FAF0A2564AE8900053D50 /* HomeAlertDataManager.swift */,
+				FB8FAF0A2564AE8900053D50 /* HomeDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */,
 				FBD80371256A410B00F22ACB /* Alert.swift in Sources */,
 				FB09BD542560CD9600BD4B48 /* HomeView.swift in Sources */,
-				FB8FAF0B2564AE8900053D50 /* HomeAlertDataManager.swift in Sources */,
+				FB8FAF0B2564AE8900053D50 /* HomeDataManager.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* NewStrategyView.swift in Sources */,
 				FB8FAF102564C09600053D50 /* Strategy.swift in Sources */,
 				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,
