@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 import UserNotifications
 
 @main
@@ -20,6 +21,9 @@ struct OrionCubedApp: App {
 
 //*** Implement App delegate ***//
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    private var disposables = Set<AnyCancellable>()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         registerForPushNotifications()
         
@@ -27,7 +31,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let notificationOption = launchOptions?[.remoteNotification]
         
         // 1
-        if let notification = notificationOption as? [String: AnyObject], let aps = notification["aps"] as? [String: AnyObject] {}
+        if let notification = notificationOption as? [String: AnyObject], let _ = notification["aps"] as? [String: AnyObject] {}
         
         return true
     }
@@ -37,37 +41,32 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
         print("Device Token: \(token)")
-        
-        
-        
-        let Url = String(format: "http://192.168.0.89:3000/notification/provider")
+        let Url = String(format: "http://104.237.146.89:3000/notification/provider")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameterDictionary = ["id" : token]
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-            return
-        }
+        let httpBody = try! JSONSerialization.data(withJSONObject: parameterDictionary, options: [])
         request.httpBody = httpBody
         
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print(error)
-            }
-            if let response = response {
-                print(response)
-            }
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
-            }
-        }.resume()
+        
+        URLSession.shared.dataTaskPublisher(for: request)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                    case .failure:
+                        print(value)
+                    case .finished:
+                        print(value)
+                    }
+                },
+                receiveValue: { [weak self] response in
+                    guard let self = self else { return }
+                    print(response)
+                })
+            .store(in: &disposables)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error.localizedDescription)
