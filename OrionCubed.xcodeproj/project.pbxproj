@@ -16,6 +16,7 @@
 		FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */; };
 		FB09BE0925636EE400BD4B48 /* HomeAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BE0825636EE400BD4B48 /* HomeAlertItem.swift */; };
 		FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */; };
+		FB4118A02580146C00F046D3 /* StrategySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41189F2580146C00F046D3 /* StrategySelection.swift */; };
 		FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */; };
 		FB5A4728256724500017D1EA /* StrategyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A4727256724500017D1EA /* StrategyDetailView.swift */; };
 		FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB735DF7256B2DEE0026841A /* NetworkManager.swift */; };
@@ -63,6 +64,7 @@
 		FB09BE0825636EE400BD4B48 /* HomeAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlertItem.swift; sourceTree = "<group>"; };
 		FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FB28430B2572C7B000881533 /* OrionCubed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OrionCubed.entitlements; sourceTree = "<group>"; };
+		FB41189F2580146C00F046D3 /* StrategySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySelection.swift; sourceTree = "<group>"; };
 		FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyDataManager.swift; sourceTree = "<group>"; };
 		FB5A4727256724500017D1EA /* StrategyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDetailView.swift; sourceTree = "<group>"; };
 		FB735DF7256B2DEE0026841A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -193,6 +195,25 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		FB41189D2580143E00F046D3 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				FB41189F2580146C00F046D3 /* StrategySelection.swift */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
+		FB41189E2580144A00F046D3 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				FB4522F42565DFA400880416 /* DataManager */,
+				FB8FAEFB2563776100053D50 /* Models */,
+				FB8FAEFA2563775A00053D50 /* ViewModels */,
+				FB8FAEF92563775100053D50 /* Views */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		FB4522F42565DFA400880416 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,10 +249,8 @@
 		FB8FAEF82563774200053D50 /* NewStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				FB4522F42565DFA400880416 /* DataManager */,
-				FB8FAEFB2563776100053D50 /* Models */,
-				FB8FAEFA2563775A00053D50 /* ViewModels */,
-				FB8FAEF92563775100053D50 /* Views */,
+				FB41189D2580143E00F046D3 /* Selection */,
+				FB41189E2580144A00F046D3 /* Details */,
 			);
 			path = NewStrategy;
 			sourceTree = "<group>";
@@ -428,6 +447,7 @@
 				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,
 				FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */,
 				FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */,
+				FB4118A02580146C00F046D3 /* StrategySelection.swift in Sources */,
 				FB09BE0925636EE400BD4B48 /* HomeAlertItem.swift in Sources */,
 				FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */,
 				FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */,

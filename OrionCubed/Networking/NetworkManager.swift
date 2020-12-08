@@ -12,6 +12,11 @@ enum NetworkRequestMethod: String {
     case post = "POST"
 }
 
+enum environments: String {
+    case dev = "192.168.0.89"
+    case prod = "104.237.146.89"
+}
+
 // MARK: - Network Controller
 protocol NetworkManagerProtocol: class {
     typealias Headers = [String: Any]

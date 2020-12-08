@@ -23,6 +23,7 @@ struct OrionCubedApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     private var disposables = Set<AnyCancellable>()
+    private var networkManager = NetworkManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         registerForPushNotifications()
@@ -41,30 +42,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
         print("Device Token: \(token)")
-        let Url = String(format: "http://104.237.146.89:3000/notification/provider")
-        guard let serviceUrl = URL(string: Url) else { return }
-        let parameterDictionary = ["id" : token]
-        var request = URLRequest(url: serviceUrl)
-        request.httpMethod = "POST"
-        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        let httpBody = try! JSONSerialization.data(withJSONObject: parameterDictionary, options: [])
-        request.httpBody = httpBody
+        let endpoint = Endpoint.sendDeviceId
+        let parameterDictionary = ["username": "alex", "id" : token]
         
-        
-        URLSession.shared.dataTaskPublisher(for: request)
+        networkManager.request(type: NetworkResponse.self, requestType: .post, parameters: parameterDictionary, url: endpoint.url, headers: [:])
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] value in
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        print(value)
+                        print("Error in sending device token")
                     case .finished:
-                        print(value)
+                        print("Sent value for device token")
                     }
                 },
                 receiveValue: { [weak self] response in
                     guard let self = self else { return }
-                    print(response)
+                    print("Received response for notification registration")
                 })
             .store(in: &disposables)
     }
