@@ -27,7 +27,6 @@ class NewStrategyDataManager: StrategyDataManaging {
         let endpoint = Endpoint.createStrategy
         let parameters: [String: String] = [
             "action" : strategy.action,
-            "underlying": strategy.strategyUnderlying,
             "identifier": "",
             "username": "alex"
         ]
@@ -39,3 +38,4 @@ class NewStrategyDataManager: StrategyDataManaging {
                                            headers: [:])
     }
 }
+
