@@ -48,7 +48,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         networkManager.request(type: NetworkResponse.self, requestType: .post, parameters: parameterDictionary, url: endpoint.url, headers: [:])
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] value in
-                    guard let self = self else { return }
+                    guard let _ = self else { return }
                     switch value {
                     case .failure:
                         print("Error in sending device token")
@@ -57,13 +57,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                     }
                 },
                 receiveValue: { [weak self] response in
-                    guard let self = self else { return }
+                    guard let _ = self else { return }
                     print("Received response for notification registration")
                 })
             .store(in: &disposables)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print(error.localizedDescription)
+        print("failed to register for notifications")
     }
     
     func registerForPushNotifications() {
@@ -78,7 +78,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()

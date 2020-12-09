@@ -27,7 +27,9 @@ class NewStrategyDataManager: StrategyDataManaging {
         let endpoint = Endpoint.createStrategy
         let parameters: [String: String] = [
             "action" : strategy.action,
-            "underlying": strategy.strategyUnderlying
+            "underlying": strategy.strategyUnderlying,
+            "identifier": "",
+            "username": "alex"
         ]
 
         return self.networkManager.request(type: NetworkResponse.self,
