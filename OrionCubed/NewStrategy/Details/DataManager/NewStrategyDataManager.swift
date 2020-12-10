@@ -27,7 +27,7 @@ class NewStrategyDataManager: StrategyDataManaging {
         let endpoint = Endpoint.createStrategy
         let parameters: [String: String] = [
             "action" : strategy.action,
-            "identifier": "",
+            "identifier": "GMMA",
             "username": "alex"
         ]
 

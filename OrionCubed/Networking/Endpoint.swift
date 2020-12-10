@@ -35,9 +35,9 @@ extension Endpoint {
 /// Dummy API endpoints
 extension Endpoint {
     static var createStrategy: Self {
-        return Endpoint(path: "/strategy/")
+        return Endpoint(path: "/api/strategy/create")
     }
     static var sendDeviceId: Self {
-        return Endpoint(path: "/notification/provider")
+        return Endpoint(path: "/api/notification/updateToken")
     }
 }

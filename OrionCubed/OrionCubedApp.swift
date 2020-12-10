@@ -24,7 +24,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     private var disposables = Set<AnyCancellable>()
     private var networkManager = NetworkManager()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         registerForPushNotifications()
         
@@ -38,28 +38,31 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     //No callback in simulator
     //-- must use device to get valid push token
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)          {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
         print("Device Token: \(token)")
         let endpoint = Endpoint.sendDeviceId
-        let parameterDictionary = ["username": "alex", "id" : token]
+        let parameterDictionary = [
+            "username": "alex",
+            "deviceToken" : token
+        ]
         
         networkManager.request(type: NetworkResponse.self, requestType: .post, parameters: parameterDictionary, url: endpoint.url, headers: [:])
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] value in
-                    guard let _ = self else { return }
-                    switch value {
-                    case .failure:
-                        print("Error in sending device token")
-                    case .finished:
-                        print("Sent value for device token")
-                    }
-                },
-                receiveValue: { [weak self] response in
-                    guard let _ = self else { return }
-                    print("Received response for notification registration")
-                })
+                guard let _ = self else { return }
+                switch value {
+                case .failure:
+                    print("Error in sending device token")
+                case .finished:
+                    print("Sent value for device token")
+                }
+            },
+            receiveValue: { [weak self] response in
+                guard let _ = self else { return }
+                print("Received response for notification registration")
+            })
             .store(in: &disposables)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
