@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeAlertItem: View {
     
-    var alert: Alert
+    var alert: StrategyAlert
     
     var body: some View {
         Text("Alert! You should \(alert.action) \(alert.underlying)")
@@ -18,6 +18,6 @@ struct HomeAlertItem: View {
 
 struct HomeAlertItem_Previews: PreviewProvider {
     static var previews: some View {
-        HomeAlertItem(alert: Alert(action: "", underlying: ""))
+        HomeAlertItem(alert: StrategyAlert(action: "", underlying: ""))
     }
 }

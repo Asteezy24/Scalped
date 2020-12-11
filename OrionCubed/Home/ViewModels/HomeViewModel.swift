@@ -13,7 +13,7 @@ var stocks = ["AAPL", "SPY", "GLD", "NIO", "TSLA", "EBAY", "IBM"]
 var actions = ["Buy", "Sell"]
 
 class HomeViewModel: ObservableObject {
-    @Published var alerts = [Alert]()
+    @Published var alerts = [StrategyAlert]()
     @Published var strategies = [Strategy]()
     @Published var connectedToServer = false
     private var dataManager: HomeDataManager?
@@ -32,7 +32,7 @@ class HomeViewModel: ObservableObject {
         .store(in: &disposables)
     }
     
-    private func handleAlert(_ alert: Alert) {
+    private func handleAlert(_ alert: StrategyAlert) {
         DispatchQueue.main.async {
             self.alerts.append(alert)
         }

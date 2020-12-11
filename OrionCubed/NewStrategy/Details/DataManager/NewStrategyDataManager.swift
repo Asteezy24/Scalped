@@ -10,7 +10,7 @@ import Combine
 
 protocol StrategyDataManaging: class {
     var networkManager: NetworkManagerProtocol { get }
-    func createStrategy(_ strategy: Strategy) -> AnyPublisher<NetworkResponse, Error>
+    func getCreateStrategyPublisher(_ strategy: Strategy) -> AnyPublisher<NetworkResponse, Error>
 }
 
 class NewStrategyDataManager: StrategyDataManaging {
@@ -22,7 +22,7 @@ class NewStrategyDataManager: StrategyDataManaging {
         self.networkManager = networkManager
     }
     
-    func createStrategy(_ strategy: Strategy) -> AnyPublisher<NetworkResponse, Error> {
+    func getCreateStrategyPublisher(_ strategy: Strategy) -> AnyPublisher<NetworkResponse, Error> {
 
         let endpoint = Endpoint.createStrategy
         let parameters: [String: String] = [
@@ -38,4 +38,3 @@ class NewStrategyDataManager: StrategyDataManaging {
                                            headers: [:])
     }
 }
-

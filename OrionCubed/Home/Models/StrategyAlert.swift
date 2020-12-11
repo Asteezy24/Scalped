@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Alert: Decodable, Hashable {
+struct StrategyAlert: Decodable, Hashable {
     var action: String
     var underlying: String
 }

@@ -17,10 +17,10 @@ class HomeDataManager: NSObject, ObservableObject {
     
     override init() {
         super.init()
-        self.urlSession = URLSession(configuration: .default, delegate:self, delegateQueue: OperationQueue())
-        webSocketTask = urlSession?.webSocketTask(with: URL(string: websocketURL)!, protocols: ["echo-protocol"])
-        webSocketTask?.resume()
-        sendPing()
+//        self.urlSession = URLSession(configuration: .default, delegate:self, delegateQueue: OperationQueue())
+//        webSocketTask = urlSession?.webSocketTask(with: URL(string: websocketURL)!, protocols: ["echo-protocol"])
+//        webSocketTask?.resume()
+//        sendPing()
     }
     
     func sendMessage(_ message: String) {
@@ -32,7 +32,7 @@ class HomeDataManager: NSObject, ObservableObject {
         }
     }
     
-    func listenForUpdates(completion: @escaping (Alert) -> Void) {
+    func listenForUpdates(completion: @escaping (StrategyAlert) -> Void) {
         webSocketTask?.receive {[weak self] result in
             guard let strongSelf = self else { return }
             switch result {
@@ -74,9 +74,9 @@ class HomeDataManager: NSObject, ObservableObject {
         let reason = "Closing connection".data(using: .utf8)
         webSocketTask?.cancel(with: .goingAway, reason: reason)    }
     
-    func getAlert(from text: String) -> Alert {
+    func getAlert(from text: String) -> StrategyAlert {
         print("Received: \(text)")
-        return try! JSONDecoder().decode(Alert.self, from: text.data(using: .utf8)!)
+        return try! JSONDecoder().decode(StrategyAlert.self, from: text.data(using: .utf8)!)
     }
 }
 

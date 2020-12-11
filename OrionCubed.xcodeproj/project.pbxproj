@@ -28,7 +28,7 @@
 		FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */; };
 		FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52EB256F341F00FFED3B /* Endpoint.swift */; };
 		FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */; };
-		FBD80371256A410B00F22ACB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD80370256A410B00F22ACB /* Alert.swift */; };
+		FBD80371256A410B00F22ACB /* StrategyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD80370256A410B00F22ACB /* StrategyAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		FB9B52EB256F341F00FFED3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
-		FBD80370256A410B00F22ACB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FBD80370256A410B00F22ACB /* StrategyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +252,7 @@
 		FB8FAEF42563735300053D50 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FBD80370256A410B00F22ACB /* Alert.swift */,
+				FBD80370256A410B00F22ACB /* StrategyAlert.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				FB8FAF0225638ACF00053D50 /* NewStrategyViewModel.swift in Sources */,
 				FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */,
 				FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */,
-				FBD80371256A410B00F22ACB /* Alert.swift in Sources */,
+				FBD80371256A410B00F22ACB /* StrategyAlert.swift in Sources */,
 				FB09BD542560CD9600BD4B48 /* HomeView.swift in Sources */,
 				FB8FAF0B2564AE8900053D50 /* HomeDataManager.swift in Sources */,
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,

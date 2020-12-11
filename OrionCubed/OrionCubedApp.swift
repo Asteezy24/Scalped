@@ -54,6 +54,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 guard let _ = self else { return }
                 switch value {
                 case .failure:
+                    print(value)
                     print("Error in sending device token")
                 case .finished:
                     print("Sent value for device token")
@@ -61,7 +62,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             },
             receiveValue: { [weak self] response in
                 guard let _ = self else { return }
-                print("Received response for notification registration")
+                print(response)
+                
+                if !response.error {
+                    print("Received response for notification registration")
+                }
             })
             .store(in: &disposables)
     }
@@ -73,7 +78,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         UNUserNotificationCenter.current()
             .requestAuthorization(
                 options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-                print("Permission granted: \(granted)")
                 guard granted else { return }
                 self?.getNotificationSettings()
             }

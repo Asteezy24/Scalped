@@ -18,10 +18,15 @@ struct NewStrategyView: View {
     private let strategyActions = ["Buy", "Sell"]
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//    @Binding var strategyList: [Strategy]
-    var viewModel: NewStrategyViewModel
+    
+    
+    @ObservedObject var viewModel: NewStrategyViewModel
     
     var body: some View {
+        let serviceError = Binding<Bool>(
+            get: { self.viewModel.errorAlert  },
+            set: { _ in self.viewModel.errorAlert = true }
+        )
         VStack {
             Form {
                 Section(header: Text("Identifiers")) {
@@ -60,7 +65,11 @@ struct NewStrategyView: View {
             Button(action: {self.saveStrategyAndDismiss()}, label: {
                 Text("Save")
             })
-        }.navigationBarTitle(Text("New Strategy"))
+        }
+        .navigationBarTitle(Text("New Strategy"))
+        .alert(isPresented: serviceError) {
+            Alert(title: Text("Error!"), message: Text("Cannot Save this strategy"), dismissButton: .default(Text("Dismiss")))
+        }
     }
     
     var searchResultsList: some View {
