@@ -37,4 +37,32 @@ class HomeViewModel: ObservableObject {
             self.alerts.append(alert)
         }
     }
+    
+    func getAllStrategies() {
+        self.dataManager?.getPublisherForStrategies()
+            .receive(on: DispatchQueue.main)
+            .map { response in
+                print(response)
+                if !response.error {
+                    self.strategies = response.data
+                } else {
+                    print("got error\n\n\n")
+                }
+            }
+            .sink(receiveCompletion: { [weak self] value in
+                    guard let _ = self else { return }
+                    switch value {
+                    case .failure:
+                        print(value)
+                    case .finished:
+                        print("2")
+                    }
+                },
+                receiveValue: { [weak self] response in
+                    guard let _ = self else { return }
+                    //print(response)
+                })
+            .store(in: &disposables)
+    }
+    
 }

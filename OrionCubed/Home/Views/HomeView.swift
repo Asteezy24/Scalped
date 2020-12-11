@@ -44,6 +44,9 @@ struct HomeView: View {
                     Text("Add Strategy")
                 }
             }
+            .onAppear(perform: {
+                self.viewModel.getAllStrategies()
+            })
         }
         
     }

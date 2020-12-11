@@ -14,6 +14,7 @@ class HomeDataManager: NSObject, ObservableObject {
     private lazy var websocketURL = "ws://" + ( currEnvironment == environments.dev ? environments.dev.rawValue : environments.prod.rawValue) + ":1337"
     private var urlSession: URLSession?
     public private(set) var webSocketTask: URLSessionWebSocketTask?
+    public private(set) var networkManager = NetworkManager()
     
     override init() {
         super.init()
@@ -79,6 +80,23 @@ class HomeDataManager: NSObject, ObservableObject {
         return try! JSONDecoder().decode(StrategyAlert.self, from: text.data(using: .utf8)!)
     }
 }
+
+// get data from server
+extension HomeDataManager {
+    
+    func getPublisherForStrategies() -> AnyPublisher<StrategyAlertsResponse, Error> {
+        let endpoint = Endpoint.getStrategies
+        let parameters: [String: String] = ["username": "alex"]
+
+        return self.networkManager.request(type: StrategyAlertsResponse.self,
+                                           requestType: .post,
+                                           parameters: parameters,
+                                           url: endpoint.url,
+                                           headers: [:])
+    }
+    
+}
+
 
 extension HomeDataManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
