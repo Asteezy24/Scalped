@@ -34,6 +34,9 @@ extension Endpoint {
 
 /// Dummy API endpoints
 extension Endpoint {
+    static var getAlerts: Self {
+        return Endpoint(path: "/api/alerts")
+    }
     static var getStrategies: Self {
         return Endpoint(path: "/api/strategy")
     }

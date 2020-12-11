@@ -38,6 +38,33 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func getAllAlerts() {
+        self.dataManager?.getPublisherForAlerts()
+            .receive(on: DispatchQueue.main)
+            .map { response in
+                print(response)
+                if !response.error {
+                    self.alerts = response.data
+                } else {
+                    print("got error\n\n\n")
+                }
+            }
+            .sink(receiveCompletion: { [weak self] value in
+                guard let _ = self else { return }
+                switch value {
+                case .failure:
+                    print(value)
+                case .finished:
+                    print("2")
+                }
+            },
+            receiveValue: { [weak self] response in
+                guard let _ = self else { return }
+            })
+            .store(in: &disposables)
+        
+    }
+    
     func getAllStrategies() {
         self.dataManager?.getPublisherForStrategies()
             .receive(on: DispatchQueue.main)
@@ -50,18 +77,18 @@ class HomeViewModel: ObservableObject {
                 }
             }
             .sink(receiveCompletion: { [weak self] value in
-                    guard let _ = self else { return }
-                    switch value {
-                    case .failure:
-                        print(value)
-                    case .finished:
-                        print("2")
-                    }
-                },
-                receiveValue: { [weak self] response in
-                    guard let _ = self else { return }
-                    //print(response)
-                })
+                guard let _ = self else { return }
+                switch value {
+                case .failure:
+                    print(value)
+                case .finished:
+                    print("2")
+                }
+            },
+            receiveValue: { [weak self] response in
+                guard let _ = self else { return }
+                //print(response)
+            })
             .store(in: &disposables)
     }
     

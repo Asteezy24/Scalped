@@ -101,7 +101,7 @@ struct NewStrategyView: View {
     
     private func saveStrategyAndDismiss() {
         self.presentationMode.wrappedValue.dismiss()
-        let strategy = Strategy(strategyName: strategyName, strategyUnderlying: underlying, action: strategyActions[actionSelected])
+        let strategy = Strategy(identifier: "foo", strategyName: strategyName, strategyUnderlying: underlying, action: strategyActions[actionSelected])
         self.viewModel.saveStrategy(strategy)
     }
 }

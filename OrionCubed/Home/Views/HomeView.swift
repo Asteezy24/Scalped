@@ -46,6 +46,7 @@ struct HomeView: View {
             }
             .onAppear(perform: {
                 self.viewModel.getAllStrategies()
+                self.viewModel.getAllAlerts()
             })
         }
         

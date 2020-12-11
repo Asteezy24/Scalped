@@ -28,8 +28,9 @@
 		FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */; };
 		FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52EB256F341F00FFED3B /* Endpoint.swift */; };
 		FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */; };
+		FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB12D25842938004BC2F9 /* AlertResponse.swift */; };
 		FBD80371256A410B00F22ACB /* StrategyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD80370256A410B00F22ACB /* StrategyAlert.swift */; };
-		FBD89CE7258415A800789F44 /* StrategyAlertsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD89CE6258415A800789F44 /* StrategyAlertsResponse.swift */; };
+		FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD89CE6258415A800789F44 /* StrategyResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +79,9 @@
 		FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		FB9B52EB256F341F00FFED3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		FBBEB12D25842938004BC2F9 /* AlertResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertResponse.swift; sourceTree = "<group>"; };
 		FBD80370256A410B00F22ACB /* StrategyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyAlert.swift; sourceTree = "<group>"; };
-		FBD89CE6258415A800789F44 /* StrategyAlertsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyAlertsResponse.swift; sourceTree = "<group>"; };
+		FBD89CE6258415A800789F44 /* StrategyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				FBD80370256A410B00F22ACB /* StrategyAlert.swift */,
-				FBD89CE6258415A800789F44 /* StrategyAlertsResponse.swift */,
+				FBD89CE6258415A800789F44 /* StrategyResponse.swift */,
+				FBBEB12D25842938004BC2F9 /* AlertResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -449,8 +452,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5A4728256724500017D1EA /* StrategyDetailView.swift in Sources */,
+				FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */,
 				FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */,
-				FBD89CE7258415A800789F44 /* StrategyAlertsResponse.swift in Sources */,
+				FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */,
 				FB8FAF0225638ACF00053D50 /* NewStrategyViewModel.swift in Sources */,
 				FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */,
 				FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */,

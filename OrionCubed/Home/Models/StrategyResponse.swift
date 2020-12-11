@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StrategyAlertsResponse: Decodable, Hashable  {
+struct StrategyResponse: Decodable, Hashable  {
     let error:Bool
     let message: String
     let data: [Strategy]

@@ -84,11 +84,22 @@ class HomeDataManager: NSObject, ObservableObject {
 // get data from server
 extension HomeDataManager {
     
-    func getPublisherForStrategies() -> AnyPublisher<StrategyAlertsResponse, Error> {
+    func getPublisherForAlerts() -> AnyPublisher<AlertResponse, Error> {
+        let endpoint = Endpoint.getAlerts
+        let parameters: [String: String] = ["username": "alex"]
+
+        return self.networkManager.request(type: AlertResponse.self,
+                                           requestType: .post,
+                                           parameters: parameters,
+                                           url: endpoint.url,
+                                           headers: [:])
+    }
+    
+    func getPublisherForStrategies() -> AnyPublisher<StrategyResponse, Error> {
         let endpoint = Endpoint.getStrategies
         let parameters: [String: String] = ["username": "alex"]
 
-        return self.networkManager.request(type: StrategyAlertsResponse.self,
+        return self.networkManager.request(type: StrategyResponse.self,
                                            requestType: .post,
                                            parameters: parameters,
                                            url: endpoint.url,
