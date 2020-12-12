@@ -18,7 +18,7 @@ extension Endpoint {
     var url: URL {
         var components = URLComponents()
         components.scheme = "http"
-        components.host = currEnvironment == .dev ? environments.dev.rawValue : environments.dev.rawValue
+        components.host = currEnvironment == .dev ? environments.dev.rawValue : environments.prod.rawValue
         components.port = 3000
         components.path = path
         guard let url = components.url else {

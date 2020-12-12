@@ -11,7 +11,7 @@ import SwiftUI
 
 class HomeDataManager: NSObject, ObservableObject {
     @Published var connectedToServer = false
-    private lazy var websocketURL = "ws://" + ( currEnvironment == environments.dev ? environments.dev.rawValue : environments.prod.rawValue) + ":1337"
+    private lazy var websocketURL = "ws://" + ( currEnvironment == environments.dev ? environments.prod.rawValue : environments.prod.rawValue) + ":1337"
     private var urlSession: URLSession?
     public private(set) var webSocketTask: URLSessionWebSocketTask?
     public private(set) var networkManager = NetworkManager()
