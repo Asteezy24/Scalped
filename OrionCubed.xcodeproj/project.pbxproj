@@ -29,6 +29,9 @@
 		FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52EB256F341F00FFED3B /* Endpoint.swift */; };
 		FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */; };
 		FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB12D25842938004BC2F9 /* AlertResponse.swift */; };
+		FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13C258991C9004BC2F9 /* Icon+PreviewHelpers.swift */; };
+		FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13D258991C9004BC2F9 /* Icon.swift */; };
+		FBBEB15D2589A931004BC2F9 /* SymbolsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */; };
 		FBD80371256A410B00F22ACB /* StrategyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD80370256A410B00F22ACB /* StrategyAlert.swift */; };
 		FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD89CE6258415A800789F44 /* StrategyResponse.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +83,11 @@
 		FB9B52EB256F341F00FFED3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		FBBEB12D25842938004BC2F9 /* AlertResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertResponse.swift; sourceTree = "<group>"; };
+		FBBEB13C258991C9004BC2F9 /* Icon+PreviewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Icon+PreviewHelpers.swift"; sourceTree = "<group>"; };
+		FBBEB13D258991C9004BC2F9 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		FBBEB13E258991C9004BC2F9 /* IconGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
+		FBBEB13F258991C9004BC2F9 /* generate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generate.swift; sourceTree = "<group>"; };
+		FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsNetworkResponse.swift; sourceTree = "<group>"; };
 		FBD80370256A410B00F22ACB /* StrategyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyAlert.swift; sourceTree = "<group>"; };
 		FBD89CE6258415A800789F44 /* StrategyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +140,7 @@
 		FB09BD502560CD9600BD4B48 /* OrionCubed */ = {
 			isa = PBXGroup;
 			children = (
+				FBBEB13B258991C9004BC2F9 /* Icon */,
 				FBD8039D256A497A00F22ACB /* Networking */,
 				FB09BD7F2560CDF200BD4B48 /* Home */,
 				FB8FAEF82563774200053D50 /* NewStrategy */,
@@ -292,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8FAF0F2564C09600053D50 /* Strategy.swift */,
+				FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +322,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FBBEB13B258991C9004BC2F9 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				FBBEB13C258991C9004BC2F9 /* Icon+PreviewHelpers.swift */,
+				FBBEB13D258991C9004BC2F9 /* Icon.swift */,
+				FBBEB13E258991C9004BC2F9 /* IconGenerator.swift */,
+				FBBEB13F258991C9004BC2F9 /* generate.swift */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
 		FBD8039D256A497A00F22ACB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +350,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB09BD732560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "OrionCubed" */;
 			buildPhases = (
+				FBBEB15125899214004BC2F9 /* ShellScript */,
 				FB09BD4A2560CD9600BD4B48 /* Sources */,
 				FB09BD4B2560CD9600BD4B48 /* Frameworks */,
 				FB09BD4C2560CD9600BD4B48 /* Resources */,
@@ -446,6 +468,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FBBEB15125899214004BC2F9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/$(PRODUCT_NAME)/Icon/Icon.swift",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n[[ \"$ENABLE_PREVIEWS\" = \"NO\" ]] || exit 0\n[[ \"$MAC_OS_X_VERSION_MAJOR\" -ge \"101500\" ]] || exit 0\n\nTMPFILE=`mktemp /tmp/SwiftUIcon.swift.XXXXXX` || exit 1\ntrap \"rm -f $TMPFILE\" EXIT\n\nif [ -z \"$SCRIPT_INPUT_FILE_0\" ]\nthen\n    echo \"error: You must specify your Icon.swift as the first Input File in the Build Phase.\"\n    exit 1\nfi\n\ncat ${SCRIPT_INPUT_FILE_0%/*}/*.swift > $TMPFILE\n\nxcrun -sdk macosx swift $TMPFILE\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB09BD4A2560CD9600BD4B48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -459,8 +502,11 @@
 				FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */,
 				FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */,
 				FBD80371256A410B00F22ACB /* StrategyAlert.swift in Sources */,
+				FBBEB15D2589A931004BC2F9 /* SymbolsNetworkResponse.swift in Sources */,
 				FB09BD542560CD9600BD4B48 /* HomeView.swift in Sources */,
 				FB8FAF0B2564AE8900053D50 /* HomeDataManager.swift in Sources */,
+				FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */,
+				FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */,
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* NewStrategyView.swift in Sources */,
 				FB8FAF102564C09600053D50 /* Strategy.swift in Sources */,

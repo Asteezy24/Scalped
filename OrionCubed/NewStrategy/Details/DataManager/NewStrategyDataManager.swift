@@ -16,7 +16,6 @@ protocol StrategyDataManaging: class {
 class NewStrategyDataManager: StrategyDataManaging {
         
     let networkManager: NetworkManagerProtocol
-    var disposables = Set<AnyCancellable>()
     
     init(networkManager: NetworkManagerProtocol) {
         self.networkManager = networkManager
@@ -32,6 +31,18 @@ class NewStrategyDataManager: StrategyDataManaging {
         ]
 
         return self.networkManager.request(type: NetworkResponse.self,
+                                           requestType: .post,
+                                           parameters: parameters,
+                                           url: endpoint.url,
+                                           headers: [:])
+    }
+    
+    func getSymbolsPublisher(_ symbol: String) -> AnyPublisher<SymbolsNetworkResponse, Error> {
+        let endpoint = Endpoint.getSymbols
+        let parameters: [String: String] = [
+            "symbol" : symbol
+        ]
+        return self.networkManager.request(type: SymbolsNetworkResponse.self,
                                            requestType: .post,
                                            parameters: parameters,
                                            url: endpoint.url,

@@ -42,7 +42,7 @@ class HomeViewModel: ObservableObject {
         self.dataManager?.getPublisherForAlerts()
             .receive(on: DispatchQueue.main)
             .map { response in
-                print(response)
+                //print(response)
                 if !response.error {
                     self.alerts = response.data
                 } else {
@@ -55,7 +55,7 @@ class HomeViewModel: ObservableObject {
                 case .failure:
                     print(value)
                 case .finished:
-                    print("2")
+                    break
                 }
             },
             receiveValue: { [weak self] response in
@@ -69,7 +69,7 @@ class HomeViewModel: ObservableObject {
         self.dataManager?.getPublisherForStrategies()
             .receive(on: DispatchQueue.main)
             .map { response in
-                print(response)
+                //print(response)
                 if !response.error {
                     self.strategies = response.data
                 } else {
@@ -82,7 +82,7 @@ class HomeViewModel: ObservableObject {
                 case .failure:
                     print(value)
                 case .finished:
-                    print("2")
+                    break
                 }
             },
             receiveValue: { [weak self] response in

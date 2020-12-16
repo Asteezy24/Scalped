@@ -8,8 +8,16 @@
 import SwiftUI
 import Combine
 
+struct Symbol: Identifiable {
+    var id = UUID()
+    var name: String
+}
+
 class NewStrategyViewModel: ObservableObject {
     @Binding var strategyList: [Strategy]
+    @Published var searchResults = [Symbol]()
+    @Published var selectedUnderlying = false
+    @Published var underlyingEntry = ""
     @Published var errorAlert: Bool = false
     
     private var disposables = Set<AnyCancellable>()
@@ -17,6 +25,11 @@ class NewStrategyViewModel: ObservableObject {
     
     init(strategyList: Binding<[Strategy]>) {
         self._strategyList = strategyList
+        $underlyingEntry
+            .dropFirst(1)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue(label: "WeatherViewModel"))
+            .sink(receiveValue: fetchEligibleUnderlyings(for:))
+            .store(in: &disposables)
     }
     
     func saveStrategy(_ strategy: Strategy) {
@@ -47,6 +60,39 @@ class NewStrategyViewModel: ObservableObject {
                 receiveValue: { [weak self] response in
                     guard let _ = self else { return }
                     //print(response)
+                })
+            .store(in: &disposables)
+    }
+    
+    func fetchEligibleUnderlyings(for entry: String) {
+        print("getting symbols")
+        self.dataManager.getSymbolsPublisher(entry)
+            .receive(on: DispatchQueue.main)
+            .map { response in
+                if !response.error {
+                    for symbol in response.data {
+                        self.searchResults.append(Symbol(name: symbol))
+                    }
+                } else {
+                    print("got error\n\n\n")
+                    DispatchQueue.main.async {
+                        self.errorAlert = true
+                    }
+                }
+            }
+            .sink(
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                    case .failure:
+                        break
+                    case .finished:
+                        break
+                    }
+                },
+                receiveValue: { [weak self] data in
+                    guard let self = self else { return }
+                    //self.searchResults = data
                 })
             .store(in: &disposables)
     }

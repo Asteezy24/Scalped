@@ -31,6 +31,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // Check if launched from notification
         let notificationOption = launchOptions?[.remoteNotification]
         
+        UIApplication.shared.applicationIconBadgeNumber = 0
+
+        
         // 1
         if let notification = notificationOption as? [String: AnyObject], let _ = notification["aps"] as? [String: AnyObject] {}
         

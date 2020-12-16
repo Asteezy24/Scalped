@@ -9,8 +9,6 @@ import SwiftUI
 
 struct NewStrategyView: View {
     @State private var strategyName = ""
-    @State private var underlying = ""
-    @State private var assetSelected = false
     @State private var firstTrigger = ""
     @State private var secondTrigger = ""
     @State private var actionSelected = 0
@@ -31,7 +29,7 @@ struct NewStrategyView: View {
             Form {
                 Section(header: Text("Identifiers")) {
                     TextField("Strategy Name", text: $strategyName)
-                    TextField("Underlying", text: $underlying)
+                    TextField("Underlying", text: $viewModel.underlyingEntry)
                 }
                 
                 showEmptyOrList()
@@ -73,25 +71,21 @@ struct NewStrategyView: View {
     }
     
     var searchResultsList: some View {
-        List {
-            ForEach(stocks.filter { available in
-                return (self.underlying.isEmpty || self.assetSelected) ? false : available.uppercased().contains(self.underlying.uppercased())
-            }, id: \.self) { stock in
-                VStack {
-                    HStack {
-                        Text(stock)
-                    }.onTapGesture {
-                        self.underlying = stock
-                        self.assetSelected = true
-                        UIApplication.shared.endEditing()
-                    }
+        ForEach(viewModel.searchResults, content: { symbol in
+            VStack {
+                HStack {
+                    Text(symbol.name)
+                }.onTapGesture {
+                    viewModel.selectedUnderlying = true
+                    viewModel.underlyingEntry = symbol.name
+                    UIApplication.shared.endEditing()
                 }
             }
-        }
+        })
     }
     
     private func showEmptyOrList() -> some View {
-        switch self.underlying.isEmpty && !self.assetSelected {
+        switch $viewModel.selectedUnderlying.wrappedValue {
         case true:
             return AnyView(EmptyView())
         case false:
@@ -101,8 +95,8 @@ struct NewStrategyView: View {
     
     private func saveStrategyAndDismiss() {
         self.presentationMode.wrappedValue.dismiss()
-        let strategy = Strategy(identifier: "foo", strategyName: strategyName, strategyUnderlying: underlying, action: strategyActions[actionSelected])
-        self.viewModel.saveStrategy(strategy)
+        //        let strategy = Strategy(identifier: "foo", strategyName: strategyName, strategyUnderlying: underlying, action: strategyActions[actionSelected])
+        //        self.viewModel.saveStrategy(strategy)
     }
 }
 
