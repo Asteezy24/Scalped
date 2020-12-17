@@ -8,16 +8,7 @@
 import SwiftUI
 
 struct NewStrategyView: View {
-    @State private var strategyName = ""
-    @State private var firstTrigger = ""
-    @State private var secondTrigger = ""
-    @State private var actionSelected = 0
-    
-    private let strategyActions = ["Buy", "Sell"]
-    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    
     @ObservedObject var viewModel: NewStrategyViewModel
     
     var body: some View {
@@ -28,33 +19,33 @@ struct NewStrategyView: View {
         VStack {
             Form {
                 Section(header: Text("Identifiers")) {
-                    TextField("Strategy Name", text: $strategyName)
+                    //TextField("Strategy Name", text: $viewModel.strategyName)
                     TextField("Underlying", text: $viewModel.underlyingEntry)
                 }
                 
                 showEmptyOrList()
                 
-                Section(header: Text("Trigger")) {
-                    VStack(alignment: .leading) {
-                        Text("When the...")
-                            .font(.body)
-                        TextField("First trigger", text: $firstTrigger)
-                            .padding(.horizontal, 16)
-                            .keyboardType(.numberPad)
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Crosses the...")
-                            .font(.body)
-                        TextField("Second trigger", text: $secondTrigger)
-                            .padding(.horizontal, 16)
-                            .keyboardType(.numberPad)
-                    }
-                }
+//                Section(header: Text("Trigger")) {
+//                    VStack(alignment: .leading) {
+//                        Text("When the...")
+//                            .font(.body)
+//                        TextField("First trigger", text: $firstTrigger)
+//                            .padding(.horizontal, 16)
+//                            .keyboardType(.numberPad)
+//                    }
+//                    VStack(alignment: .leading) {
+//                        Text("Crosses the...")
+//                            .font(.body)
+//                        TextField("Second trigger", text: $secondTrigger)
+//                            .padding(.horizontal, 16)
+//                            .keyboardType(.numberPad)
+//                    }
+//                }
                 
                 Section(header: Text("Action")) {
-                    Picker("", selection: $actionSelected) {
-                        ForEach(0 ..< strategyActions.count) {
-                            Text("\(self.strategyActions[$0])")
+                    Picker("", selection: $viewModel.actionSelected) {
+                        ForEach(0 ..< viewModel.strategyActions.count) {
+                            Text("\(viewModel.strategyActions[$0])")
                         }
                     }.pickerStyle(SegmentedPickerStyle())
                 }
@@ -95,8 +86,7 @@ struct NewStrategyView: View {
     
     private func saveStrategyAndDismiss() {
         self.presentationMode.wrappedValue.dismiss()
-        //        let strategy = Strategy(identifier: "foo", strategyName: strategyName, strategyUnderlying: underlying, action: strategyActions[actionSelected])
-        //        self.viewModel.saveStrategy(strategy)
+        self.viewModel.saveStrategy()
     }
 }
 

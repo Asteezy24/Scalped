@@ -11,13 +11,13 @@ struct HomeStrategyItem: View {
     var strategy: Strategy
     var body: some View {
         HStack {
-            Text(strategy.strategyName)
+            Text(strategy.identifier)
         }.padding()
     }
 }
 
 struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
-        HomeStrategyItem(strategy: .init(identifier: "", strategyName: "", strategyUnderlying: "", action: ""))
+        HomeStrategyItem(strategy: .init(identifier: "", underlying: "", action: ""))
     }
 }

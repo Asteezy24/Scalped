@@ -9,7 +9,7 @@ import Foundation
 
 struct Strategy: Hashable, Codable, CustomStringConvertible {
     let identifier: String
-    var strategyName: String
-    var strategyUnderlying: String
+//    var strategyName: String
+    var underlying: String
     var action: String
 }

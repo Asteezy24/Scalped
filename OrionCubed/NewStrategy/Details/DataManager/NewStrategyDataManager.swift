@@ -22,9 +22,9 @@ class NewStrategyDataManager: StrategyDataManaging {
     }
     
     func getCreateStrategyPublisher(_ strategy: Strategy) -> AnyPublisher<NetworkResponse, Error> {
-
         let endpoint = Endpoint.createStrategy
         let parameters: [String: String] = [
+            "underlying": strategy.underlying,
             "action" : strategy.action,
             "identifier": "GMMA",
             "username": "alex"

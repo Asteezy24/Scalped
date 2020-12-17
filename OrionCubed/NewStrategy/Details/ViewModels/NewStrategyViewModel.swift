@@ -19,6 +19,10 @@ class NewStrategyViewModel: ObservableObject {
     @Published var selectedUnderlying = false
     @Published var underlyingEntry = ""
     @Published var errorAlert: Bool = false
+    //@Published var strategyName = ""
+    @Published var actionSelected = 0
+    
+    let strategyActions = ["Buy", "Sell"]
     
     private var disposables = Set<AnyCancellable>()
     private let dataManager = NewStrategyDataManager(networkManager: NetworkManager())
@@ -32,7 +36,10 @@ class NewStrategyViewModel: ObservableObject {
             .store(in: &disposables)
     }
     
-    func saveStrategy(_ strategy: Strategy) {
+    func saveStrategy() {
+        let strategy = Strategy(identifier: "Guppy Multiple Moving Average",
+                                underlying: underlyingEntry,
+                                action: strategyActions[actionSelected])
         self.dataManager.getCreateStrategyPublisher(strategy)
             .receive(on: DispatchQueue.main)
             .map { response in
@@ -65,7 +72,7 @@ class NewStrategyViewModel: ObservableObject {
     }
     
     func fetchEligibleUnderlyings(for entry: String) {
-        print("getting symbols")
+        guard !self.selectedUnderlying else { return }
         self.dataManager.getSymbolsPublisher(entry)
             .receive(on: DispatchQueue.main)
             .map { response in
@@ -82,7 +89,7 @@ class NewStrategyViewModel: ObservableObject {
             }
             .sink(
                 receiveCompletion: { [weak self] value in
-                    guard let self = self else { return }
+                    guard let _ = self else { return }
                     switch value {
                     case .failure:
                         break
@@ -91,7 +98,7 @@ class NewStrategyViewModel: ObservableObject {
                     }
                 },
                 receiveValue: { [weak self] data in
-                    guard let self = self else { return }
+                    guard let _ = self else { return }
                     //self.searchResults = data
                 })
             .store(in: &disposables)
