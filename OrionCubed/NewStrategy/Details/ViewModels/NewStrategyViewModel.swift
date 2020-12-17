@@ -37,7 +37,7 @@ class NewStrategyViewModel: ObservableObject {
     }
     
     func saveStrategy() {
-        let strategy = Strategy(identifier: "Guppy Multiple Moving Average",
+        let strategy = Strategy(identifier: "GMMA",
                                 underlying: underlyingEntry,
                                 action: strategyActions[actionSelected])
         self.dataManager.getCreateStrategyPublisher(strategy)
