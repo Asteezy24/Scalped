@@ -19,7 +19,7 @@ class NewStrategyViewModel: ObservableObject {
     @Published var selectedUnderlying = false
     @Published var underlyingEntry = ""
     @Published var errorAlert: Bool = false
-    //@Published var strategyName = ""
+    @Published var strategyName: String
     @Published var actionSelected = 0
     
     let strategyActions = ["Buy", "Sell"]
@@ -27,7 +27,8 @@ class NewStrategyViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
     private let dataManager = NewStrategyDataManager(networkManager: NetworkManager())
     
-    init(strategyList: Binding<[Strategy]>) {
+    init(strategyName: String, strategyList: Binding<[Strategy]>) {
+        self.strategyName = strategyName
         self._strategyList = strategyList
         $underlyingEntry
             .dropFirst(1)

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct NewStrategyView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: NewStrategyViewModel
+    @Binding var shouldPopToRootView : Bool
     
     var body: some View {
         let serviceError = Binding<Bool>(
@@ -55,7 +56,7 @@ struct NewStrategyView: View {
                 Text("Save")
             })
         }
-        .navigationBarTitle(Text("New Strategy"))
+        .navigationBarTitle(Text(viewModel.strategyName))
         .alert(isPresented: serviceError) {
             Alert(title: Text("Error!"), message: Text("Cannot Save this strategy"), dismissButton: .default(Text("Dismiss")))
         }
@@ -85,13 +86,13 @@ struct NewStrategyView: View {
     }
     
     private func saveStrategyAndDismiss() {
-        self.presentationMode.wrappedValue.dismiss()
+        self.shouldPopToRootView = false
         self.viewModel.saveStrategy()
     }
 }
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        NewStrategyView(viewModel: NewStrategyViewModel(strategyList: .constant([])))
+        NewStrategyView(viewModel: NewStrategyViewModel(strategyName: "OK", strategyList: .constant([])), shouldPopToRootView: .constant(false))
     }
 }

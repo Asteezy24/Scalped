@@ -14,9 +14,9 @@ struct Icon : View {
         let spacing: CGFloat = 80
         let radius: CGFloat = 150
         let pillLength: CGFloat = 600
-        let pillRotation: Angle = .degrees(45)
+        let pillRotation: Angle = .degrees(30)
 
-        let background = Color(red: 0/256, green: 180/256, blue: 185/256)
+        let background = LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
         let primaryColor = Color.white
 
         return IconStack { canvas in
@@ -25,6 +25,14 @@ struct Icon : View {
 
             HStack(alignment: .center, spacing: canvas[spacing]) {
                 HStack(alignment: .top, spacing: canvas[spacing]) {
+                    RoundedRectangle(cornerRadius: canvas[radius])
+                        .fill(primaryColor)
+                        .frame(width: canvas[radius], height: canvas[pillLength])
+                        .rotationEffect(pillRotation)
+                    RoundedRectangle(cornerRadius: canvas[radius])
+                        .fill(primaryColor)
+                        .frame(width: canvas[radius], height: canvas[pillLength])
+                        .rotationEffect(pillRotation)
                     RoundedRectangle(cornerRadius: canvas[radius])
                         .fill(primaryColor)
                         .frame(width: canvas[radius], height: canvas[pillLength])

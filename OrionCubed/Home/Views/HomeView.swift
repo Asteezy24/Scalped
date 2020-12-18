@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    
+    @State var isActive : Bool = false
     @ObservedObject var viewModel: HomeViewModel
     @State private var strategyDetailPresented = false
     
@@ -40,9 +40,11 @@ struct HomeView: View {
                       }.padding()
                                     
                 )
-                NavigationLink(destination: NewStrategyView(viewModel: NewStrategyViewModel(strategyList: $viewModel.strategies))) {
+                NavigationLink(destination: StrategySelectionView(strategyList: $viewModel.strategies,
+                                                                  rootIsActive: $isActive),
+                               isActive: self.$isActive) {
                     Text("Add Strategy")
-                }
+                }.isDetailLink(false)
             }
             .onAppear(perform: {
                 self.viewModel.getAllStrategies()
