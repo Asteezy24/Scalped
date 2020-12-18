@@ -8,9 +8,32 @@
 import SwiftUI
 
 struct NewStrategyView: View {
-//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: NewStrategyViewModel
     @Binding var shouldPopToRootView : Bool
+    var typeOfStrategy: TypesOfStrategies
+    
+    var commonViews: [AnyView] {
+        switch typeOfStrategy {
+        case .GMMA:
+            return []
+        case .yield:
+            return []
+        }
+    }
+    
+    var searchResultsList: some View {
+        ForEach(viewModel.searchResults, content: { symbol in
+            VStack {
+                HStack {
+                    Text(symbol.name)
+                }.onTapGesture {
+                    viewModel.selectedUnderlying = true
+                    viewModel.underlyingEntry = symbol.name
+                    UIApplication.shared.endEditing()
+                }
+            }
+        })
+    }
     
     var body: some View {
         let serviceError = Binding<Bool>(
@@ -20,29 +43,16 @@ struct NewStrategyView: View {
         VStack {
             Form {
                 Section(header: Text("Identifiers")) {
-                    //TextField("Strategy Name", text: $viewModel.strategyName)
                     TextField("Underlying", text: $viewModel.underlyingEntry)
                 }
                 
                 showEmptyOrList()
                 
-//                Section(header: Text("Trigger")) {
-//                    VStack(alignment: .leading) {
-//                        Text("When the...")
-//                            .font(.body)
-//                        TextField("First trigger", text: $firstTrigger)
-//                            .padding(.horizontal, 16)
-//                            .keyboardType(.numberPad)
-//                    }
-//                    VStack(alignment: .leading) {
-//                        Text("Crosses the...")
-//                            .font(.body)
-//                        TextField("Second trigger", text: $secondTrigger)
-//                            .padding(.horizontal, 16)
-//                            .keyboardType(.numberPad)
-//                    }
-//                }
-                
+                //common views
+                ForEach((0..<commonViews.count), id: \.self) { index in
+                    commonViews[index]
+                }
+
                 Section(header: Text("Action")) {
                     Picker("", selection: $viewModel.actionSelected) {
                         ForEach(0 ..< viewModel.strategyActions.count) {
@@ -62,20 +72,6 @@ struct NewStrategyView: View {
         }
     }
     
-    var searchResultsList: some View {
-        ForEach(viewModel.searchResults, content: { symbol in
-            VStack {
-                HStack {
-                    Text(symbol.name)
-                }.onTapGesture {
-                    viewModel.selectedUnderlying = true
-                    viewModel.underlyingEntry = symbol.name
-                    UIApplication.shared.endEditing()
-                }
-            }
-        })
-    }
-    
     private func showEmptyOrList() -> some View {
         switch $viewModel.selectedUnderlying.wrappedValue {
         case true:
@@ -93,6 +89,6 @@ struct NewStrategyView: View {
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        NewStrategyView(viewModel: NewStrategyViewModel(strategyName: "OK", strategyList: .constant([])), shouldPopToRootView: .constant(false))
+        NewStrategyView(viewModel: NewStrategyViewModel(strategyName: "OK", strategyList: .constant([])), shouldPopToRootView: .constant(false), typeOfStrategy: .GMMA)
     }
 }

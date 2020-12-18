@@ -15,11 +15,11 @@ struct Symbol: Identifiable {
 
 class NewStrategyViewModel: ObservableObject {
     @Binding var strategyList: [Strategy]
+    @Published var strategyName: String
     @Published var searchResults = [Symbol]()
     @Published var selectedUnderlying = false
     @Published var underlyingEntry = ""
     @Published var errorAlert: Bool = false
-    @Published var strategyName: String
     @Published var actionSelected = 0
     
     let strategyActions = ["Buy", "Sell"]
@@ -38,7 +38,7 @@ class NewStrategyViewModel: ObservableObject {
     }
     
     func saveStrategy() {
-        let strategy = Strategy(identifier: "GMMA",
+        let strategy = Strategy(identifier: strategyName,
                                 underlying: underlyingEntry,
                                 action: strategyActions[actionSelected])
         self.dataManager.getCreateStrategyPublisher(strategy)

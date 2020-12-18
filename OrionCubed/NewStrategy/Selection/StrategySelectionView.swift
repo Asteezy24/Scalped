@@ -7,25 +7,33 @@
 
 import SwiftUI
 
+enum TypesOfStrategies: String {
+    case GMMA = "GMMA"
+    case yield = "Yield"
+}
+
 struct StrategySelectionView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     @Binding var strategyList: [Strategy]
     @Binding var rootIsActive : Bool
     
-    var validStrategies = [
-        Strategy(identifier: "GMMA", underlying: "", action: ""),
-        Strategy(identifier: "Yield", underlying: "", action: "")
-    ]
+    var validStrategies = ["GMMA", "Yield"]
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
                 ForEach((0..<validStrategies.count), id: \.self, content: { index in
-                    NavigationLink(destination: NewStrategyView(viewModel: NewStrategyViewModel(strategyName: validStrategies[index].identifier, strategyList: $strategyList), shouldPopToRootView: $rootIsActive)) {
-                        StrategySelectionItem(strategy:validStrategies[index].identifier)
-                    }.isDetailLink(false)
+                    NavigationLink(destination: NewStrategyView(viewModel:
+                                    NewStrategyViewModel(strategyName: validStrategies[index],
+                                                         strategyList: $strategyList),
+                                                                shouldPopToRootView: $rootIsActive,
+                                                                typeOfStrategy: TypesOfStrategies(rawValue: validStrategies[index]) ?? .GMMA)) {
+                        StrategySelectionItem(strategy:validStrategies[index])
+                    }
+                    .isDetailLink(false)
                 })
-            }.padding()
+            }
+            .padding()
         }
     }
 }

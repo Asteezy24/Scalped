@@ -26,7 +26,7 @@ class NewStrategyDataManager: StrategyDataManaging {
         let parameters: [String: String] = [
             "underlying": strategy.underlying,
             "action" : strategy.action,
-            "identifier": "GMMA",
+            "identifier": strategy.identifier,
             "username": "alex"
         ]
 
