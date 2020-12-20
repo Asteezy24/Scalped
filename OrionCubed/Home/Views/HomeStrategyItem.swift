@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct HomeStrategyItem: View {
-    var strategy: Strategy
+    
+    let strategy: Strategy
+    
     var body: some View {
         HStack {
             Text(strategy.identifier)
-        }.padding()
+        }
+        .padding()
     }
 }
 
 struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
         HomeStrategyItem(strategy: .init(identifier: "", underlying: "", action: "", timeframe: ""))
+            .preferredColorScheme(.dark)
+
     }
 }

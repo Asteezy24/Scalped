@@ -98,7 +98,7 @@ struct NewStrategyView: View {
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        NewStrategyView(viewModel:NewStrategyViewModel(strategyName: "OK", strategyList: .constant([])),
+        NewStrategyView(viewModel:NewStrategyViewModel(strategyName: "OK"),
                         shouldPopToRootView: .constant(false),
                         typeOfStrategy: .GMMA)
     }

@@ -10,6 +10,15 @@ import SwiftUI
 struct Settings: View {
     var body: some View {
         VStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Settings")
+                        .font(.system(size: 34, weight: .heavy))
+                    Spacer()
+                }
+                .padding()
+            }
+            
             HStack {
                 Text("View Terms and Conditions")
                 Spacer()
@@ -30,8 +39,6 @@ struct Settings: View {
                 .font(.footnote)
             Spacer()
         }
-        
-        .navigationBarTitle("Settings")
         .navigationBarHidden(false)
         
     }

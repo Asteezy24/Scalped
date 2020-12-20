@@ -14,7 +14,6 @@ struct Symbol: Identifiable {
 }
 
 class NewStrategyViewModel: ObservableObject {
-    @Binding var strategyList: [Strategy]
     @Published var strategyName: String
     @Published var searchResults = [Symbol]()
     @Published var selectedUnderlying = false
@@ -29,9 +28,8 @@ class NewStrategyViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
     private let dataManager = NewStrategyDataManager(networkManager: NetworkManager())
     
-    init(strategyName: String, strategyList: Binding<[Strategy]>) {
+    init(strategyName: String) {
         self.strategyName = strategyName
-        self._strategyList = strategyList
         $underlyingEntry
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue(label: "StrategyViewModel"))
@@ -49,7 +47,7 @@ class NewStrategyViewModel: ObservableObject {
             .map { response in
                 print(response)
                 if !response.error {
-                    self.strategyList.append(strategy)
+//                    self.strategyList.append(strategy)
                 } else {
                     print("got error\n\n\n")
                     DispatchQueue.main.async {

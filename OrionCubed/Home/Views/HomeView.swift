@@ -26,7 +26,7 @@ struct HomeView: View {
         }
         .sheet(isPresented: self.$showModal) {
             if self.currentSheet == .plusMenu {
-//                StrategySelectionView(strategyList: $viewModel.strategies, rootIsActive: $isActive)
+                StrategySelectionView(rootIsActive: $isActive)
             }
         }
     }

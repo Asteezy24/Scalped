@@ -24,7 +24,7 @@ struct CustomTabBar: View {
     
     var body: some View {
         HStack {
-            TabBarItem(currentView: self.$currentView, imageName: "rectangle.3.offgrid", paddingEdges: .trailing, tab: .home)
+            TabBarItem(currentView: self.$currentView, imageName: "line.horizontal.3", paddingEdges: .trailing, tab: .home)
             Spacer()
             TabBarMiddleItem(radius: 50) {
                 self.showModal.toggle()
