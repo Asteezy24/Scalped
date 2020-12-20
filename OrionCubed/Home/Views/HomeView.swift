@@ -10,54 +10,31 @@ import Combine
 
 struct HomeView: View {
     @State var isActive : Bool = false
-    @ObservedObject var viewModel: HomeViewModel
     @State private var strategyDetailPresented = false
+    @State private var currentView: TabBarRoutes = .home
+    @State private var showModal: Bool = false
+    @State private var currentSheet: ActiveSheets = .plusMenu
     
     var body: some View {
-        NavigationView {
-            VStack {
-                List {
-                    Section(header: Text("Alerts")) {
-                        ForEach(viewModel.alerts.reversed().prefix(5), id: \.self) { alert in
-                            HomeAlertItem(alert: alert)
-                        }
-                    }
-                    Section(header: Text("Strategies")) {
-                        ForEach(viewModel.strategies, id: \.self) { strategy in
-                            HomeStrategyItem(strategy: strategy)
-                        }
-                    }
+        ZStack {
+            NavigationView {
+                VStack {
+                    CurrentTabBarScreen(currentView: self.$currentView, showModal: self.$showModal, currentSheet: self.$currentSheet)
+                    CustomTabBar(currentView: self.$currentView, showModal: self.$showModal, currentSheet: self.$currentSheet)
                 }
-                .listStyle(GroupedListStyle())
-                .navigationBarTitle("Orion Cubed")
-                .navigationBarItems(trailing:
-                      HStack {
-                        Text("Server Connection: ")
-                            .font(.subheadline)
-                            .fixedSize()
-                       Circle()
-                        .fill($viewModel.connectedToServer.wrappedValue ? Color.green : Color.red)
-                      }.padding()
-                                    
-                )
-                NavigationLink(destination: StrategySelectionView(strategyList: $viewModel.strategies,
-                                                                  rootIsActive: $isActive),
-                               isActive: self.$isActive) {
-                    Text("Add Strategy")
-                }.isDetailLink(false)
             }
-            .onAppear(perform: {
-                self.viewModel.getAllStrategies()
-                self.viewModel.getAllAlerts()
-            })
         }
-        
+        .sheet(isPresented: self.$showModal) {
+            if self.currentSheet == .plusMenu {
+//                StrategySelectionView(strategyList: $viewModel.strategies, rootIsActive: $isActive)
+            }
+        }
     }
 }
 
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
+        HomeView()
     }
 }

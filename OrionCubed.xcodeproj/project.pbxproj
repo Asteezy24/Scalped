@@ -36,6 +36,12 @@
 		FBBEB15D2589A931004BC2F9 /* SymbolsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */; };
 		FBD80371256A410B00F22ACB /* StrategyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD80370256A410B00F22ACB /* StrategyAlert.swift */; };
 		FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD89CE6258415A800789F44 /* StrategyResponse.swift */; };
+		FBEADC9C258EECD300F9DC3A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADC9B258EECD300F9DC3A /* CustomTabBar.swift */; };
+		FBEADCA1258EED2D00F9DC3A /* TabBarMiddleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADCA0258EED2D00F9DC3A /* TabBarMiddleItem.swift */; };
+		FBEADCA6258EED5600F9DC3A /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADCA5258EED5600F9DC3A /* TabBarItem.swift */; };
+		FBEADCAC258EEF7900F9DC3A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADCAB258EEF7900F9DC3A /* Settings.swift */; };
+		FBEADCB4258EEFCF00F9DC3A /* CurrentTabBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADCB3258EEFCF00F9DC3A /* CurrentTabBarScreen.swift */; };
+		FBEADCC1258EF0AB00F9DC3A /* HomeDashboardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADCC0258EF0AB00F9DC3A /* HomeDashboardContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +100,12 @@
 		FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsNetworkResponse.swift; sourceTree = "<group>"; };
 		FBD80370256A410B00F22ACB /* StrategyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyAlert.swift; sourceTree = "<group>"; };
 		FBD89CE6258415A800789F44 /* StrategyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyResponse.swift; sourceTree = "<group>"; };
+		FBEADC9B258EECD300F9DC3A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		FBEADCA0258EED2D00F9DC3A /* TabBarMiddleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMiddleItem.swift; sourceTree = "<group>"; };
+		FBEADCA5258EED5600F9DC3A /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		FBEADCAB258EEF7900F9DC3A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		FBEADCB3258EEFCF00F9DC3A /* CurrentTabBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTabBarScreen.swift; sourceTree = "<group>"; };
+		FBEADCC0258EF0AB00F9DC3A /* HomeDashboardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,18 +156,20 @@
 		FB09BD502560CD9600BD4B48 /* OrionCubed */ = {
 			isa = PBXGroup;
 			children = (
-				FBBEB13B258991C9004BC2F9 /* Icon */,
-				FBD8039D256A497A00F22ACB /* Networking */,
-				FB09BD7F2560CDF200BD4B48 /* Home */,
-				FB8FAEF82563774200053D50 /* NewStrategy */,
-				FB5A47252567242A0017D1EA /* StrategyDetail */,
-				FBBC6DE72564C86300590EA9 /* Extensions */,
-				FB4118A42581789B00F046D3 /* Utils */,
-				FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */,
 				FB09BD552560CD9700BD4B48 /* Assets.xcassets */,
+				FBBC6DE72564C86300590EA9 /* Extensions */,
+				FB09BD7F2560CDF200BD4B48 /* Home */,
+				FBBEB13B258991C9004BC2F9 /* Icon */,
 				FB09BD5A2560CD9700BD4B48 /* Info.plist */,
+				FBD8039D256A497A00F22ACB /* Networking */,
+				FB8FAEF82563774200053D50 /* NewStrategy */,
 				FB28430B2572C7B000881533 /* OrionCubed.entitlements */,
+				FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */,
 				FB09BD572560CD9700BD4B48 /* Preview Content */,
+				FBEADCAA258EEF6E00F9DC3A /* Settings */,
+				FB5A47252567242A0017D1EA /* StrategyDetail */,
+				FBEADC9A258EECC500F9DC3A /* TabBar */,
+				FB4118A42581789B00F046D3 /* Utils */,
 			);
 			path = OrionCubed;
 			sourceTree = "<group>";
@@ -203,6 +217,7 @@
 				FB09BD532560CD9600BD4B48 /* HomeView.swift */,
 				FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */,
 				FB09BE0825636EE400BD4B48 /* HomeAlertItem.swift */,
+				FBEADCC0258EF0AB00F9DC3A /* HomeDashboardContent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,6 +372,25 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		FBEADC9A258EECC500F9DC3A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FBEADC9B258EECD300F9DC3A /* CustomTabBar.swift */,
+				FBEADCA0258EED2D00F9DC3A /* TabBarMiddleItem.swift */,
+				FBEADCA5258EED5600F9DC3A /* TabBarItem.swift */,
+				FBEADCB3258EEFCF00F9DC3A /* CurrentTabBarScreen.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FBEADCAA258EEF6E00F9DC3A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FBEADCAB258EEF7900F9DC3A /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -508,6 +542,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBEADCAC258EEF7900F9DC3A /* Settings.swift in Sources */,
+				FBEADCB4258EEFCF00F9DC3A /* CurrentTabBarScreen.swift in Sources */,
 				FB5A4728256724500017D1EA /* StrategyDetailView.swift in Sources */,
 				FB6C62B5258C2DF10022CB84 /* TriggerView.swift in Sources */,
 				FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */,
@@ -516,7 +552,9 @@
 				FB8FAF0225638ACF00053D50 /* NewStrategyViewModel.swift in Sources */,
 				FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */,
 				FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */,
+				FBEADCC1258EF0AB00F9DC3A /* HomeDashboardContent.swift in Sources */,
 				FBD80371256A410B00F22ACB /* StrategyAlert.swift in Sources */,
+				FBEADCA1258EED2D00F9DC3A /* TabBarMiddleItem.swift in Sources */,
 				FBBEB15D2589A931004BC2F9 /* SymbolsNetworkResponse.swift in Sources */,
 				FB09BD542560CD9600BD4B48 /* HomeView.swift in Sources */,
 				FB8FAF0B2564AE8900053D50 /* HomeDataManager.swift in Sources */,
@@ -524,6 +562,8 @@
 				FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */,
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* NewStrategyView.swift in Sources */,
+				FBEADC9C258EECD300F9DC3A /* CustomTabBar.swift in Sources */,
+				FBEADCA6258EED5600F9DC3A /* TabBarItem.swift in Sources */,
 				FB8FAF102564C09600053D50 /* Strategy.swift in Sources */,
 				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,
 				FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */,
