@@ -52,6 +52,15 @@ struct NewStrategyView: View {
                 ForEach((0..<commonViews.count), id: \.self) { index in
                     commonViews[index]
                 }
+                
+                
+                Section(header: Text("Timeframe")) {
+                    Picker("", selection: $viewModel.timeframeSelected) {
+                        ForEach(0 ..< viewModel.timeframes.count) {
+                            Text("\(viewModel.timeframes[$0])")
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
 
                 Section(header: Text("Action")) {
                     Picker("", selection: $viewModel.actionSelected) {
@@ -89,6 +98,8 @@ struct NewStrategyView: View {
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        NewStrategyView(viewModel: NewStrategyViewModel(strategyName: "OK", strategyList: .constant([])), shouldPopToRootView: .constant(false), typeOfStrategy: .GMMA)
+        NewStrategyView(viewModel:NewStrategyViewModel(strategyName: "OK", strategyList: .constant([])),
+                        shouldPopToRootView: .constant(false),
+                        typeOfStrategy: .GMMA)
     }
 }

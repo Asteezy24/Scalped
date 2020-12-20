@@ -27,6 +27,7 @@ class NewStrategyDataManager: StrategyDataManaging {
             "underlying": strategy.underlying,
             "action" : strategy.action,
             "identifier": strategy.identifier,
+            "timeframe": strategy.timeframe,
             "username": "alex"
         ]
 

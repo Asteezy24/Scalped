@@ -21,8 +21,10 @@ class NewStrategyViewModel: ObservableObject {
     @Published var underlyingEntry = ""
     @Published var errorAlert: Bool = false
     @Published var actionSelected = 0
+    @Published var timeframeSelected = 0
     
     let strategyActions = ["Buy", "Sell"]
+    let timeframes = ["1H", "1D"]
     
     private var disposables = Set<AnyCancellable>()
     private let dataManager = NewStrategyDataManager(networkManager: NetworkManager())
@@ -32,7 +34,7 @@ class NewStrategyViewModel: ObservableObject {
         self._strategyList = strategyList
         $underlyingEntry
             .dropFirst(1)
-            .debounce(for: .seconds(0.5), scheduler: DispatchQueue(label: "WeatherViewModel"))
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue(label: "StrategyViewModel"))
             .sink(receiveValue: fetchEligibleUnderlyings(for:))
             .store(in: &disposables)
     }
@@ -40,7 +42,8 @@ class NewStrategyViewModel: ObservableObject {
     func saveStrategy() {
         let strategy = Strategy(identifier: strategyName,
                                 underlying: underlyingEntry,
-                                action: strategyActions[actionSelected])
+                                action: strategyActions[actionSelected],
+                                timeframe: timeframes[timeframeSelected])
         self.dataManager.getCreateStrategyPublisher(strategy)
             .receive(on: DispatchQueue.main)
             .map { response in

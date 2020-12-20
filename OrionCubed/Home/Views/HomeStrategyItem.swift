@@ -18,6 +18,6 @@ struct HomeStrategyItem: View {
 
 struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
-        HomeStrategyItem(strategy: .init(identifier: "", underlying: "", action: ""))
+        HomeStrategyItem(strategy: .init(identifier: "", underlying: "", action: "", timeframe: ""))
     }
 }

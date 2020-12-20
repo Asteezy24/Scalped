@@ -9,6 +9,7 @@ import Foundation
 
 struct Strategy: Hashable, Codable, CustomStringConvertible {
     let identifier: String
-    var underlying: String
-    var action: String
+    let underlying: String
+    let action: String
+    let timeframe: String
 }

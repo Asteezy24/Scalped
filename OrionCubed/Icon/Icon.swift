@@ -14,7 +14,7 @@ struct Icon : View {
         let spacing: CGFloat = 80
         let radius: CGFloat = 150
         let pillLength: CGFloat = 600
-        let pillRotation: Angle = .degrees(30)
+        let pillRotation: Angle = .degrees(31)
 
         let background = LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
         let primaryColor = Color.white
