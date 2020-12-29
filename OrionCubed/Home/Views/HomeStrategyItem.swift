@@ -12,10 +12,31 @@ struct HomeStrategyItem: View {
     let strategy: Strategy
     
     var body: some View {
-        HStack {
-            Text(strategy.identifier)
+        VStack {
+            Rectangle()
+                .foregroundColor(self.strategy.action == "Sell" ? Color.red : Color.green)
+                .frame(height: 12)
+            HStack {
+                Text(strategy.underlying)
+                    .font(.title)
+                    .padding()
+                Spacer()
+            }
+            .padding(.trailing, 16)
+            HStack {
+                Text(strategy.identifier)
+                    .font(.subheadline)
+                    .padding()
+                Spacer()
+                Text(strategy.action)
+                    .padding(8)
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+            } .padding(.trailing, 16)
         }
-        .padding()
+        .background(Color.gray)
+        .cornerRadius(8)
+        //.shadow(radius: 8)
     }
 }
 

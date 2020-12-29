@@ -74,6 +74,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             .store(in: &disposables)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error)
         print("failed to register for notifications")
     }
     

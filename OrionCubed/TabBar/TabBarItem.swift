@@ -21,13 +21,12 @@ struct TabBarItem: View {
                 .aspectRatio(contentMode: .fit)
                 .padding(5)
                 .frame(width: 40, height: 40, alignment: .center)
-                .background(Color(self.currentView == tab ? .blue : .white).opacity(0.2))
+                .background(Color(self.currentView == tab ? .blue : .white).opacity(0.1))
                 .foregroundColor(Color(self.currentView == tab ? .blue : .black))
                 .cornerRadius(6)
         }
-        .frame(width: 100, height: 50)
+        .frame(width: 150, height: 44)
         .onTapGesture { self.currentView = self.tab }
-        .padding(paddingEdges, 15)
     }
 }
 

@@ -8,15 +8,14 @@
 import SwiftUI
 
 enum TypesOfStrategies: String {
-    case GMMA = "GMMA"
-    case yield = "Yield"
+    case GMMA = "Multiple Moving Average"
 }
 
 struct StrategySelectionView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     @Binding var rootIsActive : Bool
     
-    var validStrategies = ["GMMA", "Yield"]
+    var validStrategies = ["Multiple Moving Average", "Yield"]
     
     var body: some View {
         NavigationView {
@@ -28,12 +27,14 @@ struct StrategySelectionView: View {
                                                                     shouldPopToRootView: $rootIsActive,
                                                                     typeOfStrategy: TypesOfStrategies(rawValue: validStrategies[index]) ?? .GMMA)) {
                             StrategySelectionItem(strategy:validStrategies[index])
+                                .padding()
                         }
                         .isDetailLink(false)
                     })
                 }
                 .padding()
-            }.navigationBarTitle(Text("New Strategy"))
+            }
+            .navigationBarTitle(Text("New Strategy"))
         }
     }
 }

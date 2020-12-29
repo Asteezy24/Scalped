@@ -7,35 +7,45 @@
 
 import SwiftUI
 
+
 struct HomeDashboardContent: View {
-    
     @ObservedObject var viewModel: HomeViewModel
     let action: () -> Void
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Hello, \nAlex Stevens")
+                        .font(.system(size: 34, weight: .heavy))
+                    Spacer()
+                }.padding()
+            }
+            
             HStack {
-                Text("Hello, \nAlex Stevens")
-                    .font(.system(size: 34, weight: .heavy))
+                Text("Overview")
+                    .font(.footnote)
+                    .padding(8)
+                    .background(Color.blue)
+                    .cornerRadius(35)
                 Spacer()
-            }.padding()
-        }
-        
-        Form {
-            //            Section(header: Text("Alerts")) {
-            //                ForEach(viewModel.alerts.reversed().prefix(5), id: \.self) { alert in
-            //                    HomeAlertItem(alert: alert)
-            //                }
-            //            }
-            Section(header: Text("Strategies")) {
-                HStack(spacing: 20) {
-                    ForEach(viewModel.strategies, id: \.self) { strategy in
-                        HomeStrategyItem(strategy: strategy)
-                    }
+                Button(action: {
+                    print("")
+                }) {
+                    Image(systemName: "line.horizontal.3.decrease.circle.fill")
+                        .resizable()
+                        .foregroundColor(Color.gray)
+                        .frame(width: 25, height: 25)
                 }
                 
+            }.padding()
+            VStack(spacing: 20) {
+                ForEach(viewModel.strategies, id: \.self) { strategy in
+                    HomeStrategyItem(strategy: strategy)
+                }
             }
+            Spacer()
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(leading: Text("Dashboard"),

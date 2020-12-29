@@ -16,8 +16,6 @@ struct NewStrategyView: View {
         switch typeOfStrategy {
         case .GMMA:
             return []
-        case .yield:
-            return []
         }
     }
     
