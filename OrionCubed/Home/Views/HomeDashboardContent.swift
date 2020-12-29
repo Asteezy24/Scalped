@@ -24,27 +24,27 @@ struct HomeDashboardContent: View {
             }
             
             HStack {
-                Text("Overview")
+                Text("Strategies")
                     .font(.footnote)
                     .padding(8)
                     .background(Color.blue)
                     .cornerRadius(35)
                 Spacer()
-                Button(action: {
-                    print("")
-                }) {
-                    Image(systemName: "line.horizontal.3.decrease.circle.fill")
-                        .resizable()
-                        .foregroundColor(Color.gray)
-                        .frame(width: 25, height: 25)
-                }
+//                Button(action: {
+//                    print("")
+//                }) {
+//                    Image(systemName: "line.horizontal.3.decrease.circle.fill")
+//                        .resizable()
+//                        .foregroundColor(Color.gray)
+//                        .frame(width: 25, height: 25)
+//                }
                 
             }.padding()
             VStack(spacing: 20) {
                 ForEach(viewModel.strategies, id: \.self) { strategy in
                     HomeStrategyItem(strategy: strategy)
                 }
-            }
+            }.padding()
             Spacer()
         }
         .navigationBarTitle("", displayMode: .inline)

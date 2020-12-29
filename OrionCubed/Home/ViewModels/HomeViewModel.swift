@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-var stocks = ["AAPL", "SPY", "GLD", "NIO", "TSLA", "EBAY", "IBM"]
 var actions = ["Buy", "Sell"]
 
 class HomeViewModel: ObservableObject {
