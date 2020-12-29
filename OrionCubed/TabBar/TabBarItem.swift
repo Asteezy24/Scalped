@@ -11,7 +11,6 @@ struct TabBarItem: View {
     
     @Binding var currentView: TabBarRoutes
     let imageName: String
-    let paddingEdges: Edge.Set
     let tab: TabBarRoutes
     
     var body: some View {
@@ -25,13 +24,13 @@ struct TabBarItem: View {
                 .foregroundColor(Color(self.currentView == tab ? .blue : .black))
                 .cornerRadius(6)
         }
-        .frame(width: 150, height: 44)
+        //.frame(width: 60, height: 44)
         .onTapGesture { self.currentView = self.tab }
     }
 }
 
 struct TabBarItem_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarItem(currentView: .constant(.home), imageName: "gear", paddingEdges: .leading, tab: .home)
+        TabBarItem(currentView: .constant(.home), imageName: "gear", tab: .home)
     }
 }

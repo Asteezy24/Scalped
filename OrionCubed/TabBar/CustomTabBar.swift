@@ -10,6 +10,8 @@ import SwiftUI
 
 enum TabBarRoutes {
     case home
+    case watchlist
+    case alerts
     case settings
 }
 
@@ -24,16 +26,21 @@ struct CustomTabBar: View {
     
     var body: some View {
         HStack {
-            TabBarItem(currentView: self.$currentView, imageName: "line.horizontal.3", paddingEdges: .trailing, tab: .home)
+            TabBarItem(currentView: self.$currentView, imageName: "house.fill", tab: .home)
+            Spacer()
+            TabBarItem(currentView: self.$currentView, imageName: "line.horizontal.3", tab: .watchlist)
             Spacer()
             TabBarMiddleItem(radius: 50) {
                 self.showModal.toggle()
                 self.currentSheet = .plusMenu
             }
             Spacer()
-            TabBarItem(currentView: self.$currentView, imageName: "gear", paddingEdges: .trailing, tab: .settings)
+            TabBarItem(currentView: self.$currentView, imageName: "bell", tab: .alerts)
+            Spacer()
+            TabBarItem(currentView: self.$currentView, imageName: "gear", tab: .settings)
         }
         .frame(minHeight: 70)
+        .padding()
     }
 }
 

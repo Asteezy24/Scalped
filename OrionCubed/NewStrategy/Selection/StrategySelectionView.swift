@@ -15,7 +15,7 @@ struct StrategySelectionView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     @Binding var rootIsActive : Bool
     
-    var validStrategies = ["Multiple Moving Average", "Yield"]
+    var validStrategies = ["Multiple Moving Average", "Yield"] 
     
     var body: some View {
         NavigationView {

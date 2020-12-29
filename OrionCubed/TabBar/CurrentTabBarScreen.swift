@@ -18,7 +18,12 @@ struct CurrentTabBarScreen: View {
                 HomeDashboardContent(viewModel: HomeViewModel(), action: {
                     self.showModal.toggle()
                 })
-            } else {
+            }
+            else if self.currentView == .alerts {
+                AlertsView()
+            } else if self.currentView == .watchlist {
+                WatchlistView()
+            } else if self.currentView == .settings {
                 Settings()
             }
         }
