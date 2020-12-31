@@ -16,14 +16,14 @@ struct HomeView: View {
     @State private var currentSheet: ActiveSheets = .plusMenu
     
     var body: some View {
-        ZStack {
-            NavigationView {
+//        ZStack {
+//            NavigationView {
                 VStack {
                     CurrentTabBarScreen(currentView: self.$currentView, showModal: self.$showModal, currentSheet: self.$currentSheet)
                     CustomTabBar(currentView: self.$currentView, showModal: self.$showModal, currentSheet: self.$currentSheet)
                 }
-            }
-        }
+//            }
+//        }
         .sheet(isPresented: self.$showModal) {
             if self.currentSheet == .plusMenu {
                 StrategySelectionView(rootIsActive: $isActive)

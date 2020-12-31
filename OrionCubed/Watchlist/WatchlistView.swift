@@ -7,54 +7,36 @@
 
 import SwiftUI
 
-var stocks = ["AAPL", "SPY", "GLD", "NIO", "TSLA", "EBAY", "IBM"]
-var prices = ["$242.50", "$365.72", "$176.35", "$46.72", "$626.78", "$100.00", "$100.00"]
-var percentChange = ["+1.4%", "-3.7%", "+9.8%", "+10%", "-7%", "+14%", "0%"]
-
 struct WatchlistView: View {
+    
+    @State var stocks = [
+        Stock(name: "AAPL", price: "$400.98"),
+        Stock(name: "TSLA", price: "$250.00")
+    ]
+    
     var body: some View {
-        ZStack {
+        NavigationView {
             VStack {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Watchlist")
-                            .font(.system(size: 34, weight: .heavy))
-                        Spacer()
+                VStack {
+                    List(0..<stocks.count, id: \.self) { row in
+                        WatchlistItem(stock: stocks[row])
                     }
-                    .padding()
+                    .listStyle(InsetGroupedListStyle())
+                    Spacer()
                 }
-                List(0..<stocks.count) { row in
-                    HStack {
-                        Text(stocks[row])
-                            .font(.headline)
-                        Spacer()
-                        
-                        VStack(alignment: .trailing, spacing: 5) {
-                            Text(prices[row])
-                                .font(.headline)
-                            Text(percentChange[row])
-                                .font(.caption)
-                        }
-                    }
-                    
-                }
-                .listStyle(InsetGroupedListStyle())
             }
-            Button(action: {print("")}) {
-                Text("Add New")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.gray)
-                    .offset(x: 0, y: 250)
-                    .foregroundColor(Color.white)
-            }
-            .padding()
+            .navigationBarTitle("Watchlist")
+            .navigationBarItems(trailing: NavigationLink(destination: AddWatchlistItemView(watchlist: $stocks)) {
+                Image(systemName:"plus").imageScale(.large)
+            })
         }
     }
 }
 
 struct WatchlistView_Previews: PreviewProvider {
     static var previews: some View {
-        WatchlistView()
+        NavigationView {
+            WatchlistView()
+        }
     }
 }

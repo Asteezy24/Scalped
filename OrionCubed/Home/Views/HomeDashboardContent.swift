@@ -17,7 +17,7 @@ struct HomeDashboardContent: View {
         VStack {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Hello, \nAlex Stevens")
+                    Text("Morning!")
                         .font(.system(size: 34, weight: .heavy))
                     Spacer()
                 }.padding()
@@ -47,8 +47,8 @@ struct HomeDashboardContent: View {
             }.padding()
             Spacer()
         }
-        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarItems(leading: Text("Dashboard"),
+        .navigationBarTitle("Foo")
+        .navigationBarItems(leading: Text("App Name"),
                             trailing:
                                 HStack {
                                     Text("Server Connection: ")
