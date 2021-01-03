@@ -12,13 +12,24 @@ struct WatchlistItem: View {
     let stock: Stock
     
     var body: some View {
-        HStack {
-            Text(stock.name)
-                .font(.headline)
-            Spacer()
-            VStack {
-                Text(stock.price)
+        VStack {
+            HStack {
+                Text(stock.name)
                     .font(.headline)
+                Spacer()
+                VStack {
+                    Text(stock.price)
+                        .font(.headline)
+                }
+            }
+            HStack {
+                Text("Price Added to watchlist: ")
+                    .font(.caption)
+                Spacer()
+                VStack {
+                    Text("$1.00")
+                        .font(.caption)
+                }
             }
         }
     }

@@ -18,12 +18,15 @@ struct AlertItem: View {
                 .resizable()
                 .frame(width: 35, height: 35)
                 .foregroundColor( alert.action == "Buy" ? .red : .green )
-            VStack {
-                Text(typeOfStrategy)
-                    .font(.caption)
-                    .multilineTextAlignment(.center)
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(typeOfStrategy)
+                        .font(.caption)
+                        .multilineTextAlignment(.leading)
+                }
                 Text("\(alert.underlying) \(alert.action == "Sell" ? "went above" : "fell below" ) your yield of 6%. You should consider \(alert.action)ing.")
                     .font(.headline)
+                    .multilineTextAlignment(.leading)
             }
             Spacer()
             VStack(alignment: .leading) {

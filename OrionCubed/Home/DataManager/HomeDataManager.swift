@@ -122,6 +122,5 @@ extension HomeDataManager: URLSessionWebSocketDelegate {
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         self.connectedToServer = false
-        
     }
 }

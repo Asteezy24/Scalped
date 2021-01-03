@@ -68,7 +68,7 @@ class HomeViewModel: ObservableObject {
         self.dataManager?.getPublisherForStrategies()
             .receive(on: DispatchQueue.main)
             .map { response in
-                //print(response)
+                print(response)
                 if !response.error {
                     self.strategies = response.data
                 } else {
@@ -86,7 +86,6 @@ class HomeViewModel: ObservableObject {
             },
             receiveValue: { [weak self] response in
                 guard let _ = self else { return }
-                //print(response)
             })
             .store(in: &disposables)
     }

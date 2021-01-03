@@ -9,26 +9,35 @@ import SwiftUI
 
 struct AlertsView: View {
     var body: some View {
-        List {
-            Section(header: Text("Last 24 Hours")) {
-                AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-            }
-            Section(header: Text("Older")) {
-                AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
-                AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
-                AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-                AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-                AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
-                AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-                AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
+        NavigationView {
+            VStack {
+                List {
+                    Section(header: Text("Last 24 Hours")) {
+                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
+                    }
+                    Section(header: Text("Older")) {
+                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
+                        AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
+                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
+                        AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
+                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
+                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
+                        AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
 
+                    }
+                }
+                .navigationBarTitle("Alerts")
+
+                .listStyle(GroupedListStyle())
             }
-        }.listStyle(GroupedListStyle())
+        }
     }
 }
 
 struct AlertsView_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView {
         AlertsView()
+        }
     }
 }

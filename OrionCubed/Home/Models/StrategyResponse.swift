@@ -8,7 +8,8 @@
 import Foundation
 
 struct StrategyResponse: Decodable, Hashable  {
-    let error:Bool
+    let error: Bool
     let message: String
     let data: [Strategy]
+//    let timeframe: String
 }
