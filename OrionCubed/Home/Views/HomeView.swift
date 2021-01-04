@@ -10,25 +10,51 @@ import Combine
 
 struct HomeView: View {
     @State var isActive : Bool = false
-    @State private var strategyDetailPresented = false
-    @State private var currentView: TabBarRoutes = .home
+//    @State private var strategyDetailPresented = false
+//    @State private var currentView: TabBarRoutes = .home
     @State private var showModal: Bool = false
-    @State private var currentSheet: ActiveSheets = .plusMenu
+//    @State private var currentSheet: ActiveSheets = .plusMenu
     
     var body: some View {
-//        ZStack {
-//            NavigationView {
-                VStack {
-                    CurrentTabBarScreen(currentView: self.$currentView, showModal: self.$showModal, currentSheet: self.$currentSheet)
-                    CustomTabBar(currentView: self.$currentView, showModal: self.$showModal, currentSheet: self.$currentSheet)
+        VStack {
+            TabView {
+                HomeDashboardContent(viewModel: HomeViewModel(), action: {
+                    self.showModal.toggle()
+                })
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
                 }
-//            }
-//        }
-        .sheet(isPresented: self.$showModal) {
-            if self.currentSheet == .plusMenu {
-                StrategySelectionView(rootIsActive: $isActive)
+                
+                WatchlistView()
+                    .tabItem {
+                        Image(systemName: "line.horizontal.3")
+                        Text("Watchlist")
+                    }
+                
+                StrategySelectionView(rootIsActive: $showModal)
+                    .tabItem {
+                        Image(systemName: "plus").resizable()
+                        Text("Create New")
+                    }
+                
+                AlertsView()
+                    .tabItem {
+                        Image(systemName: "bell")
+                        Text("Alerts")
+                    }
+                Settings()
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                    }
             }
         }
+//        .sheet(isPresented: self.$showModal) {
+//            if self.currentSheet == .plusMenu {
+//                StrategySelectionView(rootIsActive: $isActive)
+//            }
+//        }
     }
 }
 

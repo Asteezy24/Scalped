@@ -11,8 +11,8 @@ var stocks = ["EBAY", "AAPL", "TSLA", "GME", "LIVX", "OZ"]
 
 struct AddWatchlistItemView: View {
     
-    @State var searchEntry: String = ""
     @Binding var watchlist: [Stock]
+    @State var searchEntry: String = ""
     @State var searchResults: [String] = []
     
     var body: some View {
@@ -34,7 +34,6 @@ struct AddWatchlistItemView: View {
                             }) ? "checkmark": "plus")
                             .onTapGesture {
                                 $watchlist.wrappedValue.append(Stock(name: name, price: "$1.00"))
-                                
                             }
                         }
                     }
