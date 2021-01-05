@@ -8,28 +8,25 @@
 import SwiftUI
 
 struct AlertsView: View {
+    
+    @ObservedObject var viewModel: AlertsViewModel
+    
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     Section(header: Text("Last 24 Hours")) {
-                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-                    }
-                    Section(header: Text("Older")) {
-                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
-                        AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
-                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-                        AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Multiple Moving Average")
-                        AlertItem(alert: StrategyAlert(action: "Buy", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-                        AlertItem(alert: StrategyAlert(action: "Sell", underlying: "$AAPL"), typeOfStrategy: "Yield Strategy")
-
+                        ForEach(viewModel.alerts, id: \.self) { alerts in
+                            AlertItem(alert: StrategyAlert(action: alerts.action, underlying: alerts.action), typeOfStrategy: "Testing")
+                        }
                     }
                 }
                 .navigationBarTitle("Alerts")
-
                 .listStyle(GroupedListStyle())
             }
+            .onAppear(perform: {
+                self.viewModel.getAllAlerts()
+            })
         }
     }
 }
@@ -37,7 +34,7 @@ struct AlertsView: View {
 struct AlertsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-        AlertsView()
+        AlertsView(viewModel: AlertsViewModel())
         }
     }
 }

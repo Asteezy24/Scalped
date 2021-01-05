@@ -13,7 +13,7 @@ enum TypesOfStrategies: String {
 
 struct StrategySelectionView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    @Binding var rootIsActive : Bool
+    @Binding var tabBarSelection: Int
     
     var validStrategies = ["Multiple Moving Average", "Yield"] 
     
@@ -23,9 +23,8 @@ struct StrategySelectionView: View {
                 LazyVGrid(columns: columns) {
                     ForEach((0..<validStrategies.count), id: \.self, content: { index in
                         NavigationLink(destination: NewStrategyView(viewModel:
-                                        NewStrategyViewModel(strategyName: validStrategies[index]),
-                                                                    shouldPopToRootView: $rootIsActive,
-                                                                    typeOfStrategy: TypesOfStrategies(rawValue: validStrategies[index]) ?? .GMMA)) {
+                                                                        NewStrategyViewModel(strategyName: validStrategies[index]),
+                                                                    typeOfStrategy: TypesOfStrategies(rawValue: validStrategies[index]) ?? .GMMA, tabBarSelection: $tabBarSelection)) {
                             StrategySelectionItem(strategy:validStrategies[index])
                                 .padding()
                         }
@@ -41,7 +40,7 @@ struct StrategySelectionView: View {
 
 struct StrategySelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        StrategySelectionView(rootIsActive: .constant(false))
+        StrategySelectionView(tabBarSelection: .constant(1))
             .preferredColorScheme(.dark)
     }
 }

@@ -29,6 +29,8 @@
 		FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */; };
 		FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52EB256F341F00FFED3B /* Endpoint.swift */; };
 		FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */; };
+		FBBE94F125A3F74E00723274 /* AlertsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE94F025A3F74E00723274 /* AlertsViewModel.swift */; };
+		FBBE94F925A3F7D900723274 /* AlertsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE94F825A3F7D900723274 /* AlertsDataManager.swift */; };
 		FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB12D25842938004BC2F9 /* AlertResponse.swift */; };
 		FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13C258991C9004BC2F9 /* Icon+PreviewHelpers.swift */; };
 		FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13D258991C9004BC2F9 /* Icon.swift */; };
@@ -92,6 +94,8 @@
 		FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		FB9B52EB256F341F00FFED3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		FBBE94F025A3F74E00723274 /* AlertsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewModel.swift; sourceTree = "<group>"; };
+		FBBE94F825A3F7D900723274 /* AlertsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsDataManager.swift; sourceTree = "<group>"; };
 		FBBEB12D25842938004BC2F9 /* AlertResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertResponse.swift; sourceTree = "<group>"; };
 		FBBEB13C258991C9004BC2F9 /* Icon+PreviewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Icon+PreviewHelpers.swift"; sourceTree = "<group>"; };
 		FBBEB13D258991C9004BC2F9 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
@@ -171,7 +175,6 @@
 				FB09BD572560CD9700BD4B48 /* Preview Content */,
 				FBEADCAA258EEF6E00F9DC3A /* Settings */,
 				FB5A47252567242A0017D1EA /* StrategyDetail */,
-				FBEADC9A258EECC500F9DC3A /* TabBar */,
 				FB4118A42581789B00F046D3 /* Utils */,
 				FBDDEC1A259BD45000481D6B /* Watchlist */,
 			);
@@ -380,6 +383,8 @@
 			children = (
 				FBDDEC23259BD53A00481D6B /* AlertsView.swift */,
 				FBDDEC2B259BD95300481D6B /* AlertItem.swift */,
+				FBBE94F025A3F74E00723274 /* AlertsViewModel.swift */,
+				FBBE94F825A3F7D900723274 /* AlertsDataManager.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -393,13 +398,6 @@
 				FBDDEC47259D579200481D6B /* WatchlistItem.swift */,
 			);
 			path = Watchlist;
-			sourceTree = "<group>";
-		};
-		FBEADC9A258EECC500F9DC3A /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		FBEADCAA258EEF6E00F9DC3A /* Settings */ = {
@@ -579,6 +577,7 @@
 				FB8FAF0B2564AE8900053D50 /* HomeDataManager.swift in Sources */,
 				FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */,
 				FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */,
+				FBBE94F925A3F7D900723274 /* AlertsDataManager.swift in Sources */,
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* NewStrategyView.swift in Sources */,
 				FB8FAF102564C09600053D50 /* Strategy.swift in Sources */,
@@ -588,6 +587,7 @@
 				FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */,
 				FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */,
 				FBDDEC1F259BD52F00481D6B /* WatchlistView.swift in Sources */,
+				FBBE94F125A3F74E00723274 /* AlertsViewModel.swift in Sources */,
 				FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */,
 				FBDDEC48259D579200481D6B /* WatchlistItem.swift in Sources */,
 				FBDDEC3E259CD87B00481D6B /* AddWatchlistItemView.swift in Sources */,

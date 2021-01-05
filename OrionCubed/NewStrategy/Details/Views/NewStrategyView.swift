@@ -9,8 +9,10 @@ import SwiftUI
 
 struct NewStrategyView: View {
     @ObservedObject var viewModel: NewStrategyViewModel
-    @Binding var shouldPopToRootView : Bool
     var typeOfStrategy: TypesOfStrategies
+    @Binding var tabBarSelection: Int
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var commonViews: [AnyView] {
         switch typeOfStrategy {
@@ -38,44 +40,54 @@ struct NewStrategyView: View {
             get: { self.viewModel.errorAlert  },
             set: { _ in self.viewModel.errorAlert = true }
         )
-        VStack {
-            Form {
-                Section(header: Text("Identifiers")) {
-                    TextField("Underlying", text: $viewModel.underlyingEntry)
-                }
-                
-                showEmptyOrList()
-                
-                //common views
-                ForEach((0..<commonViews.count), id: \.self) { index in
-                    commonViews[index]
-                }
-                
-                
-                Section(header: Text("Timeframe")) {
-                    Picker("", selection: $viewModel.timeframeSelected) {
-                        ForEach(0 ..< viewModel.timeframes.count) {
-                            Text("\(viewModel.timeframes[$0])")
-                        }
-                    }.pickerStyle(SegmentedPickerStyle())
-                }
+        GeometryReader { geometry in
+            ZStack {
+                Form {
+                    Section(header: Text("Identifiers")) {
+                        TextField("Underlying", text: $viewModel.underlyingEntry)
+                    }
+                    
+                    showEmptyOrList()
+                    
+                    //common views
+                    ForEach((0..<commonViews.count), id: \.self) { index in
+                        commonViews[index]
+                    }
+                    
+                    
+                    Section(header: Text("Timeframe")) {
+                        Picker("", selection: $viewModel.timeframeSelected) {
+                            ForEach(0 ..< viewModel.timeframes.count) {
+                                Text("\(viewModel.timeframes[$0])")
+                            }
+                        }.pickerStyle(SegmentedPickerStyle())
+                    }
 
-                Section(header: Text("Action")) {
-                    Picker("", selection: $viewModel.actionSelected) {
-                        ForEach(0 ..< viewModel.strategyActions.count) {
-                            Text("\(viewModel.strategyActions[$0])")
-                        }
-                    }.pickerStyle(SegmentedPickerStyle())
+                    Section(header: Text("Action")) {
+                        Picker("", selection: $viewModel.actionSelected) {
+                            ForEach(0 ..< viewModel.strategyActions.count) {
+                                Text("\(viewModel.strategyActions[$0])")
+                            }
+                        }.pickerStyle(SegmentedPickerStyle())
+                    }
                 }
+                
+                Button(action: {self.saveStrategyAndDismiss()}, label: {
+                    Text("Save")
+//                        .padding()
+//                        .frame(maxWidth: .infinity)
+//                        .background(Color.gray)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(8)
+//                        .offset(x: 0, y: geometry.size.width - 150)
+//                        .padding()
+
+                })
             }
-            
-            Button(action: {self.saveStrategyAndDismiss()}, label: {
-                Text("Save")
-            })
+            .navigationBarTitle(Text(viewModel.strategyName))
+            .alert(isPresented: serviceError) {
+                Alert(title: Text("Error!"), message: Text("Cannot Save this strategy"), dismissButton: .default(Text("Dismiss")))
         }
-        .navigationBarTitle(Text(viewModel.strategyName))
-        .alert(isPresented: serviceError) {
-            Alert(title: Text("Error!"), message: Text("Cannot Save this strategy"), dismissButton: .default(Text("Dismiss")))
         }
     }
     
@@ -89,15 +101,19 @@ struct NewStrategyView: View {
     }
     
     private func saveStrategyAndDismiss() {
-        self.shouldPopToRootView = false
-        self.viewModel.saveStrategy()
+        presentationMode.wrappedValue.dismiss()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            tabBarSelection = 0
+
+        }
+//        self.viewModel.saveStrategy()
     }
 }
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
         NewStrategyView(viewModel:NewStrategyViewModel(strategyName: "OK"),
-                        shouldPopToRootView: .constant(false),
-                        typeOfStrategy: .GMMA)
+                        typeOfStrategy: .GMMA, tabBarSelection: .constant(1))
+        
     }
 }

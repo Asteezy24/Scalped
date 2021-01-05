@@ -10,17 +10,13 @@ import Combine
 
 struct HomeView: View {
     @State var isActive : Bool = false
-//    @State private var strategyDetailPresented = false
-//    @State private var currentView: TabBarRoutes = .home
     @State private var showModal: Bool = false
-//    @State private var currentSheet: ActiveSheets = .plusMenu
+    @State private var tabBarSelection = 0
     
     var body: some View {
         VStack {
-            TabView {
-                HomeDashboardContent(viewModel: HomeViewModel(), action: {
-                    self.showModal.toggle()
-                })
+            TabView(selection: $tabBarSelection) {
+                HomeDashboardContent(viewModel: HomeViewModel())
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
@@ -32,13 +28,13 @@ struct HomeView: View {
                         Text("Watchlist")
                     }
                 
-                StrategySelectionView(rootIsActive: $showModal)
+                StrategySelectionView(tabBarSelection: $tabBarSelection)
                     .tabItem {
                         Image(systemName: "plus").resizable()
-                        Text("Create New")
+                        Text("Discover")
                     }
                 
-                AlertsView()
+                AlertsView(viewModel: AlertsViewModel())
                     .tabItem {
                         Image(systemName: "bell")
                         Text("Alerts")

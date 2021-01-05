@@ -1,39 +1,41 @@
 //
-//  HomeViewModel.swift
+//  AlertsViewModel.swift
 //  OrionCubed
 //
-//  Created by Alexander Stevens on 11/16/20.
+//  Created by Alexander Stevens on 1/4/21.
 //
 
-import Foundation
 import Combine
 import SwiftUI
 
-var actions = ["Buy", "Sell"]
-
-class HomeViewModel: ObservableObject {
-    @Published var strategies = [Strategy]()
-    @Published var connectedToServer = false
-    private var dataManager: HomeDataManager?
+class AlertsViewModel: ObservableObject {
+    
+    private var dataManager = AlertsDataManager()
+    @Published var alerts = [StrategyAlert]()
     private var disposables = Set<AnyCancellable>()
     
+    
     init() {
-        self.dataManager = HomeDataManager()
-        self.dataManager?.$connectedToServer.sink(receiveValue: { isConnected in
-            DispatchQueue.main.async {
-                self.connectedToServer = isConnected
-            }
-        })
-        .store(in: &disposables)
+        //socket
+//        self.dataManager.listenForUpdates(completion: {[weak self] alert in
+//            self?.handleAlert(alert)
+//        })
     }
     
-    func getAllStrategies() {
-        self.dataManager?.getPublisherForStrategies()
+    
+    private func handleAlert(_ alert: StrategyAlert) {
+        DispatchQueue.main.async {
+            self.alerts.append(alert)
+        }
+    }
+
+    func getAllAlerts() {
+        self.dataManager.getPublisherForAlerts()
             .receive(on: DispatchQueue.main)
             .map { response in
-                print(response)
+                //print(response)
                 if !response.error {
-                    self.strategies = response.data
+                    self.alerts = response.data
                 } else {
                     print("got error\n\n\n")
                 }
@@ -51,6 +53,7 @@ class HomeViewModel: ObservableObject {
                 guard let _ = self else { return }
             })
             .store(in: &disposables)
+        
     }
     
 }

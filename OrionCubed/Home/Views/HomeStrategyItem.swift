@@ -42,7 +42,7 @@ struct HomeStrategyItem: View {
 
 struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
-        HomeStrategyItem(strategy: .init(identifier: "", underlying: "", action: "", timeframe: ""))
+        HomeStrategyItem(strategy: .init(identifier: "1", underlying: "2", action: "3", timeframe: "4"))
             .preferredColorScheme(.dark)
 
     }

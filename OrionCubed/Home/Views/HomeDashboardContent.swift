@@ -10,7 +10,6 @@ import SwiftUI
 
 struct HomeDashboardContent: View {
     @ObservedObject var viewModel: HomeViewModel
-    let action: () -> Void
     
     var body: some View {
         
@@ -23,21 +22,10 @@ struct HomeDashboardContent: View {
                         .background(Color.blue)
                         .cornerRadius(35)
                     Spacer()
-                    //                Button(action: {
-                    //                    print("")
-                    //                }) {
-                    //                    Image(systemName: "line.horizontal.3.decrease.circle.fill")
-                    //                        .resizable()
-                    //                        .foregroundColor(Color.gray)
-                    //                        .frame(width: 25, height: 25)
-                    //                }
-                    
                 }.padding()
-                VStack(spacing: 20) {
-                    ForEach(viewModel.strategies, id: \.self) { strategy in
-                        HomeStrategyItem(strategy: strategy)
-                    }
-                }.padding()
+                List(0..<viewModel.strategies.count, id: \.self) { strategyIndex in
+                    HomeStrategyItem(strategy: viewModel.strategies[strategyIndex])
+                }
                 Spacer()
             }
             .navigationBarTitle("Good Morning!")
@@ -57,7 +45,6 @@ struct HomeDashboardContent: View {
                                     .padding())
             .onAppear(perform: {
                 self.viewModel.getAllStrategies()
-                self.viewModel.getAllAlerts()
             })
         }
     }
@@ -65,6 +52,6 @@ struct HomeDashboardContent: View {
 
 struct HomeDashboardContent_Previews: PreviewProvider {
     static var previews: some View {
-        HomeDashboardContent(viewModel: HomeViewModel(), action: {})
+        HomeDashboardContent(viewModel: HomeViewModel())
     }
 }
