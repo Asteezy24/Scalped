@@ -16,7 +16,7 @@ struct WatchlistView: View {
             VStack {
                 VStack {
                     List(0..<viewModel.watchlist.count, id: \.self) { row in
-                        WatchlistItem(stock: viewModel.watchlist[row])
+                        WatchlistItem(item: viewModel.watchlist[row])
                     }
                     .listStyle(InsetGroupedListStyle())
                     Spacer()

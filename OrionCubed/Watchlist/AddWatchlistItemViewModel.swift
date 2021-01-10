@@ -26,9 +26,7 @@ class AddWatchlistItemViewModel: ObservableObject {
         self.dataManager.getAddStockPublisher(name)
             .receive(on: DispatchQueue.main)
             .map { response in
-                if !response.error {
-                    print("added!")
-                } else {
+                if response.error {
                     print("got error\n\n\n")
                 }
             }
@@ -36,7 +34,7 @@ class AddWatchlistItemViewModel: ObservableObject {
                 guard let _ = self else { return }
                 switch value {
                 case .failure:
-                    print(value)
+                    break
                 case .finished:
                     break
                 }

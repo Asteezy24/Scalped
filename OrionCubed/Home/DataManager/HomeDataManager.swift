@@ -38,7 +38,7 @@ class HomeDataManager: NSObject, ObservableObject {
             guard let strongSelf = self else { return }
             switch result {
             case .failure(let error):
-                print("Error in receiving ping message")
+                break
             case .success(let message):
                 switch message {
                 case .string(let text):
@@ -76,7 +76,6 @@ class HomeDataManager: NSObject, ObservableObject {
         webSocketTask?.cancel(with: .goingAway, reason: reason)    }
     
     func getAlert(from text: String) -> StrategyAlert {
-        print("Received: \(text)")
         return try! JSONDecoder().decode(StrategyAlert.self, from: text.data(using: .utf8)!)
     }
 }

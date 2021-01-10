@@ -9,16 +9,16 @@ import SwiftUI
 
 struct WatchlistItem: View {
     
-    let stock: Stock
+    let item: WatchlistStockItem
     
     var body: some View {
         VStack {
             HStack {
-                Text(stock.name)
+                Text(item.name)
                     .font(.headline)
                 Spacer()
                 VStack {
-                    Text(stock.price)
+                    Text(item.price)
                         .font(.headline)
                 }
             }
@@ -27,7 +27,7 @@ struct WatchlistItem: View {
                     .font(.caption)
                 Spacer()
                 VStack {
-                    Text("$1.00")
+                    Text(item.priceWhenAdded)
                         .font(.caption)
                 }
             }
@@ -37,6 +37,6 @@ struct WatchlistItem: View {
 
 struct WatchlistItem_Previews: PreviewProvider {
     static var previews: some View {
-        WatchlistItem(stock: Stock(name: "$TSLA", price: "620.89"))
+        WatchlistItem(item: WatchlistStockItem(name: "", price: "", priceWhenAdded: ""))
     }
 }

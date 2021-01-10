@@ -34,7 +34,7 @@ class AlertsViewModel: ObservableObject {
                 guard let _ = self else { return }
                 switch value {
                 case .failure:
-                    print(value)
+                    break
                 case .finished:
                     break
                 }

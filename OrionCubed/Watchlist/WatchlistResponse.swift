@@ -7,9 +7,15 @@
 
 import Foundation
 
+struct WatchlistStockItem: Decodable, Hashable {
+    let name: String
+    let price: String
+    let priceWhenAdded: String
+}
+
 struct WatchlistResponse: Decodable, Hashable {    
     let error:Bool
     let message: String
-    let data: [Stock]
+    let data: [WatchlistStockItem]
 }
 

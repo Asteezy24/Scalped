@@ -57,9 +57,9 @@ class NewStrategyViewModel: ObservableObject {
                     switch value {
                     case .failure:
                         self?.errorAlert = true
-                        print("")
+                        break
                     case .finished:
-                        print("")
+                        break
                     }
                 },
                 receiveValue: { [weak self] response in
@@ -75,7 +75,7 @@ class NewStrategyViewModel: ObservableObject {
             .map { response in
                 if !response.error {
                     for symbol in response.data {
-                       // self.searchResults.append(Symbol(name: symbol))
+                        self.searchResults.append(Symbol(name: symbol.name))
                     }
                 } else {
                     print("got error\n\n\n")

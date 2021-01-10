@@ -11,7 +11,7 @@ import SwiftUI
 class WatchlistViewModel: ObservableObject {
     private var dataManager = WatchlistDataManager()
     private var disposables = Set<AnyCancellable>()
-    @Published var watchlist = [Stock]()
+    @Published var watchlist = [WatchlistStockItem]()
     
     func getWatchlist() {
         self.dataManager.getPublisherForWatchlist()
@@ -27,7 +27,7 @@ class WatchlistViewModel: ObservableObject {
                 guard let _ = self else { return }
                 switch value {
                 case .failure:
-                    print(value)
+                    break
                 case .finished:
                     break
                 }
@@ -42,11 +42,7 @@ class WatchlistViewModel: ObservableObject {
         self.dataManager.getAddStockPublisher(name)
             .receive(on: DispatchQueue.main)
             .map { response in
-                    print(response)
-                if !response.error {
-                    print("added!")
-                    //self.watchlist = response.data
-                } else {
+                if response.error {
                     print("got error\n\n\n")
                 }
             }

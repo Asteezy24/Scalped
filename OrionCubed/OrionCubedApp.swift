@@ -56,17 +56,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             .sink(receiveCompletion: { [weak self] value in
                 guard let _ = self else { return }
                 switch value {
-                case .failure:
-                    print(value)
+                case .failure:                           
                     print("Error in sending device token")
                 case .finished:
                     print("Sent value for device token")
                 }
             },
             receiveValue: { [weak self] response in
-                guard let _ = self else { return }
-                print(response)
-                
+                guard let _ = self else { return }                
                 if !response.error {
                     print("Received response for notification registration")
                 }
@@ -74,8 +71,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             .store(in: &disposables)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print(error)
-        print("failed to register for notifications")
+        print("failed to register for notifications " + error.localizedDescription)
     }
     
     func registerForPushNotifications() {
