@@ -49,6 +49,9 @@ extension Endpoint {
     static var addToWatchlist: Self {
         return Endpoint(path: "/api/watchlist/add")
     }
+    static var deleteFromWatchlist: Self {
+        return Endpoint(path: "/api/watchlist/delete")
+    }
     static var createStrategy: Self {
         return Endpoint(path: "/api/strategy/create")
     }

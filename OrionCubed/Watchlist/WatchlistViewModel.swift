@@ -61,4 +61,27 @@ class WatchlistViewModel: ObservableObject {
             .store(in: &disposables)
     }
     
+    func deleteFromWatchlist(name: String) {
+        self.dataManager.getDeleteStockPublisher(name)
+            .receive(on: DispatchQueue.main)
+            .map { response in
+                if response.error {
+                    print("got error\n\n\n")
+                }
+            }
+            .sink(receiveCompletion: { [weak self] value in
+                guard let _ = self else { return }
+                switch value {
+                case .failure:
+                    print(value)
+                case .finished:
+                    break
+                }
+            },
+            receiveValue: { [weak self] response in
+                guard let _ = self else { return }
+            })
+            .store(in: &disposables)
+    }
+    
 }

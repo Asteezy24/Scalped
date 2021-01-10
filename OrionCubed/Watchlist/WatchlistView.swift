@@ -15,9 +15,12 @@ struct WatchlistView: View {
         NavigationView {
             VStack {
                 VStack {
-                    List(0..<viewModel.watchlist.count, id: \.self) { row in
-                        WatchlistItem(item: viewModel.watchlist[row])
+                    List {
+                        ForEach(0..<viewModel.watchlist.count, id: \.self) { row in
+                            WatchlistItem(item: viewModel.watchlist[row])
+                        }.onDelete(perform: delete)
                     }
+                    
                     .listStyle(InsetGroupedListStyle())
                     Spacer()
                 }
@@ -29,6 +32,12 @@ struct WatchlistView: View {
                 Image(systemName:"plus").imageScale(.large)
             })
         }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        guard let index = offsets.first else { return }
+        self.viewModel.deleteFromWatchlist(name: self.viewModel.watchlist[index].name)
+        self.viewModel.watchlist.remove(at: index)
     }
 }
 

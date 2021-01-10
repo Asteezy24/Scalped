@@ -36,6 +36,19 @@ class WatchlistDataManager {
                                            url: endpoint.url,
                                            headers: [:])
     }
+    func getDeleteStockPublisher(_ name: String) -> AnyPublisher<NetworkResponse, Error> {
+        let endpoint = Endpoint.deleteFromWatchlist
+        let parameters: [String: String] = [
+            "stock": name,
+            "username": "alex"
+        ]
+
+        return self.networkManager.request(type: NetworkResponse.self,
+                                           requestType: .post,
+                                           parameters: parameters,
+                                           url: endpoint.url,
+                                           headers: [:])
+    }
     
     func getSymbolsPublisher(_ symbol: String) -> AnyPublisher<SymbolsNetworkResponse, Error> {
         let endpoint = Endpoint.getSymbols
