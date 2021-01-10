@@ -31,7 +31,6 @@ class HomeViewModel: ObservableObject {
         self.dataManager?.getPublisherForStrategies()
             .receive(on: DispatchQueue.main)
             .map { response in
-                print(response)
                 if !response.error {
                     self.strategies = response.data
                 } else {

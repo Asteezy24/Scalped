@@ -13,8 +13,6 @@ enum TypesOfStrategies: String {
 
 struct StrategySelectionView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    @Binding var tabBarSelection: Int
-    
     var validStrategies = ["Multiple Moving Average", "Yield"] 
     
     var body: some View {
@@ -24,7 +22,7 @@ struct StrategySelectionView: View {
                     ForEach((0..<validStrategies.count), id: \.self, content: { index in
                         NavigationLink(destination: NewStrategyView(viewModel:
                                                                         NewStrategyViewModel(strategyName: validStrategies[index]),
-                                                                    typeOfStrategy: TypesOfStrategies(rawValue: validStrategies[index]) ?? .GMMA, tabBarSelection: $tabBarSelection)) {
+                                                                    typeOfStrategy: TypesOfStrategies(rawValue: validStrategies[index]) ?? .GMMA)) {
                             StrategySelectionItem(strategy:validStrategies[index])
                                 .padding()
                         }
@@ -40,7 +38,7 @@ struct StrategySelectionView: View {
 
 struct StrategySelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        StrategySelectionView(tabBarSelection: .constant(1))
+        StrategySelectionView()
             .preferredColorScheme(.dark)
     }
 }

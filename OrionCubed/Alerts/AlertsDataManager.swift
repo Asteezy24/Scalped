@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-class AlertsDataManager: ObservableObject {
+class AlertsDataManager {
     private var urlSession: URLSession = .shared
     public private(set) var networkManager = NetworkManager()
     

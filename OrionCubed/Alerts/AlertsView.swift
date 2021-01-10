@@ -23,8 +23,7 @@ struct AlertsView: View {
                 }
                 .navigationBarTitle("Alerts")
                 .listStyle(GroupedListStyle())
-            }
-            .onAppear(perform: {
+            }.onAppear(perform: {
                 self.viewModel.getAllAlerts()
             })
         }

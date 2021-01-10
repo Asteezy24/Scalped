@@ -35,15 +35,16 @@ struct HomeStrategyItem: View {
             } .padding(.trailing, 16)
         }
         .background(Color.gray)
-        .cornerRadius(8)
+        //.cornerRadius(8)
         //.shadow(radius: 8)
     }
 }
 
 struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
+        List {
         HomeStrategyItem(strategy: .init(identifier: "1", underlying: "2", action: "3", timeframe: "4"))
             .preferredColorScheme(.dark)
-
+        }
     }
 }

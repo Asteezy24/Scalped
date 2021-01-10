@@ -10,7 +10,6 @@ import SwiftUI
 struct NewStrategyView: View {
     @ObservedObject var viewModel: NewStrategyViewModel
     var typeOfStrategy: TypesOfStrategies
-    @Binding var tabBarSelection: Int
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -22,7 +21,7 @@ struct NewStrategyView: View {
     }
     
     var searchResultsList: some View {
-        ForEach(viewModel.searchResults, content: { symbol in
+        ForEach(viewModel.searchResults, id: \.self) { symbol in
             VStack {
                 HStack {
                     Text(symbol.name)
@@ -32,7 +31,7 @@ struct NewStrategyView: View {
                     UIApplication.shared.endEditing()
                 }
             }
-        })
+        }
     }
     
     var body: some View {
@@ -74,13 +73,13 @@ struct NewStrategyView: View {
                 
                 Button(action: {self.saveStrategyAndDismiss()}, label: {
                     Text("Save")
-//                        .padding()
-//                        .frame(maxWidth: .infinity)
-//                        .background(Color.gray)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(8)
-//                        .offset(x: 0, y: geometry.size.width - 150)
-//                        .padding()
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .offset(x: 0, y: geometry.size.width - 150)
+                        .padding()
 
                 })
             }
@@ -102,18 +101,14 @@ struct NewStrategyView: View {
     
     private func saveStrategyAndDismiss() {
         presentationMode.wrappedValue.dismiss()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            tabBarSelection = 0
-
-        }
-//        self.viewModel.saveStrategy()
+        self.viewModel.saveStrategy()
     }
 }
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
         NewStrategyView(viewModel:NewStrategyViewModel(strategyName: "OK"),
-                        typeOfStrategy: .GMMA, tabBarSelection: .constant(1))
+                        typeOfStrategy: .GMMA)
         
     }
 }

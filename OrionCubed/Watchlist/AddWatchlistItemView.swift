@@ -7,37 +7,32 @@
 
 import SwiftUI
 
-var stocks = ["EBAY", "AAPL", "TSLA", "GME", "LIVX", "OZ"]
-
 struct AddWatchlistItemView: View {
-    
-    @Binding var watchlist: [Stock]
-    @State var searchEntry: String = ""
+    @State var stocksAdded = [String]()
+    @ObservedObject var viewModel: AddWatchlistItemViewModel
     @State var searchResults: [String] = []
     
     var body: some View {
         VStack {
             Form {
                 Section {
-                    TextField("Search for a stock", text: $searchEntry)
+                    TextField("Search for a stock", text: $viewModel.underlyingEntry)
                 }
                 List {
                     
-                    ForEach(stocks.filter { stock in
-                        return stock.uppercased().contains($searchEntry.wrappedValue.uppercased())
-                    }, id: \.self) { name in
+                    ForEach(viewModel.searchResults, id: \.self) { symbol in
                         HStack {
-                            Text(name)
+                            Text(symbol.name)
                             Spacer()
-                            Image(systemName: watchlist.contains(where: { stock in
-                                name == stock.name
-                            }) ? "checkmark": "plus")
+                            Image(systemName: $stocksAdded.wrappedValue.contains(symbol.name)
+                                    ? "checkmark"
+                                    : "plus")
                             .onTapGesture {
-                                $watchlist.wrappedValue.append(Stock(name: name, price: "$1.00"))
+                                stocksAdded.append(symbol.name)
+                                viewModel.addToWatchlist(name: symbol.name)
                             }
                         }
                     }
-                    
                 }
             }
             .navigationBarTitle("Add", displayMode: .inline)
@@ -48,6 +43,6 @@ struct AddWatchlistItemView: View {
 
 struct AddWatchlistItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddWatchlistItemView(watchlist: .constant([Stock(name: "AAPL", price: "$1.00")]))
+        AddWatchlistItemView(viewModel: AddWatchlistItemViewModel())
     }
 }

@@ -14,26 +14,16 @@ class AlertsViewModel: ObservableObject {
     @Published var alerts = [StrategyAlert]()
     private var disposables = Set<AnyCancellable>()
     
-    
-    init() {
-        //socket
-//        self.dataManager.listenForUpdates(completion: {[weak self] alert in
-//            self?.handleAlert(alert)
-//        })
-    }
-    
-    
     private func handleAlert(_ alert: StrategyAlert) {
         DispatchQueue.main.async {
             self.alerts.append(alert)
         }
     }
-
+    
     func getAllAlerts() {
         self.dataManager.getPublisherForAlerts()
             .receive(on: DispatchQueue.main)
             .map { response in
-                //print(response)
                 if !response.error {
                     self.alerts = response.data
                 } else {

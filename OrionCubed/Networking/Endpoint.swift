@@ -43,6 +43,12 @@ extension Endpoint {
     static var getStrategies: Self {
         return Endpoint(path: "/api/strategy")
     }
+    static var getWatchlist: Self {
+        return Endpoint(path: "/api/watchlist")
+    }
+    static var addToWatchlist: Self {
+        return Endpoint(path: "/api/watchlist/add")
+    }
     static var createStrategy: Self {
         return Endpoint(path: "/api/strategy/create")
     }

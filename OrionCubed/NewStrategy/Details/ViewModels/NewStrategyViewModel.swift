@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-struct Symbol: Identifiable {
-    var id = UUID()
+struct Symbol: Hashable, Decodable {
     var name: String
 }
 
@@ -45,10 +44,7 @@ class NewStrategyViewModel: ObservableObject {
         self.dataManager.getCreateStrategyPublisher(strategy)
             .receive(on: DispatchQueue.main)
             .map { response in
-                print(response)
-                if !response.error {
-//                    self.strategyList.append(strategy)
-                } else {
+                if response.error {
                     print("got error\n\n\n")
                     DispatchQueue.main.async {
                         self.errorAlert = true
@@ -68,7 +64,6 @@ class NewStrategyViewModel: ObservableObject {
                 },
                 receiveValue: { [weak self] response in
                     guard let _ = self else { return }
-                    //print(response)
                 })
             .store(in: &disposables)
     }
@@ -80,7 +75,7 @@ class NewStrategyViewModel: ObservableObject {
             .map { response in
                 if !response.error {
                     for symbol in response.data {
-                        self.searchResults.append(Symbol(name: symbol))
+                       // self.searchResults.append(Symbol(name: symbol))
                     }
                 } else {
                     print("got error\n\n\n")

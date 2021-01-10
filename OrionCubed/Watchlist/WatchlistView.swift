@@ -9,24 +9,23 @@ import SwiftUI
 
 struct WatchlistView: View {
     
-    @State var stocks = [
-        Stock(name: "AAPL", price: "$400.98"),
-        Stock(name: "TSLA", price: "$250.00")
-    ]
+    @ObservedObject var viewModel: WatchlistViewModel
     
     var body: some View {
         NavigationView {
             VStack {
                 VStack {
-                    List(0..<stocks.count, id: \.self) { row in
-                        WatchlistItem(stock: stocks[row])
+                    List(0..<viewModel.watchlist.count, id: \.self) { row in
+                        WatchlistItem(stock: viewModel.watchlist[row])
                     }
                     .listStyle(InsetGroupedListStyle())
                     Spacer()
                 }
-            }
+            }.onAppear(perform: {
+                self.viewModel.getWatchlist()
+            })
             .navigationBarTitle("Watchlist")
-            .navigationBarItems(trailing: NavigationLink(destination: AddWatchlistItemView(watchlist: $stocks)) {
+            .navigationBarItems(trailing: NavigationLink(destination: AddWatchlistItemView(viewModel: AddWatchlistItemViewModel())) {
                 Image(systemName:"plus").imageScale(.large)
             })
         }
@@ -36,7 +35,7 @@ struct WatchlistView: View {
 struct WatchlistView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            WatchlistView()
+            WatchlistView(viewModel: WatchlistViewModel())
         }
     }
 }

@@ -22,13 +22,13 @@ struct HomeView: View {
                     Text("Home")
                 }
                 
-                WatchlistView()
+                WatchlistView(viewModel: WatchlistViewModel())
                     .tabItem {
                         Image(systemName: "line.horizontal.3")
                         Text("Watchlist")
                     }
                 
-                StrategySelectionView(tabBarSelection: $tabBarSelection)
+                StrategySelectionView()
                     .tabItem {
                         Image(systemName: "plus").resizable()
                         Text("Discover")

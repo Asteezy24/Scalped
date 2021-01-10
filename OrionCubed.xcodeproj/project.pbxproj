@@ -15,6 +15,10 @@
 		FB09BD6F2560CD9700BD4B48 /* OrionCubedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */; };
 		FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */; };
 		FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */; };
+		FB3A20C925AA59D2000ADFF6 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A20C825AA59D2000ADFF6 /* WatchlistViewModel.swift */; };
+		FB3A20CE25AA5A13000ADFF6 /* WatchlistDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A20CD25AA5A13000ADFF6 /* WatchlistDataManager.swift */; };
+		FB3A20D325AA5A92000ADFF6 /* WatchlistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A20D225AA5A92000ADFF6 /* WatchlistResponse.swift */; };
+		FB3A20D825AA62AE000ADFF6 /* AddWatchlistItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A20D725AA62AE000ADFF6 /* AddWatchlistItemViewModel.swift */; };
 		FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41189F2580146C00F046D3 /* StrategySelectionView.swift */; };
 		FB4118A6258178B000F046D3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4118A5258178B000F046D3 /* Globals.swift */; };
 		FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */; };
@@ -80,6 +84,10 @@
 		FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStrategyItem.swift; sourceTree = "<group>"; };
 		FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FB28430B2572C7B000881533 /* OrionCubed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OrionCubed.entitlements; sourceTree = "<group>"; };
+		FB3A20C825AA59D2000ADFF6 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
+		FB3A20CD25AA5A13000ADFF6 /* WatchlistDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistDataManager.swift; sourceTree = "<group>"; };
+		FB3A20D225AA5A92000ADFF6 /* WatchlistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistResponse.swift; sourceTree = "<group>"; };
+		FB3A20D725AA62AE000ADFF6 /* AddWatchlistItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWatchlistItemViewModel.swift; sourceTree = "<group>"; };
 		FB41189F2580146C00F046D3 /* StrategySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySelectionView.swift; sourceTree = "<group>"; };
 		FB4118A5258178B000F046D3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyDataManager.swift; sourceTree = "<group>"; };
@@ -396,6 +404,10 @@
 				FBDDEC3D259CD87A00481D6B /* AddWatchlistItemView.swift */,
 				FBDDEC42259D574800481D6B /* Stock.swift */,
 				FBDDEC47259D579200481D6B /* WatchlistItem.swift */,
+				FB3A20C825AA59D2000ADFF6 /* WatchlistViewModel.swift */,
+				FB3A20CD25AA5A13000ADFF6 /* WatchlistDataManager.swift */,
+				FB3A20D225AA5A92000ADFF6 /* WatchlistResponse.swift */,
+				FB3A20D725AA62AE000ADFF6 /* AddWatchlistItemViewModel.swift */,
 			);
 			path = Watchlist;
 			sourceTree = "<group>";
@@ -581,8 +593,11 @@
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* NewStrategyView.swift in Sources */,
 				FB8FAF102564C09600053D50 /* Strategy.swift in Sources */,
+				FB3A20C925AA59D2000ADFF6 /* WatchlistViewModel.swift in Sources */,
 				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,
 				FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */,
+				FB3A20D825AA62AE000ADFF6 /* AddWatchlistItemViewModel.swift in Sources */,
+				FB3A20D325AA5A92000ADFF6 /* WatchlistResponse.swift in Sources */,
 				FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */,
 				FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */,
 				FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */,
@@ -591,6 +606,7 @@
 				FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */,
 				FBDDEC48259D579200481D6B /* WatchlistItem.swift in Sources */,
 				FBDDEC3E259CD87B00481D6B /* AddWatchlistItemView.swift in Sources */,
+				FB3A20CE25AA5A13000ADFF6 /* WatchlistDataManager.swift in Sources */,
 				FB6C62AF258C1DB00022CB84 /* StrategySelectionItem.swift in Sources */,
 				FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */,
 			);
