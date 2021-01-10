@@ -10,7 +10,7 @@ import SwiftUI
 struct NewStrategyView: View {
     @ObservedObject var viewModel: NewStrategyViewModel
     var typeOfStrategy: TypesOfStrategies
-
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var commonViews: [AnyView] {
@@ -39,38 +39,39 @@ struct NewStrategyView: View {
             get: { self.viewModel.errorAlert  },
             set: { _ in self.viewModel.errorAlert = true }
         )
-        GeometryReader { geometry in
-            ZStack {
-                Form {
-                    Section(header: Text("Identifiers")) {
-                        TextField("Underlying", text: $viewModel.underlyingEntry)
-                    }
-                    
-                    showEmptyOrList()
-                    
-                    //common views
-                    ForEach((0..<commonViews.count), id: \.self) { index in
-                        commonViews[index]
-                    }
-                    
-                    
-                    Section(header: Text("Timeframe")) {
-                        Picker("", selection: $viewModel.timeframeSelected) {
-                            ForEach(0 ..< viewModel.timeframes.count) {
-                                Text("\(viewModel.timeframes[$0])")
-                            }
-                        }.pickerStyle(SegmentedPickerStyle())
-                    }
-
-                    Section(header: Text("Action")) {
-                        Picker("", selection: $viewModel.actionSelected) {
-                            ForEach(0 ..< viewModel.strategyActions.count) {
-                                Text("\(viewModel.strategyActions[$0])")
-                            }
-                        }.pickerStyle(SegmentedPickerStyle())
-                    }
+        ZStack {
+            Form {
+                Section(header: Text("Identifiers")) {
+                    TextField("Underlying", text: $viewModel.underlyingEntry)
                 }
                 
+                showEmptyOrList()
+                
+                //common views
+                ForEach((0..<commonViews.count), id: \.self) { index in
+                    commonViews[index]
+                }
+                
+                
+                Section(header: Text("Timeframe")) {
+                    Picker("", selection: $viewModel.timeframeSelected) {
+                        ForEach(0 ..< viewModel.timeframes.count) {
+                            Text("\(viewModel.timeframes[$0])")
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
+                
+                Section(header: Text("Action")) {
+                    Picker("", selection: $viewModel.actionSelected) {
+                        ForEach(0 ..< viewModel.strategyActions.count) {
+                            Text("\(viewModel.strategyActions[$0])")
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
+            }
+            
+            VStack {
+                Spacer()
                 Button(action: {self.saveStrategyAndDismiss()}, label: {
                     Text("Save")
                         .padding()
@@ -78,16 +79,16 @@ struct NewStrategyView: View {
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .cornerRadius(8)
-                        .offset(x: 0, y: geometry.size.width - 150)
                         .padding()
-
+                    
                 })
             }
-            .navigationBarTitle(Text(viewModel.strategyName))
-            .alert(isPresented: serviceError) {
-                Alert(title: Text("Error!"), message: Text("Cannot Save this strategy"), dismissButton: .default(Text("Dismiss")))
         }
+        .navigationBarTitle(Text(viewModel.strategyName))
+        .alert(isPresented: serviceError) {
+            Alert(title: Text("Error!"), message: Text("Cannot Save this strategy"), dismissButton: .default(Text("Dismiss")))
         }
+        
     }
     
     private func showEmptyOrList() -> some View {

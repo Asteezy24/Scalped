@@ -26,9 +26,9 @@ struct StrategySelectionItem: View {
     func image(for strategy: String) -> AnyView {
         switch strategy {
         case "Multiple Moving Average":
-            return AnyView(Image("Multiple Moving Average"))
+            return AnyView(Image(systemName: "gear"))
         case "Yield":
-            return AnyView(Image("Yield"))
+            return AnyView(Image(systemName: "plus"))
         default: return AnyView(EmptyView())
         }
        

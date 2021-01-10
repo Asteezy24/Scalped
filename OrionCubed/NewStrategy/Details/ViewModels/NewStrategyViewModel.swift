@@ -66,6 +66,10 @@ class NewStrategyViewModel: ObservableObject {
                     guard let _ = self else { return }
                 })
             .store(in: &disposables)
+        //reset values
+        self.selectedUnderlying = false
+        self.underlyingEntry = ""
+        self.searchResults = []
     }
     
     func fetchEligibleUnderlyings(for entry: String) {

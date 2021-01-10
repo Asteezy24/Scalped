@@ -19,12 +19,6 @@ class HomeViewModel: ObservableObject {
     
     init() {
         self.dataManager = HomeDataManager()
-        self.dataManager?.$connectedToServer.sink(receiveValue: { isConnected in
-            DispatchQueue.main.async {
-                self.connectedToServer = isConnected
-            }
-        })
-        .store(in: &disposables)
     }
     
     func getAllStrategies() {

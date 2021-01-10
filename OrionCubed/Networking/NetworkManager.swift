@@ -47,6 +47,14 @@ final class NetworkManager: NetworkManagerProtocol {
         }
         
         return URLSession.shared.dataTaskPublisher(for: request)
+            .handleEvents(receiveOutput: { output in
+                print("\nMade service call to: \(String(describing: request.url))" )
+                if let httpResponse = output.response as? HTTPURLResponse {
+                    print("StatusCode: \(httpResponse.statusCode)")
+                }
+                print("Got response of: \(String(decoding: output.data, as: UTF8.self))")
+            },
+            receiveCompletion: { print("Receive completion: \($0)\n\n") })
             .map(\.data)
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()

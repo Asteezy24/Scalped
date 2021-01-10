@@ -12,4 +12,4 @@ enum environments: String {
     case prod = "104.237.146.89"
 }
 
-var currEnvironment: environments = .dev
+var currEnvironment: environments = .prod

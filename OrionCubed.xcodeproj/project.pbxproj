@@ -22,7 +22,6 @@
 		FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41189F2580146C00F046D3 /* StrategySelectionView.swift */; };
 		FB4118A6258178B000F046D3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4118A5258178B000F046D3 /* Globals.swift */; };
 		FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */; };
-		FB5A4728256724500017D1EA /* StrategyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5A4727256724500017D1EA /* StrategyDetailView.swift */; };
 		FB6C62AF258C1DB00022CB84 /* StrategySelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C62AE258C1DB00022CB84 /* StrategySelectionItem.swift */; };
 		FB6C62B5258C2DF10022CB84 /* TriggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C62B4258C2DF10022CB84 /* TriggerView.swift */; };
 		FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB735DF7256B2DEE0026841A /* NetworkManager.swift */; };
@@ -91,7 +90,6 @@
 		FB41189F2580146C00F046D3 /* StrategySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySelectionView.swift; sourceTree = "<group>"; };
 		FB4118A5258178B000F046D3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyDataManager.swift; sourceTree = "<group>"; };
-		FB5A4727256724500017D1EA /* StrategyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyDetailView.swift; sourceTree = "<group>"; };
 		FB6C62AE258C1DB00022CB84 /* StrategySelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySelectionItem.swift; sourceTree = "<group>"; };
 		FB6C62B4258C2DF10022CB84 /* TriggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerView.swift; sourceTree = "<group>"; };
 		FB735DF7256B2DEE0026841A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 				FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */,
 				FB09BD572560CD9700BD4B48 /* Preview Content */,
 				FBEADCAA258EEF6E00F9DC3A /* Settings */,
-				FB5A47252567242A0017D1EA /* StrategyDetail */,
 				FB4118A42581789B00F046D3 /* Utils */,
 				FBDDEC1A259BD45000481D6B /* Watchlist */,
 			);
@@ -279,22 +276,6 @@
 				FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */,
 			);
 			path = DataManager;
-			sourceTree = "<group>";
-		};
-		FB5A47252567242A0017D1EA /* StrategyDetail */ = {
-			isa = PBXGroup;
-			children = (
-				FB5A4726256724380017D1EA /* Views */,
-			);
-			path = StrategyDetail;
-			sourceTree = "<group>";
-		};
-		FB5A4726256724380017D1EA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				FB5A4727256724500017D1EA /* StrategyDetailView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		FB6C62B3258C2DD20022CB84 /* CommonViews */ = {
@@ -572,7 +553,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBEADCAC258EEF7900F9DC3A /* Settings.swift in Sources */,
-				FB5A4728256724500017D1EA /* StrategyDetailView.swift in Sources */,
 				FBDDEC43259D574800481D6B /* Stock.swift in Sources */,
 				FB6C62B5258C2DF10022CB84 /* TriggerView.swift in Sources */,
 				FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */,
