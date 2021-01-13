@@ -10,6 +10,6 @@ import Foundation
 struct StrategyResponse: Decodable, Hashable  {
     let error: Bool
     let message: String
-    let data: [Strategy]
+    let data: [MovingAverageStrategy]
 //    let timeframe: String
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeStrategyItem: View {
     
-    let strategy: Strategy
+    let strategy: MovingAverageStrategy
     
     var body: some View {
         VStack {

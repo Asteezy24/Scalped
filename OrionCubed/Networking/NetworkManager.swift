@@ -18,7 +18,7 @@ protocol NetworkManagerProtocol: class {
     
     func request<T>(type: T.Type,
                     requestType: NetworkRequestMethod,
-                    parameters: [String:String],
+                    parameters: [String:Any],
                     url: URL,
                     headers: Headers) -> AnyPublisher<T, Error> where T: Decodable
     
@@ -28,7 +28,7 @@ final class NetworkManager: NetworkManagerProtocol {
     
     func request<T: Decodable>(type: T.Type,
                                requestType: NetworkRequestMethod,
-                               parameters: [String:String],
+                               parameters: [String:Any],
                                url: URL,
                                headers: Headers) -> AnyPublisher<T, Error> {
         

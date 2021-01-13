@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct YieldView: View {
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: NewStrategyViewModel
     
     var underlyingSearchView: some View {
@@ -17,18 +17,22 @@ struct YieldView: View {
         } else {
             return AnyView(VStack {
                 TextField("Underlying", text: $viewModel.underlyingEntry)
-                ForEach(viewModel.searchResults, id: \.self) { symbol in
+                if !self.viewModel.selectedUnderlying {
+                    ForEach(viewModel.searchResults, id: \.self) { symbol in
                         VStack {
                             HStack {
                                 Text(symbol.name)
                                 Spacer()
                             }.onTapGesture {
+                                self.viewModel.selectedUnderlying = true
+                                self.viewModel.underlyingEntry = symbol.name
                                 UIApplication.shared.endEditing()
                             }
                         }
                     }
-                    
-                })
+                }
+                
+            })
         }
     }
         
@@ -61,7 +65,7 @@ struct YieldView: View {
             
             VStack {
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {self.saveStrategyAndDismiss()}, label: {
                     Text("Save")
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -75,6 +79,13 @@ struct YieldView: View {
         }
         .navigationBarTitle("Yield")
     }
+    
+    private func saveStrategyAndDismiss() {
+        presentationMode.wrappedValue.dismiss()
+        self.viewModel.saveYieldStrategy()
+    }
+    
+
 }
 
 struct YieldView_Previews: PreviewProvider {

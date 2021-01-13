@@ -89,7 +89,7 @@ struct MovingAverageView: View {
     
     private func saveStrategyAndDismiss() {
         presentationMode.wrappedValue.dismiss()
-        self.viewModel.saveStrategy()
+        self.viewModel.saveMovingAverageStrategy()
     }
 }
 
