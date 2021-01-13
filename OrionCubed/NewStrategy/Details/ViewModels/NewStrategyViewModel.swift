@@ -13,16 +13,24 @@ struct Symbol: Hashable, Decodable {
 }
 
 class NewStrategyViewModel: ObservableObject {
+    // Common/Shared
     @Published var strategyName: String
     @Published var searchResults = [Symbol]()
     @Published var selectedUnderlying = false
     @Published var underlyingEntry = ""
     @Published var errorAlert: Bool = false
+    // Moving Average
     @Published var actionSelected = 0
     @Published var timeframeSelected = 0
+    // Yield
+    @Published var yieldBuyGoal: Double = 6
+    @Published var yieldSellGoal: Double = 6
+    @Published var underlyingOptionSelected = 0
     
     let strategyActions = ["Buy", "Sell"]
     let timeframes = ["1H", "1D"]
+    let yieldUnderlyingOptions = ["Use my watchlist", "Specific Stock"]
+
     
     private var disposables = Set<AnyCancellable>()
     private let dataManager = NewStrategyDataManager(networkManager: NetworkManager())

@@ -14,6 +14,7 @@ struct StrategySelectionItem: View {
     var body: some View {
         VStack {
             image(for: strategy)
+                .foregroundColor(.white)
             Divider()
                 .padding()
             Text(strategy)
@@ -25,10 +26,20 @@ struct StrategySelectionItem: View {
     
     func image(for strategy: String) -> AnyView {
         switch strategy {
-        case "Multiple Moving Average":
-            return AnyView(Image(systemName: "gear"))
+        case "Moving Average":
+            return AnyView(
+                Image(systemName: "alt")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .padding()
+            )
         case "Yield":
-            return AnyView(Image(systemName: "plus"))
+            return AnyView(
+                Image(systemName: "exclamationmark.triangle")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .padding()
+            )
         default: return AnyView(EmptyView())
         }
        
@@ -37,6 +48,6 @@ struct StrategySelectionItem: View {
 
 struct StrategySelectionItem_Previews: PreviewProvider {
     static var previews: some View {
-        StrategySelectionItem(strategy: "yield")
+        StrategySelectionItem(strategy: "Yield")
     }
 }

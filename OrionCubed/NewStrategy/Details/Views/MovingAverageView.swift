@@ -7,18 +7,11 @@
 
 import SwiftUI
 
-struct NewStrategyView: View {
+struct MovingAverageView: View {
     @ObservedObject var viewModel: NewStrategyViewModel
     var typeOfStrategy: TypesOfStrategies
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    var commonViews: [AnyView] {
-        switch typeOfStrategy {
-        case .GMMA:
-            return []
-        }
-    }
     
     var searchResultsList: some View {
         ForEach(viewModel.searchResults, id: \.self) { symbol in
@@ -46,12 +39,6 @@ struct NewStrategyView: View {
                 }
                 
                 showEmptyOrList()
-                
-                //common views
-                ForEach((0..<commonViews.count), id: \.self) { index in
-                    commonViews[index]
-                }
-                
                 
                 Section(header: Text("Timeframe")) {
                     Picker("", selection: $viewModel.timeframeSelected) {
@@ -108,7 +95,7 @@ struct NewStrategyView: View {
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        NewStrategyView(viewModel:NewStrategyViewModel(strategyName: "OK"),
+        MovingAverageView(viewModel:NewStrategyViewModel(strategyName: "OK"),
                         typeOfStrategy: .GMMA)
         
     }

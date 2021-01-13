@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-enum TypesOfStrategies: String {
-    case GMMA = "Multiple Moving Average"
+enum TypesOfStrategies: Int {
+    case GMMA
+    case yield
 }
 
 struct StrategySelectionView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    var validStrategies = ["Multiple Moving Average", "Yield"] 
+    var validStrategies = ["Moving Average", "Yield"] 
     
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach((0..<validStrategies.count), id: \.self, content: { index in
-                        NavigationLink(destination: NewStrategyView(viewModel:
-                                                                        NewStrategyViewModel(strategyName: validStrategies[index]),
-                                                                    typeOfStrategy: TypesOfStrategies(rawValue: validStrategies[index]) ?? .GMMA)) {
+                        NavigationLink(destination: returnProperSelectionView(with: index)) {
                             StrategySelectionItem(strategy:validStrategies[index])
                                 .padding()
                         }
@@ -32,6 +31,21 @@ struct StrategySelectionView: View {
                 .padding()
             }
             .navigationBarTitle(Text("New Strategy"))
+        }
+    }
+    
+    func returnProperSelectionView(with index: Int) -> AnyView {
+        let type = TypesOfStrategies(rawValue: index)
+        let viewModel = NewStrategyViewModel(strategyName: validStrategies[index])
+        
+        switch type {
+        case .GMMA:
+            return AnyView(MovingAverageView(viewModel: viewModel,
+                                             typeOfStrategy: type ?? .GMMA))
+        case .yield:
+            return AnyView(YieldView(viewModel: viewModel))
+        case .none:
+            return AnyView(EmptyView())
         }
     }
 }
