@@ -19,7 +19,7 @@ class NewStrategyDataManager {
     func getCreateMAStrategyPublisher(_ strategy: MovingAverageStrategy) -> AnyPublisher<NetworkResponse, Error> {
         let endpoint = Endpoint.createStrategy
         let parameters: [String: String] = [
-            "underlying": strategy.underlying,
+            "underlying": strategy.underlyings[0],
             "action" : strategy.action,
             "identifier": strategy.identifier,
             "timeframe": strategy.timeframe,
@@ -37,7 +37,7 @@ class NewStrategyDataManager {
         let endpoint = Endpoint.createStrategy
         let parameters: [String: Any] = [
             "identifier": strategy.identifier,
-            "yieldUnderlyings": strategy.stocks,
+            "yieldUnderlyings": strategy.underlyings,
             "yieldBuyPercent": strategy.yieldBuyGoal,
             "yieldSellPercent": strategy.yieldSellGoal,
             "username": "alex"

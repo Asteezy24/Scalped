@@ -12,7 +12,7 @@ import SwiftUI
 var actions = ["Buy", "Sell"]
 
 class HomeViewModel: ObservableObject {
-    @Published var strategies = [MovingAverageStrategy]()
+    @Published var strategies = [BaseStrategy]()
     @Published var connectedToServer = false
     private var dataManager: HomeDataManager?
     private var disposables = Set<AnyCancellable>()
@@ -35,7 +35,7 @@ class HomeViewModel: ObservableObject {
                 guard let _ = self else { return }
                 switch value {
                 case .failure:
-                    break
+                    print(value)
                 case .finished:
                     break
                 }

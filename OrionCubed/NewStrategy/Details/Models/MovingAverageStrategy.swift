@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct MovingAverageStrategy: Hashable, Codable, CustomStringConvertible {
+struct MovingAverageStrategy:  Hashable, Codable, CustomStringConvertible {
     let identifier: String
-    let underlying: String
+    let underlyings: [String]
     let action: String
     let timeframe: String
 }

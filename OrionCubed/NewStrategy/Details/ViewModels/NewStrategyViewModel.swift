@@ -47,7 +47,7 @@ class NewStrategyViewModel: ObservableObject {
     
     func saveMovingAverageStrategy() {
         let strategy = MovingAverageStrategy(identifier: strategyName,
-                                             underlying: underlyingEntry,
+                                             underlyings: [underlyingEntry],
                                              action: strategyActions[actionSelected],
                                              timeframe: timeframes[timeframeSelected])
         self.dataManager.getCreateMAStrategyPublisher(strategy)
@@ -147,7 +147,7 @@ class NewStrategyViewModel: ObservableObject {
     
     
     func sendYieldToServer(stocks: [String]) {
-        let strategy = YieldStrategy(identifier: strategyName, stocks: stocks, yieldBuyGoal: String(self.yieldBuyGoal), yieldSellGoal: String(self.yieldSellGoal))
+        let strategy = YieldStrategy(identifier: strategyName, underlyings: stocks, yieldBuyGoal: String(self.yieldBuyGoal), yieldSellGoal: String(self.yieldSellGoal))
         self.dataManager.getCreateYieldStrategyPublisher(strategy)
             .receive(on: DispatchQueue.main)
             .map { response in

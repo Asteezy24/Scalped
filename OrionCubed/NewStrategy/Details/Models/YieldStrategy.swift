@@ -9,7 +9,7 @@ import Foundation
 
 struct YieldStrategy: Hashable, Decodable {
     let identifier: String
-    let stocks: [String]
+    let underlyings: [String]
     let yieldBuyGoal: String
     let yieldSellGoal: String
 }
