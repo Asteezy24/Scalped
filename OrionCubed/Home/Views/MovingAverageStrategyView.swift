@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeStrategyItem: View {
+struct MovingAverageStrategyView: View {
     
     let strategy: BaseStrategy
     
@@ -17,7 +17,7 @@ struct HomeStrategyItem: View {
                 .foregroundColor(Color.green)
                 .frame(height: 12)
             HStack {
-                Text(strategy.underlyings[0])
+                Text("")
                     .font(.title)
                     .padding()
                 Spacer()
@@ -43,7 +43,7 @@ struct HomeStrategyItem: View {
 struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            HomeStrategyItem(strategy: BaseStrategy(timeframe: "", underlyings: [], identifier: "", action: "", yieldBuyPercent: "", yieldSellPercent: ""))
+            MovingAverageStrategyView(strategy: BaseStrategy(timeframe: "", underlyings: [], identifier: "", action: "", yieldBuyPercent: "", yieldSellPercent: ""))
             .preferredColorScheme(.dark)
         }
     }

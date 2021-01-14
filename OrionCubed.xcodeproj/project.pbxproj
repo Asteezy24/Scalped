@@ -13,7 +13,7 @@
 		FB09BD592560CD9700BD4B48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB09BD582560CD9700BD4B48 /* Preview Assets.xcassets */; };
 		FB09BD642560CD9700BD4B48 /* OrionCubedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD632560CD9700BD4B48 /* OrionCubedTests.swift */; };
 		FB09BD6F2560CD9700BD4B48 /* OrionCubedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */; };
-		FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */; };
+		FB09BD8F2560D19400BD4B48 /* MovingAverageStrategyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD8E2560D19400BD4B48 /* MovingAverageStrategyView.swift */; };
 		FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */; };
 		FB3A20C925AA59D2000ADFF6 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A20C825AA59D2000ADFF6 /* WatchlistViewModel.swift */; };
 		FB3A20CE25AA5A13000ADFF6 /* WatchlistDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A20CD25AA5A13000ADFF6 /* WatchlistDataManager.swift */; };
@@ -33,6 +33,7 @@
 		FB8FAF102564C09600053D50 /* MovingAverageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAF0F2564C09600053D50 /* MovingAverageStrategy.swift */; };
 		FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */; };
 		FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B52EB256F341F00FFED3B /* Endpoint.swift */; };
+		FBA2949425AFE52500554F36 /* HomeStrategyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA2949325AFE52500554F36 /* HomeStrategyList.swift */; };
 		FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */; };
 		FBBE94F125A3F74E00723274 /* AlertsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE94F025A3F74E00723274 /* AlertsViewModel.swift */; };
 		FBBE94F925A3F7D900723274 /* AlertsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE94F825A3F7D900723274 /* AlertsDataManager.swift */; };
@@ -82,7 +83,7 @@
 		FB09BD6A2560CD9700BD4B48 /* OrionCubedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrionCubedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedUITests.swift; sourceTree = "<group>"; };
 		FB09BD702560CD9700BD4B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStrategyItem.swift; sourceTree = "<group>"; };
+		FB09BD8E2560D19400BD4B48 /* MovingAverageStrategyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageStrategyView.swift; sourceTree = "<group>"; };
 		FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FB28430B2572C7B000881533 /* OrionCubed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OrionCubed.entitlements; sourceTree = "<group>"; };
 		FB3A20C825AA59D2000ADFF6 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		FB8FAF0F2564C09600053D50 /* MovingAverageStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageStrategy.swift; sourceTree = "<group>"; };
 		FB9B52E6256F2DB700FFED3B /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		FB9B52EB256F341F00FFED3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FBA2949325AFE52500554F36 /* HomeStrategyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStrategyList.swift; sourceTree = "<group>"; };
 		FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		FBBE94F025A3F74E00723274 /* AlertsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewModel.swift; sourceTree = "<group>"; };
 		FBBE94F825A3F7D900723274 /* AlertsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsDataManager.swift; sourceTree = "<group>"; };
@@ -231,8 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				FB09BD532560CD9600BD4B48 /* HomeView.swift */,
-				FB09BD8E2560D19400BD4B48 /* HomeStrategyItem.swift */,
+				FB09BD8E2560D19400BD4B48 /* MovingAverageStrategyView.swift */,
 				FBEADCC0258EF0AB00F9DC3A /* HomeDashboardContent.swift */,
+				FBA2949325AFE52500554F36 /* HomeStrategyList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -566,7 +569,7 @@
 				FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */,
 				FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */,
 				FB8FAF0225638ACF00053D50 /* NewStrategyViewModel.swift in Sources */,
-				FB09BD8F2560D19400BD4B48 /* HomeStrategyItem.swift in Sources */,
+				FB09BD8F2560D19400BD4B48 /* MovingAverageStrategyView.swift in Sources */,
 				FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */,
 				FBEADCC1258EF0AB00F9DC3A /* HomeDashboardContent.swift in Sources */,
 				FBDDEC24259BD53A00481D6B /* AlertsView.swift in Sources */,
@@ -579,6 +582,7 @@
 				FBBE94F925A3F7D900723274 /* AlertsDataManager.swift in Sources */,
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* MovingAverageView.swift in Sources */,
+				FBA2949425AFE52500554F36 /* HomeStrategyList.swift in Sources */,
 				FB8FAF102564C09600053D50 /* MovingAverageStrategy.swift in Sources */,
 				FB3A20C925AA59D2000ADFF6 /* WatchlistViewModel.swift in Sources */,
 				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,

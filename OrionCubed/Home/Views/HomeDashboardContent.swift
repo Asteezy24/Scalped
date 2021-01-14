@@ -23,9 +23,10 @@ struct HomeDashboardContent: View {
                         .cornerRadius(35)
                     Spacer()
                 }.padding()
-                List(0..<viewModel.strategies.count, id: \.self) { strategyIndex in
-                    HomeStrategyItem(strategy: viewModel.strategies[strategyIndex])
-                }
+                HomeStrategyList(strategies: $viewModel.strategies.wrappedValue)
+//                List(0..<viewModel.strategies.count, id: \.self) { strategyIndex in
+//                    HomeStrategyItem(strategy: viewModel.strategies[strategyIndex])
+//
                 Spacer()
             }
             .onAppear(perform: {
