@@ -12,4 +12,5 @@ struct YieldStrategy: Hashable, Decodable {
     let underlyings: [String]
     let yieldBuyGoal: String
     let yieldSellGoal: String
+    let isFullWatchlist: Bool
 }

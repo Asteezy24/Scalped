@@ -122,7 +122,11 @@ extension NewStrategyViewModel {
     }
     
     func sendYieldToServer(stocks: [String]) {
-        let strategy = YieldStrategy(identifier: strategyName, underlyings: stocks, yieldBuyGoal: String(self.yieldBuyGoal), yieldSellGoal: String(self.yieldSellGoal))
+        let strategy = YieldStrategy(identifier: strategyName,
+                                     underlyings: stocks,
+                                     yieldBuyGoal: String(self.yieldBuyGoal),
+                                     yieldSellGoal: String(self.yieldSellGoal),
+                                     isFullWatchlist: self.underlyingOptionSelected == 0)
         self.dataManager.getCreateYieldStrategyPublisher(strategy)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in

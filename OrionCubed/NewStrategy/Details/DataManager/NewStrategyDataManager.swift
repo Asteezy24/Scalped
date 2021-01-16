@@ -35,6 +35,7 @@ class NewStrategyDataManager {
             "yieldUnderlyings": strategy.underlyings,
             "yieldBuyPercent": strategy.yieldBuyGoal,
             "yieldSellPercent": strategy.yieldSellGoal,
+            "isFullWatchlist": strategy.isFullWatchlist,
             "username": "alex"
 
         ]
