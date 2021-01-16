@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct MovingAverageView: View {
-    @ObservedObject var viewModel: NewStrategyViewModel
-    var typeOfStrategy: TypesOfStrategies
-    
+    @ObservedObject var viewModel: NewStrategyViewModel    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var searchResultsList: some View {
         ForEach(viewModel.searchResults, id: \.self) { symbol in
             VStack {
                 HStack {
-                    Text(symbol.name)
+                    Text(symbol)
                 }.onTapGesture {
                     viewModel.selectedUnderlying = true
-                    viewModel.underlyingEntry = symbol.name
+                    viewModel.underlyingEntry = symbol
                     UIApplication.shared.endEditing()
                 }
             }
@@ -28,10 +26,6 @@ struct MovingAverageView: View {
     }
     
     var body: some View {
-        let serviceError = Binding<Bool>(
-            get: { self.viewModel.errorAlert  },
-            set: { _ in self.viewModel.errorAlert = true }
-        )
         ZStack {
             Form {
                 Section(header: Text("Identifiers")) {
@@ -72,10 +66,6 @@ struct MovingAverageView: View {
             }
         }
         .navigationBarTitle(Text(viewModel.strategyName))
-        .alert(isPresented: serviceError) {
-            Alert(title: Text("Error!"), message: Text("Cannot Save this strategy"), dismissButton: .default(Text("Dismiss")))
-        }
-        
     }
     
     private func showEmptyOrList() -> some View {
@@ -95,8 +85,6 @@ struct MovingAverageView: View {
 
 struct NewStrategyView_Previews: PreviewProvider {
     static var previews: some View {
-        MovingAverageView(viewModel:NewStrategyViewModel(strategyName: "OK"),
-                        typeOfStrategy: .GMMA)
-        
+        MovingAverageView(viewModel:NewStrategyViewModel(strategyName: "OK"))
     }
 }

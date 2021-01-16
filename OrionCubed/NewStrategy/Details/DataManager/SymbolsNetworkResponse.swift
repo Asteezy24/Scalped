@@ -10,5 +10,5 @@ import Foundation
 struct SymbolsNetworkResponse: Hashable, Decodable {
     let error:Bool
     let message: String
-    let data: [Symbol]
+    let data: [String]
 }

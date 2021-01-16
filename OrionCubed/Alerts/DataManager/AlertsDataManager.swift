@@ -9,7 +9,6 @@ import Combine
 import SwiftUI
 
 class AlertsDataManager {
-    private var urlSession: URLSession = .shared
     public private(set) var networkManager = NetworkManager()
     
     func getPublisherForAlerts() -> AnyPublisher<AlertResponse, Error> {

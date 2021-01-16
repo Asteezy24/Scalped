@@ -8,18 +8,12 @@
 import SwiftUI
 import Combine
 
-struct Symbol: Hashable, Decodable {
-    var name: String
-}
-
 class NewStrategyViewModel: ObservableObject {
-    
     // Common/Shared
     @Published var strategyName: String
-    @Published var searchResults = [Symbol]()
+    @Published var searchResults = [String]()
     @Published var selectedUnderlying = false
     @Published var underlyingEntry = ""
-    @Published var errorAlert: Bool = false
     // Moving Average
     @Published var actionSelected = 0
     @Published var timeframeSelected = 0
@@ -32,9 +26,8 @@ class NewStrategyViewModel: ObservableObject {
     let timeframes = ["1H", "1D"]
     let yieldUnderlyingOptions = ["Use my watchlist", "Specific Stock"]
     
-    
     private var disposables = Set<AnyCancellable>()
-    private let dataManager = NewStrategyDataManager(networkManager: NetworkManager())
+    private let dataManager = NewStrategyDataManager()
     
     init(strategyName: String) {
         self.strategyName = strategyName
@@ -45,6 +38,37 @@ class NewStrategyViewModel: ObservableObject {
             .store(in: &disposables)
     }
     
+    func fetchEligibleUnderlyings(for entry: String) {
+        guard !self.selectedUnderlying else { return }
+        self.dataManager.getSymbolsPublisher(entry)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                default: break
+                }
+            }, receiveValue: { httpResponse in
+                print(httpResponse)
+                if !httpResponse.error {
+                    self.searchResults = httpResponse.data
+                } else {
+                    print("got error " + httpResponse.message)
+                }
+            })
+            .store(in: &disposables)
+    }
+    
+    private func resetValues() {
+        self.selectedUnderlying = false
+        self.underlyingEntry = ""
+        self.searchResults = []
+    }
+    
+}
+
+// Moving Average
+extension NewStrategyViewModel {
     func saveMovingAverageStrategy() {
         let strategy = MovingAverageStrategy(identifier: strategyName,
                                              underlyings: [underlyingEntry],
@@ -52,130 +76,69 @@ class NewStrategyViewModel: ObservableObject {
                                              timeframe: timeframes[timeframeSelected])
         self.dataManager.getCreateMAStrategyPublisher(strategy)
             .receive(on: DispatchQueue.main)
-            .map { response in
-                if response.error {
-                    print("got error\n\n\n")
-                    DispatchQueue.main.async {
-                        self.errorAlert = true
-                    }
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                default: break
                 }
-            }
-            .sink(
-                receiveCompletion: { [weak self] value in
-                    guard let _ = self else { return }
-                    switch value {
-                    case .failure:
-                        self?.errorAlert = true
-                        break
-                    case .finished:
-                        break
-                    }
-                },
-                receiveValue: { [weak self] response in
-                    guard let _ = self else { return }
-                })
+            }, receiveValue: { httpResponse in
+                print(httpResponse)
+                if httpResponse.error {
+                    print("got error " + httpResponse.message)
+                }
+            })
             .store(in: &disposables)
-        //reset values
-        self.selectedUnderlying = false
-        self.underlyingEntry = ""
-        self.searchResults = []
+        resetValues()
     }
-    
+}
+
+// Yield
+extension NewStrategyViewModel {
     func saveYieldStrategy() {
-        var stocks = [String]()
         if self.underlyingOptionSelected == 0 {
             self.dataManager.getPublisherForWatchlist()
                 .receive(on: DispatchQueue.main)
-                .map { data in
-                    for item in data.data {
-                        stocks.append(item.name)
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    default: break
                     }
-                    self.sendYieldToServer(stocks: stocks)
-                }.sink(receiveCompletion: { [weak self] value in
-                    guard let _ = self else { return }
-                    switch value {
-                    case .failure:
-                        break
-                    case .finished:
-                        break
+                }, receiveValue: { httpResponse in
+                    print(httpResponse)
+                    if !httpResponse.error {
+                        self.sendYieldToServer(stocks: httpResponse.data.map{$0.name})
+                    } else {
+                        print("got error " + httpResponse.message)
                     }
-                },
-                receiveValue: { [weak self] data in
-                    guard let _ = self else { return }
-                    //self.searchResults = data
                 })
                 .store(in: &disposables)
             
         } else {
-            stocks = [underlyingEntry]
+            // not implemented
         }
         
     }
-    
-    func fetchEligibleUnderlyings(for entry: String) {
-        guard !self.selectedUnderlying else { return }
-        self.dataManager.getSymbolsPublisher(entry)
-            .receive(on: DispatchQueue.main)
-            .map { response in
-                if !response.error {
-                    for symbol in response.data {
-                        self.searchResults.append(Symbol(name: symbol.name))
-                    }
-                } else {
-                    print("got error\n\n\n")
-                    DispatchQueue.main.async {
-                        self.errorAlert = true
-                    }
-                }
-            }
-            .sink(
-                receiveCompletion: { [weak self] value in
-                    guard let _ = self else { return }
-                    switch value {
-                    case .failure:
-                        break
-                    case .finished:
-                        break
-                    }
-                },
-                receiveValue: { [weak self] data in
-                    guard let _ = self else { return }
-                    //self.searchResults = data
-                })
-            .store(in: &disposables)
-    }
-    
     
     func sendYieldToServer(stocks: [String]) {
         let strategy = YieldStrategy(identifier: strategyName, underlyings: stocks, yieldBuyGoal: String(self.yieldBuyGoal), yieldSellGoal: String(self.yieldSellGoal))
         self.dataManager.getCreateYieldStrategyPublisher(strategy)
             .receive(on: DispatchQueue.main)
-            .map { response in
-                if response.error {
-                    print("got error\n\n\n")
-                    DispatchQueue.main.async {
-                        self.errorAlert = true
-                    }
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                default: break
                 }
-            }
-            .sink(
-                receiveCompletion: { [weak self] value in
-                    guard let _ = self else { return }
-                    switch value {
-                    case .failure:
-                        self?.errorAlert = true
-                        break
-                    case .finished:
-                        break
-                    }
-                },
-                receiveValue: { [weak self] response in
-                    guard let _ = self else { return }
-                })
+            }, receiveValue: { httpResponse in
+                print(httpResponse)
+                if httpResponse.error {
+                    print("got error " + httpResponse.message)
+                }
+            })
             .store(in: &disposables)
         //reset values
-        self.selectedUnderlying = false
-        self.underlyingEntry = ""
-        self.searchResults = []
+        resetValues()
     }
 }

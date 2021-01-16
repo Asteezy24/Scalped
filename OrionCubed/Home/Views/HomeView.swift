@@ -9,18 +9,16 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    @State var isActive : Bool = false
-    @State private var showModal: Bool = false
     @State private var tabBarSelection = 0
     
     var body: some View {
         VStack {
             TabView(selection: $tabBarSelection) {
                 HomeDashboardContent(viewModel: HomeViewModel())
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
                 
                 WatchlistView(viewModel: WatchlistViewModel())
                     .tabItem {
@@ -46,11 +44,6 @@ struct HomeView: View {
                     }
             }
         }
-//        .sheet(isPresented: self.$showModal) {
-//            if self.currentSheet == .plusMenu {
-//                StrategySelectionView(rootIsActive: $isActive)
-//            }
-//        }
     }
 }
 

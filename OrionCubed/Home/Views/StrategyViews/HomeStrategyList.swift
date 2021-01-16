@@ -17,13 +17,14 @@ struct HomeStrategyList: View {
                 if strategies[index].identifier == "Yield" {
                     returnYieldView(from: strategies[index])
                 } else {
-                    returnMVView(from: strategies[index])
+                    returnMAView(from: strategies[index])
                 }
             })
-        }.listStyle(InsetListStyle())
+        }
+        .listStyle(InsetListStyle())
     }
     
-    func returnMVView(from strat: BaseStrategy) -> AnyView {
+    func returnMAView(from strat: BaseStrategy) -> AnyView {
         return AnyView(
             Section {
                 DisclosureGroup {
@@ -91,9 +92,9 @@ struct HomeStrategyList: View {
 struct HomeStrategyList_Previews: PreviewProvider {
     static var previews: some View {
         HomeStrategyList(strategies:[
-                            BaseStrategy(timeframe: "", underlyings: ["AAPL", "SPY"], identifier: "Yield", action: "", yieldBuyPercent: "6", yieldSellPercent: "6"),
-                            BaseStrategy(timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", yieldBuyPercent: "", yieldSellPercent: ""),
-                            BaseStrategy(timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", yieldBuyPercent: "", yieldSellPercent: "")
-                        ])
+            BaseStrategy(timeframe: "", underlyings: ["AAPL", "SPY"], identifier: "Yield", action: "", yieldBuyPercent: "6", yieldSellPercent: "6"),
+            BaseStrategy(timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", yieldBuyPercent: "", yieldSellPercent: ""),
+            BaseStrategy(timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", yieldBuyPercent: "", yieldSellPercent: "")
+        ])
     }
 }

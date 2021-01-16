@@ -1,20 +1,21 @@
 //
-//  HomeViewModel.swift
+//  AlertsViewModel.swift
 //  OrionCubed
 //
-//  Created by Alexander Stevens on 11/16/20.
+//  Created by Alexander Stevens on 1/4/21.
 //
 
 import Combine
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
-    @Published var strategies = [BaseStrategy]()
-    private var dataManager = HomeDataManager()
+class AlertsViewModel: ObservableObject {
+    
+    @Published var alerts = [StrategyAlert]()
+    private var dataManager = AlertsDataManager()
     private var disposables = Set<AnyCancellable>()
     
-    func getAllStrategies() {
-        self.dataManager.getPublisherForStrategies()
+    func getAllAlerts() {
+        self.dataManager.getPublisherForAlerts()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -25,12 +26,11 @@ class HomeViewModel: ObservableObject {
             }, receiveValue: { httpResponse in
                 print(httpResponse)
                 if !httpResponse.error {
-                    self.strategies = httpResponse.data
+                    self.alerts = httpResponse.data
                 } else {
                     print("got error " + httpResponse.message)
                 }
             })
             .store(in: &disposables)
     }
-    
 }

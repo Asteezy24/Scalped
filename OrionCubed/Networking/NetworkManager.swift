@@ -48,29 +48,15 @@ final class NetworkManager: NetworkManagerProtocol {
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .handleEvents(receiveOutput: { output in
-                print("\nMade service call to: \(String(describing: request.url))" )
+                guard let url = request.url else { return }
+                print("\n\(url)")
                 if let httpResponse = output.response as? HTTPURLResponse {
                     print("StatusCode: \(httpResponse.statusCode)")
                 }
-                print("Got response of: \(String(decoding: output.data, as: UTF8.self))")
             },
-            receiveCompletion: { print("Receive completion: \($0)\n\n") })
+            receiveCompletion: { print("Receive completion: \($0)\n") })
             .map(\.data)
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
-    }
-}
-
-// MARK: - Debugging Helper
-extension CustomStringConvertible where Self: Codable {
-    var description: String {
-        var description = "\n***** \(type(of: self)) *****\n"
-        let selfMirror = Mirror(reflecting: self)
-        for child in selfMirror.children {
-            if let propertyName = child.label {
-                description += "\(propertyName): \(child.value)\n"
-            }
-        }
-        return description
     }
 }

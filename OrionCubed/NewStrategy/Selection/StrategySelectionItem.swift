@@ -42,7 +42,7 @@ struct StrategySelectionItem: View {
             )
         default: return AnyView(EmptyView())
         }
-       
+        
     }
 }
 

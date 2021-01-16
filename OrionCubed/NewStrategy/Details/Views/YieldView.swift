@@ -21,11 +21,11 @@ struct YieldView: View {
                     ForEach(viewModel.searchResults, id: \.self) { symbol in
                         VStack {
                             HStack {
-                                Text(symbol.name)
+                                Text(symbol)
                                 Spacer()
                             }.onTapGesture {
                                 self.viewModel.selectedUnderlying = true
-                                self.viewModel.underlyingEntry = symbol.name
+                                self.viewModel.underlyingEntry = symbol
                                 UIApplication.shared.endEditing()
                             }
                         }
@@ -35,7 +35,7 @@ struct YieldView: View {
             })
         }
     }
-        
+    
     var body: some View {
         ZStack{
             Form {
@@ -84,8 +84,6 @@ struct YieldView: View {
         presentationMode.wrappedValue.dismiss()
         self.viewModel.saveYieldStrategy()
     }
-    
-
 }
 
 struct YieldView_Previews: PreviewProvider {

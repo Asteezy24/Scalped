@@ -12,3 +12,8 @@ struct AlertResponse: Decodable, Hashable {
     let message: String
     let data: [StrategyAlert]
 }
+
+struct StrategyAlert: Decodable, Hashable {
+    var action: String
+    var underlying: String
+}

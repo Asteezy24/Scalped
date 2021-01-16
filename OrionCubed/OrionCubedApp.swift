@@ -32,7 +32,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let notificationOption = launchOptions?[.remoteNotification]
         
         UIApplication.shared.applicationIconBadgeNumber = 0
-
         
         // 1
         if let notification = notificationOption as? [String: AnyObject], let _ = notification["aps"] as? [String: AnyObject] {}
@@ -53,19 +52,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         networkManager.request(type: NetworkResponse.self, requestType: .post, parameters: parameterDictionary, url: endpoint.url, headers: [:])
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] value in
-                guard let _ = self else { return }
-                switch value {
-                case .failure:                           
-                    print("Error in sending device token")
-                case .finished:
-                    print("Sent value for device token")
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                default: break
                 }
-            },
-            receiveValue: { [weak self] response in
-                guard let _ = self else { return }                
-                if !response.error {
-                    print("Received response for notification registration")
+            }, receiveValue: { httpResponse in
+                print(httpResponse)
+                if httpResponse.error {
+                    print("got error " + httpResponse.message)
                 }
             })
             .store(in: &disposables)

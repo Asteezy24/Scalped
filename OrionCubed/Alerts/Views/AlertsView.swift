@@ -17,23 +17,23 @@ struct AlertsView: View {
                 List {
                     Section(header: Text("Last 24 Hours")) {
                         ForEach(viewModel.alerts, id: \.self) { alerts in
-                            AlertItem(alert: StrategyAlert(action: alerts.action, underlying: alerts.action), typeOfStrategy: "Testing")
+                            AlertItem(alert: StrategyAlert(action: alerts.action, underlying: alerts.action), strategyName: "Testing")
                         }
                     }
                 }
                 .navigationBarTitle("Alerts")
                 .listStyle(GroupedListStyle())
-            }.onAppear(perform: {
-                self.viewModel.getAllAlerts()
-            })
-        }
+            }
+        }.onAppear(perform: {
+            self.viewModel.getAllAlerts()
+        })
     }
 }
 
 struct AlertsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-        AlertsView(viewModel: AlertsViewModel())
+            AlertsView(viewModel: AlertsViewModel())
         }
     }
 }

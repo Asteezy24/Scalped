@@ -18,20 +18,20 @@ struct WatchlistView: View {
                     List {
                         ForEach(0..<viewModel.watchlist.count, id: \.self) { row in
                             WatchlistItem(item: viewModel.watchlist[row])
-                        }.onDelete(perform: delete)
+                        }
+                        .onDelete(perform: delete)
                     }
-                    
                     .listStyle(InsetGroupedListStyle())
                     Spacer()
                 }
-            }.onAppear(perform: {
-                self.viewModel.getWatchlist()
-            })
+            }
             .navigationBarTitle("Watchlist")
             .navigationBarItems(trailing: NavigationLink(destination: AddWatchlistItemView(viewModel: AddWatchlistItemViewModel())) {
                 Image(systemName:"plus").imageScale(.large)
             })
-        }
+        }.onAppear(perform: {
+            self.viewModel.getWatchlist()
+        })
     }
     
     func delete(at offsets: IndexSet) {

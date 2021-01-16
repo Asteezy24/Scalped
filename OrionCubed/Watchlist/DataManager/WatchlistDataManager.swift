@@ -9,7 +9,6 @@ import Combine
 import SwiftUI
 
 class WatchlistDataManager {
-    private var urlSession: URLSession = .shared
     public private(set) var networkManager = NetworkManager()
     
     func getPublisherForWatchlist() -> AnyPublisher<WatchlistResponse, Error> {

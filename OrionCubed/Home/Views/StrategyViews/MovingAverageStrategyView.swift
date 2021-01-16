@@ -35,8 +35,6 @@ struct MovingAverageStrategyView: View {
             } .padding(.trailing, 16)
         }
         .background(Color.gray)
-        //.cornerRadius(8)
-        //.shadow(radius: 8)
     }
 }
 
@@ -44,7 +42,7 @@ struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
             MovingAverageStrategyView(strategy: BaseStrategy(timeframe: "", underlyings: [], identifier: "", action: "", yieldBuyPercent: "", yieldSellPercent: ""))
-            .preferredColorScheme(.dark)
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -13,7 +13,7 @@ struct Endpoint {
     var path: String
 }
 
-/// Dummy API specific Endpoint extension
+/// API specific Endpoint extension
 extension Endpoint {
     var url: URL {
         var components = URLComponents()
@@ -32,7 +32,7 @@ extension Endpoint {
     }
 }
 
-/// Dummy API endpoints
+/// API endpoints
 extension Endpoint {
     static var getSymbols: Self {
         return Endpoint(path: "/api/symbols")

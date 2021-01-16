@@ -10,7 +10,7 @@ import SwiftUI
 struct AlertItem: View {
     
     var alert: StrategyAlert
-    var typeOfStrategy: String
+    var strategyName: String
     
     var body: some View {
         HStack {
@@ -20,7 +20,7 @@ struct AlertItem: View {
                 .foregroundColor( alert.action == "Buy" ? .red : .green )
             VStack(alignment: .leading) {
                 HStack {
-                    Text(typeOfStrategy)
+                    Text(strategyName)
                         .font(.caption)
                         .multilineTextAlignment(.leading)
                 }
@@ -41,10 +41,9 @@ struct AlertItem: View {
 struct AlertItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            AlertItem(alert: StrategyAlert(action: "Buy", underlying: "AAPL"), typeOfStrategy: "Yield")
-            AlertItem(alert: StrategyAlert(action: "Buy", underlying: "DIS"), typeOfStrategy: "GMMA")
-            AlertItem(alert: StrategyAlert(action: "Sell", underlying: "F"), typeOfStrategy: "GMMA")
-
+            AlertItem(alert: StrategyAlert(action: "Buy", underlying: "AAPL"), strategyName: "Yield")
+            AlertItem(alert: StrategyAlert(action: "Buy", underlying: "DIS"), strategyName: "GMMA")
+            AlertItem(alert: StrategyAlert(action: "Sell", underlying: "F"), strategyName: "GMMA")
         }
     }
 }

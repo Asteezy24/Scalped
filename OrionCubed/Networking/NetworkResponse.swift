@@ -8,6 +8,6 @@
 import Foundation
 
 struct NetworkResponse: Codable {
-    let error:Bool
+    let error: Bool
     let message: String
 }

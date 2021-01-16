@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-enum TypesOfStrategies: Int {
-    case GMMA
-    case yield
-}
-
 struct StrategySelectionView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    var validStrategies = ["Moving Average", "Yield"] 
+    var validStrategies = ["Moving Average", "Yield"]
+    
+    enum TypesOfStrategies: Int {
+        case GMMA
+        case yield
+    }
     
     var body: some View {
         NavigationView {
@@ -35,17 +35,14 @@ struct StrategySelectionView: View {
     }
     
     func returnProperSelectionView(with index: Int) -> AnyView {
-        let type = TypesOfStrategies(rawValue: index)
+        guard let type = TypesOfStrategies(rawValue: index) else { return AnyView(EmptyView())}
         let viewModel = NewStrategyViewModel(strategyName: validStrategies[index])
         
         switch type {
         case .GMMA:
-            return AnyView(MovingAverageView(viewModel: viewModel,
-                                             typeOfStrategy: type ?? .GMMA))
+            return AnyView(MovingAverageView(viewModel: viewModel))
         case .yield:
             return AnyView(YieldView(viewModel: viewModel))
-        case .none:
-            return AnyView(EmptyView())
         }
     }
 }

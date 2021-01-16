@@ -35,12 +35,11 @@ struct Settings: View {
                 Text("1.0")
             }.padding()
             Divider()
-            Text("Copyright Alexander Stevens")
+            Text("© Copyright Alexander Stevens")
                 .font(.footnote)
             Spacer()
         }
         .navigationBarHidden(false)
-        
     }
 }
 

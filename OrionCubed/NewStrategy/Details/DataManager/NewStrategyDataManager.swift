@@ -5,16 +5,11 @@
 //  Created by Alexander Stevens on 11/18/20.
 //
 
-import Foundation
 import Combine
 
 class NewStrategyDataManager {
         
-    let networkManager: NetworkManagerProtocol
-    
-    init(networkManager: NetworkManagerProtocol) {
-        self.networkManager = networkManager
-    }
+    let networkManager = NetworkManager()
     
     func getCreateMAStrategyPublisher(_ strategy: MovingAverageStrategy) -> AnyPublisher<NetworkResponse, Error> {
         let endpoint = Endpoint.createStrategy

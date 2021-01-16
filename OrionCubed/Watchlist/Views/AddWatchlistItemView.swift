@@ -10,7 +10,6 @@ import SwiftUI
 struct AddWatchlistItemView: View {
     @State var stocksAdded = [String]()
     @ObservedObject var viewModel: AddWatchlistItemViewModel
-    @State var searchResults: [String] = []
     
     var body: some View {
         VStack {
@@ -19,18 +18,17 @@ struct AddWatchlistItemView: View {
                     TextField("Search for a stock", text: $viewModel.underlyingEntry)
                 }
                 List {
-                    
                     ForEach(viewModel.searchResults, id: \.self) { symbol in
                         HStack {
-                            Text(symbol.name)
+                            Text(symbol)
                             Spacer()
-                            Image(systemName: $stocksAdded.wrappedValue.contains(symbol.name)
+                            Image(systemName: $stocksAdded.wrappedValue.contains(symbol)
                                     ? "checkmark"
                                     : "plus")
-                            .onTapGesture {
-                                stocksAdded.append(symbol.name)
-                                viewModel.addToWatchlist(name: symbol.name)
-                            }
+                                .onTapGesture {
+                                    stocksAdded.append(symbol)
+                                    viewModel.addToWatchlist(name: symbol)
+                                }
                         }
                     }
                 }
