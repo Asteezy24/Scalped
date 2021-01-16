@@ -24,14 +24,18 @@ struct WatchlistView: View {
                     .listStyle(InsetGroupedListStyle())
                     Spacer()
                 }
-            }
-            .navigationBarTitle("Watchlist")
-            .navigationBarItems(trailing: NavigationLink(destination: AddWatchlistItemView(viewModel: AddWatchlistItemViewModel())) {
-                Image(systemName:"plus").imageScale(.large)
+            }.onAppear(perform: {
+                self.viewModel.getWatchlist()
             })
-        }.onAppear(perform: {
-            self.viewModel.getWatchlist()
-        })
+            .navigationTitle("Watchlist")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: AddWatchlistItemView(viewModel: AddWatchlistItemViewModel())) {
+                        Image(systemName:"plus").imageScale(.large)
+                    }
+                }
+            }
+        }
     }
     
     func delete(at offsets: IndexSet) {

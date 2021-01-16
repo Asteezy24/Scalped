@@ -21,7 +21,7 @@ struct AlertsView: View {
                         }
                     }
                 }
-                .navigationBarTitle("Alerts")
+                .navigationTitle("Alerts")
                 .listStyle(GroupedListStyle())
             }
         }.onAppear(perform: {

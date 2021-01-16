@@ -7,6 +7,7 @@
 
 import Combine
 import SwiftUI
+import os
 
 class HomeViewModel: ObservableObject {
     @Published var strategies = [BaseStrategy]()
@@ -33,4 +34,20 @@ class HomeViewModel: ObservableObject {
             .store(in: &disposables)
     }
     
+    func determineBannerGreeting() -> String {
+        let date = Date()
+        // *** create calendar object ***
+        var calendar = Calendar.current
+        // *** define calendar components to use as well Timezone to UTC ***
+        calendar.timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "")!
+        // *** Get Individual components from date ***
+        let hour = calendar.component(.hour, from: date)
+        if (6 <= hour && hour <= 12) {
+            return "Good Morning!"
+        } else if (13 <= hour && hour <= 17) {
+            return "Good Afternoon!"
+        } else {
+            return "Good Evening!"
+        }
+    }
 }

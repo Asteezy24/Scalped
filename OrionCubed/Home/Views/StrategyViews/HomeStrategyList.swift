@@ -59,9 +59,9 @@ struct HomeStrategyList: View {
                     DisclosureGroup {
                         ForEach((0..<strat.underlyings.count), id: \.self, content: { index in
                             HStack {
-                                Text("Underlying: ")
                                 Spacer()
-                                Text("\(strat.underlyings[index])")
+                                Text("\(strat.underlyings[index])").fontWeight(.bold)
+                                Spacer()
                             }
                             
                         })

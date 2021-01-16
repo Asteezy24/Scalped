@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB03734725B29E9500740653 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB03734625B29E9500740653 /* SwiftUIView.swift */; };
 		FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */; };
 		FB09BD542560CD9600BD4B48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD532560CD9600BD4B48 /* HomeView.swift */; };
 		FB09BD562560CD9700BD4B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB09BD552560CD9700BD4B48 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB03734625B29E9500740653 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		FB09BD4E2560CD9600BD4B48 /* OrionCubed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrionCubed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedApp.swift; sourceTree = "<group>"; };
 		FB09BD532560CD9600BD4B48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		FB09BD452560CD9600BD4B48 = {
 			isa = PBXGroup;
 			children = (
+				FB03734625B29E9500740653 /* SwiftUIView.swift */,
 				FB09BD502560CD9600BD4B48 /* OrionCubed */,
 				FB09BD622560CD9700BD4B48 /* OrionCubedTests */,
 				FB09BD6D2560CD9700BD4B48 /* OrionCubedUITests */,
@@ -620,6 +623,7 @@
 				FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */,
 				FB8D244F25AB5FA500383627 /* YieldView.swift in Sources */,
 				FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */,
+				FB03734725B29E9500740653 /* SwiftUIView.swift in Sources */,
 				FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */,
 				FBDDEC1F259BD52F00481D6B /* WatchlistView.swift in Sources */,
 				FBBE94F125A3F74E00723274 /* AlertsViewModel.swift in Sources */,

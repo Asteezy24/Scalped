@@ -24,16 +24,21 @@ struct HomeDashboardContent: View {
                 HomeStrategyList(strategies: $viewModel.strategies.wrappedValue)
                 Spacer()
             }
-            .navigationBarTitle("Good Morning!")
-            .navigationBarItems(leading: Text("App Name"),
-                                trailing:
-                                    HStack {
-                                        Image(systemName:"person.crop.square")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 20, height: 20)
-                                    } 
-                                    .padding())
+            .navigationTitle(viewModel.determineBannerGreeting())
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("App Name")
+                }
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    HStack {
+                        Image(systemName:"person.crop.square")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                    }
+                    .padding()
+                })
+            })
         }.onAppear(perform: {
             self.viewModel.getAllStrategies()
         })

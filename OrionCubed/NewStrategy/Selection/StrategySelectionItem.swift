@@ -14,11 +14,11 @@ struct StrategySelectionItem: View {
     var body: some View {
         VStack {
             image(for: strategy)
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
             Divider()
                 .padding()
             Text(strategy)
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
         }
         .padding()
         .background(Color.gray.opacity(0.2))
@@ -49,5 +49,7 @@ struct StrategySelectionItem: View {
 struct StrategySelectionItem_Previews: PreviewProvider {
     static var previews: some View {
         StrategySelectionItem(strategy: "Yield")
+            .preferredColorScheme(.dark)
+
     }
 }
