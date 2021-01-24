@@ -43,10 +43,10 @@ struct HomeView: View {
                         Text("Settings")
                     }
             }
+            .edgesIgnoringSafeArea(.top)
         }
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

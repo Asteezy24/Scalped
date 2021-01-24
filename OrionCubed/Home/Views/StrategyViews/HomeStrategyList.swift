@@ -11,6 +11,10 @@ struct HomeStrategyList: View {
     
     var strategies: [BaseStrategy]
     
+    init(strategies: [BaseStrategy]){
+        self.strategies = strategies
+    }
+    
     var body: some View {
         List {
             ForEach((0..<strategies.count), id: \.self, content: { index in
@@ -21,7 +25,9 @@ struct HomeStrategyList: View {
                 }
             })
         }
+        .padding(.top,  16)
         .listStyle(InsetListStyle())
+        
     }
     
     func returnMAView(from strat: BaseStrategy) -> AnyView {

@@ -10,43 +10,59 @@ import SwiftUI
 struct HomeDashboardContent: View {
     @ObservedObject var viewModel: HomeViewModel
     
+    init(viewModel:HomeViewModel) {
+        self.viewModel = viewModel
+//        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    Text("Strategies")
-                        .font(.footnote)
-                        .padding(8)
-                        .background(Color.blue)
-                        .cornerRadius(35)
-                    Spacer()
-                }.padding()
-                HomeStrategyList(strategies: $viewModel.strategies.wrappedValue)
-                Spacer()
-            }
-            .navigationTitle(viewModel.determineBannerGreeting())
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Text("App Name")
-                }
-                ToolbarItem(placement: .navigationBarTrailing, content: {
+            ZStack {
+                Color.homeScreenBlue.edgesIgnoringSafeArea(.top)
+                VStack {
                     HStack {
-                        Image(systemName:"person.crop.square")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
+                        Text("Strategies")
+                            .font(.footnote)
+                            .padding(8)
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(35)
+                        Spacer()
                     }
                     .padding()
+                    HomeStrategyList(strategies: $viewModel.strategies.wrappedValue)
+                    
+                }
+                .background(Color.homeScreenBlue)
+                .navigationTitle(viewModel.determineBannerGreeting())
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Text("App Name").foregroundColor(.white)
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing, content: {
+                        HStack {
+                            Image(systemName:"person.crop.square")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                        }
+                        .padding()
+                    })
                 })
-            })
+            }
         }.onAppear(perform: {
             self.viewModel.getAllStrategies()
         })
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .edgesIgnoringSafeArea(.top)
     }
 }
 
 struct HomeDashboardContent_Previews: PreviewProvider {
     static var previews: some View {
         HomeDashboardContent(viewModel: HomeViewModel())
+        HomeDashboardContent(viewModel: HomeViewModel())
+            .preferredColorScheme(.dark)
     }
 }

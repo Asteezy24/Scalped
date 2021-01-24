@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB03734725B29E9500740653 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB03734625B29E9500740653 /* SwiftUIView.swift */; };
 		FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */; };
 		FB09BD542560CD9600BD4B48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD532560CD9600BD4B48 /* HomeView.swift */; };
 		FB09BD562560CD9700BD4B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB09BD552560CD9700BD4B48 /* Assets.xcassets */; };
@@ -41,12 +40,16 @@
 		FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13C258991C9004BC2F9 /* Icon+PreviewHelpers.swift */; };
 		FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13D258991C9004BC2F9 /* Icon.swift */; };
 		FBBEB15D2589A931004BC2F9 /* SymbolsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */; };
+		FBD1BC7425B7C88300217BDC /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1BC7325B7C88200217BDC /* Color+Extensions.swift */; };
+		FBD1BC7925B7D98200217BDC /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1BC7825B7D98200217BDC /* View+Extensions.swift */; };
 		FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD89CE6258415A800789F44 /* StrategyResponse.swift */; };
 		FBDDEC1F259BD52F00481D6B /* WatchlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC1E259BD52F00481D6B /* WatchlistView.swift */; };
 		FBDDEC24259BD53A00481D6B /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC23259BD53A00481D6B /* AlertsView.swift */; };
 		FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC2B259BD95300481D6B /* AlertItem.swift */; };
 		FBDDEC3E259CD87B00481D6B /* AddWatchlistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC3D259CD87A00481D6B /* AddWatchlistItemView.swift */; };
 		FBDDEC48259D579200481D6B /* WatchlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC47259D579200481D6B /* WatchlistItem.swift */; };
+		FBDEE99125BE2F09009EEBB9 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = FBDEE99025BE2F09009EEBB9 /* terms.html */; };
+		FBDEE99625BE3028009EEBB9 /* TermsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDEE99525BE3028009EEBB9 /* TermsWebView.swift */; };
 		FBEADCAC258EEF7900F9DC3A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADCAB258EEF7900F9DC3A /* Settings.swift */; };
 		FBEADCC1258EF0AB00F9DC3A /* HomeDashboardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEADCC0258EF0AB00F9DC3A /* HomeDashboardContent.swift */; };
 /* End PBXBuildFile section */
@@ -69,7 +72,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FB03734625B29E9500740653 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		FB09BD4E2560CD9600BD4B48 /* OrionCubed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrionCubed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedApp.swift; sourceTree = "<group>"; };
 		FB09BD532560CD9600BD4B48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -112,12 +114,16 @@
 		FBBEB13E258991C9004BC2F9 /* IconGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
 		FBBEB13F258991C9004BC2F9 /* generate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generate.swift; sourceTree = "<group>"; };
 		FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsNetworkResponse.swift; sourceTree = "<group>"; };
+		FBD1BC7325B7C88200217BDC /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		FBD1BC7825B7D98200217BDC /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		FBD89CE6258415A800789F44 /* StrategyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyResponse.swift; sourceTree = "<group>"; };
 		FBDDEC1E259BD52F00481D6B /* WatchlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistView.swift; sourceTree = "<group>"; };
 		FBDDEC23259BD53A00481D6B /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
 		FBDDEC2B259BD95300481D6B /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		FBDDEC3D259CD87A00481D6B /* AddWatchlistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWatchlistItemView.swift; sourceTree = "<group>"; };
 		FBDDEC47259D579200481D6B /* WatchlistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistItem.swift; sourceTree = "<group>"; };
+		FBDEE99025BE2F09009EEBB9 /* terms.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
+		FBDEE99525BE3028009EEBB9 /* TermsWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsWebView.swift; sourceTree = "<group>"; };
 		FBEADCAB258EEF7900F9DC3A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FBEADCC0258EF0AB00F9DC3A /* HomeDashboardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +156,6 @@
 		FB09BD452560CD9600BD4B48 = {
 			isa = PBXGroup;
 			children = (
-				FB03734625B29E9500740653 /* SwiftUIView.swift */,
 				FB09BD502560CD9600BD4B48 /* OrionCubed */,
 				FB09BD622560CD9700BD4B48 /* OrionCubedTests */,
 				FB09BD6D2560CD9700BD4B48 /* OrionCubedUITests */,
@@ -267,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				FB4118A5258178B000F046D3 /* Globals.swift */,
+				FBDEE99025BE2F09009EEBB9 /* terms.html */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -365,6 +371,8 @@
 			isa = PBXGroup;
 			children = (
 				FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */,
+				FBD1BC7325B7C88200217BDC /* Color+Extensions.swift */,
+				FBD1BC7825B7D98200217BDC /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,6 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				FBEADCAB258EEF7900F9DC3A /* Settings.swift */,
+				FBDEE99525BE3028009EEBB9 /* TermsWebView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -550,6 +559,7 @@
 			files = (
 				FB09BD592560CD9700BD4B48 /* Preview Assets.xcassets in Resources */,
 				FB09BD562560CD9700BD4B48 /* Assets.xcassets in Resources */,
+				FBDEE99125BE2F09009EEBB9 /* terms.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBEADCAC258EEF7900F9DC3A /* Settings.swift in Sources */,
+				FBDEE99625BE3028009EEBB9 /* TermsWebView.swift in Sources */,
 				FB8D245725AE7ACA00383627 /* YieldStrategy.swift in Sources */,
 				FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */,
 				FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */,
@@ -615,6 +626,7 @@
 				FB8FAEFD2563777C00053D50 /* MovingAverageView.swift in Sources */,
 				FBA2949425AFE52500554F36 /* HomeStrategyList.swift in Sources */,
 				FB8FAF102564C09600053D50 /* MovingAverageStrategy.swift in Sources */,
+				FBD1BC7425B7C88300217BDC /* Color+Extensions.swift in Sources */,
 				FB3A20C925AA59D2000ADFF6 /* WatchlistViewModel.swift in Sources */,
 				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,
 				FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */,
@@ -623,7 +635,6 @@
 				FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */,
 				FB8D244F25AB5FA500383627 /* YieldView.swift in Sources */,
 				FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */,
-				FB03734725B29E9500740653 /* SwiftUIView.swift in Sources */,
 				FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */,
 				FBDDEC1F259BD52F00481D6B /* WatchlistView.swift in Sources */,
 				FBBE94F125A3F74E00723274 /* AlertsViewModel.swift in Sources */,
@@ -632,6 +643,7 @@
 				FBDDEC3E259CD87B00481D6B /* AddWatchlistItemView.swift in Sources */,
 				FB3A20CE25AA5A13000ADFF6 /* WatchlistDataManager.swift in Sources */,
 				FB6C62AF258C1DB00022CB84 /* StrategySelectionItem.swift in Sources */,
+				FBD1BC7925B7D98200217BDC /* View+Extensions.swift in Sources */,
 				FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

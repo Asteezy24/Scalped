@@ -41,6 +41,7 @@ class AddWatchlistItemViewModel: ObservableObject {
     }
     
     func fetchEligibleUnderlyings(for entry: String) {
+        guard entry != "" else { return }
         self.dataManager.getSymbolsPublisher(entry)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in

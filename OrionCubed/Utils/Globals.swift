@@ -8,7 +8,7 @@
 import Foundation
 
 enum environments: String {
-    case dev = "192.168.0.184"
+    case dev = "192.168.0.89"
     case prod = "104.237.146.89"
 }
 

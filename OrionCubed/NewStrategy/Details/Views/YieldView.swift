@@ -11,28 +11,27 @@ struct YieldView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: NewStrategyViewModel
     
+    var searchResultsList: some View {
+        ForEach(viewModel.searchResults, id: \.self) { symbol in
+            VStack {
+                HStack {
+                    Text(symbol)
+                    Spacer()
+                }.onTapGesture {
+                    self.viewModel.selectedUnderlying = true
+                    self.viewModel.underlyingEntry = symbol
+                    UIApplication.shared.endEditing()
+                }
+            }
+        }
+    }
+    
     var underlyingSearchView: some View {
         if self.$viewModel.underlyingOptionSelected.wrappedValue == 0 {
             return AnyView(EmptyView())
         } else {
-            return AnyView(VStack {
-                TextField("Underlying", text: $viewModel.underlyingEntry)
-                if !self.viewModel.selectedUnderlying {
-                    ForEach(viewModel.searchResults, id: \.self) { symbol in
-                        VStack {
-                            HStack {
-                                Text(symbol)
-                                Spacer()
-                            }.onTapGesture {
-                                self.viewModel.selectedUnderlying = true
-                                self.viewModel.underlyingEntry = symbol
-                                UIApplication.shared.endEditing()
-                            }
-                        }
-                    }
-                }
-                
-            })
+            return AnyView(
+                TextField("Underlying", text: $viewModel.underlyingEntry))
         }
     }
     
@@ -46,8 +45,10 @@ struct YieldView: View {
                         }
                     }.pickerStyle(SegmentedPickerStyle())
                 }
-                
-                underlyingSearchView
+                Section {
+                    underlyingSearchView
+                }
+                showEmptyOrList()
                 
                 Section(header: Text("Buy Percentage")) {
                     VStack {
@@ -78,6 +79,14 @@ struct YieldView: View {
             }
         }
         .navigationBarTitle("Yield")
+    }
+    private func showEmptyOrList() -> some View {
+        switch $viewModel.selectedUnderlying.wrappedValue {
+        case true:
+            return AnyView(EmptyView())
+        case false:
+            return AnyView(searchResultsList)
+        }
     }
     
     private func saveStrategyAndDismiss() {

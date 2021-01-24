@@ -39,7 +39,7 @@ class NewStrategyViewModel: ObservableObject {
     }
     
     func fetchEligibleUnderlyings(for entry: String) {
-        guard !self.selectedUnderlying else { return }
+        guard entry != "" else { return }
         self.dataManager.getSymbolsPublisher(entry)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -116,7 +116,8 @@ extension NewStrategyViewModel {
                 .store(in: &disposables)
             
         } else {
-            // not implemented
+            self.sendYieldToServer(stocks: [self.underlyingEntry])
+            
         }
         
     }

@@ -7,31 +7,35 @@
 
 import SwiftUI
 
+let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+
 struct Settings: View {
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    Text("View Terms and Conditions")
-                    Spacer()
-                }.padding()
-                Divider()
+            List {
+                NavigationLink(destination:
+                                WebView()
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                                .navigationBarTitle("Terms & Conditions", displayMode: .inline)) {
+                    HStack {
+                        Text("View Terms and Conditions")
+                        Spacer()
+                    }.padding()
+                }
                 HStack {
                     Text("Feedback and Support")
                     Spacer()
                 }.padding()
-                Divider()
                 HStack {
                     Text("Version")
                     Spacer()
-                    Text("1.0")
+                    Text(appVersionString)
                 }.padding()
-                Divider()
                 Text("© Copyright Alexander Stevens")
                     .font(.footnote)
-                Spacer()
             }
             .navigationTitle("Settings")
+            .listStyle(InsetListStyle())
         }
     }
 }
