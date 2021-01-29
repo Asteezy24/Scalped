@@ -58,4 +58,7 @@ extension Endpoint {
     static var sendDeviceId: Self {
         return Endpoint(path: "/api/notification/updateToken")
     }
+    static var createUser: Self {
+        return Endpoint(path: "/api/users/signup")
+    }
 }

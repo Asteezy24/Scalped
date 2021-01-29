@@ -14,7 +14,7 @@ struct OrionCubedApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            MotherView(viewRouter: ViewRouter())
         }
     }
 }

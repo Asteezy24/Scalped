@@ -39,16 +39,6 @@ struct HomeDashboardContent: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Text("App Name").foregroundColor(.white)
                     }
-                    ToolbarItem(placement: .navigationBarTrailing, content: {
-                        HStack {
-                            Image(systemName:"person.crop.square")
-                                .resizable()
-                                .foregroundColor(.white)
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 20, height: 20)
-                        }
-                        .padding()
-                    })
                 })
             }
         }.onAppear(perform: {

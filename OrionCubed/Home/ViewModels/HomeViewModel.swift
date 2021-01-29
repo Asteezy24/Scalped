@@ -7,7 +7,6 @@
 
 import Combine
 import SwiftUI
-import os
 
 class HomeViewModel: ObservableObject {
     @Published var strategies = [BaseStrategy]()

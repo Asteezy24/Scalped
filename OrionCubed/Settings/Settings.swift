@@ -10,6 +10,9 @@ import SwiftUI
 let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
 
 struct Settings: View {
+    
+    @ObservedObject var viewRouter: ViewRouter
+    
     var body: some View {
         NavigationView {
             List {
@@ -23,14 +26,23 @@ struct Settings: View {
                     }.padding()
                 }
                 HStack {
-                    Text("Feedback and Support")
-                    Spacer()
-                }.padding()
-                HStack {
                     Text("Version")
                     Spacer()
                     Text(appVersionString)
                 }.padding()
+                HStack {
+                    Spacer()
+                    Button(action: { viewRouter.currentPage = .logIn }) {
+                        Text("Sign Out")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.gray)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .padding()
+                    }
+                    Spacer()
+                }
                 Text("© Copyright Alexander Stevens")
                     .font(.footnote)
             }
@@ -42,6 +54,6 @@ struct Settings: View {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        Settings(viewRouter: ViewRouter())
     }
 }

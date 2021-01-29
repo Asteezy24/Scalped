@@ -10,6 +10,7 @@ import Combine
 
 struct HomeView: View {
     @State private var tabBarSelection = 0
+    @ObservedObject var viewRouter: ViewRouter
     
     var body: some View {
         VStack {
@@ -37,7 +38,7 @@ struct HomeView: View {
                         Image(systemName: "bell")
                         Text("Alerts")
                     }
-                Settings()
+                Settings(viewRouter: viewRouter)
                     .tabItem {
                         Image(systemName: "gear")
                         Text("Settings")
@@ -50,6 +51,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewRouter: ViewRouter())
     }
 }
