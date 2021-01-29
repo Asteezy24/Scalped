@@ -9,14 +9,11 @@ import Combine
 import SwiftUI
 
 class CreateAccountViewModel: ObservableObject {
-    @Published var username = ""
-    @Published var password = ""
-    @Published var confirmedPassword = ""
     private var dataManager = CreateAccountDataManager()
     private var disposables = Set<AnyCancellable>()
     
-    func submitNewAccount(completion: @escaping ((Bool) -> Void)) {
-        self.dataManager.getCreateNewUserPublisher(NewUser(username: self.username, password: self.password))
+    func submitNewAccount(with user: NewUser, completion: @escaping ((Bool) -> Void)) {
+        self.dataManager.getCreateNewUserPublisher(user)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {

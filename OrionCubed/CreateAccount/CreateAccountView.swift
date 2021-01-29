@@ -11,64 +11,51 @@ struct CreateAccountView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: CreateAccountViewModel = CreateAccountViewModel()
     
+    @State var username = ""
+    @State var password = ""
+    @State var confirmedPassword = ""
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                VStack {
-                    HStack {
-                        Text("Username")
-                        Spacer()
+                Form {
+                    Section {
+                        TextField("Username", text: $username)
                     }
-                    TextField("", text: $viewModel.username)
-                        .padding()
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(6)
-                        .shadow(radius: 5)
-                }.padding(16)
-                VStack {
-                    HStack {
-                        Text("Password")
-                        Spacer()
+                    Section {
+                        SecureField("Password", text: $password)
+                        SecureField("Confirm Password", text: $confirmedPassword)
                     }
-                    TextField("", text: $viewModel.password)
-                        .padding()
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(6)
-                        .shadow(radius: 5)
-                }.padding(16)
-                VStack {
-                    HStack {
-                        Text("Confirm Password")
-                        Spacer()
+                    Section {
+                        HStack {
+                            Spacer()
+                            Button(action: {self.createAccount()}) {
+                                Text("Submit")
+                                    .frame(minWidth: 0, maxWidth: geometry.size.width / 1.5)
+                                    .padding()
+                                    .cornerRadius(8)
+                                    .font(.headline)
+                            }
+                            Spacer()
+                        }
                     }
-                    TextField("", text: $viewModel.confirmedPassword)
-                        .padding()
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(6)
-                        .shadow(radius: 5)
-                }.padding(16)
-                Spacer()
-                Button(action: {self.createAccount()}) {
-                    Text("Submit >")
-                        .frame(minWidth: 0, maxWidth: geometry.size.width / 1.5)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(8)
-                        .foregroundColor(.white)
-                        .font(.headline)
+                    .disabled(formValidation())
                 }
-
+                .navigationBarTitle(Text("Create an Account"))
             }
-            .navigationBarTitle(Text("Create an Account"))
         }
-
+        
+    }
+    
+    private func formValidation() -> Bool {
+        return !(self.username != ""
+                    && ( self.password == self.confirmedPassword )
+                    && self.password != ""
+                    && self.password.count >= 8)
     }
     
     private func createAccount() {
-        self.viewModel.submitNewAccount { success in
+        self.viewModel.submitNewAccount(with: NewUser(username: $username.wrappedValue, password: $password.wrappedValue)) { success in
             if success {
                 self.presentationMode.wrappedValue.dismiss()
             }
