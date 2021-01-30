@@ -10,17 +10,34 @@ import SwiftUI
 struct AlertItem: View {
     
     var alert: StrategyAlert
-    var strategyName: String
     
     var body: some View {
-        HStack {
+        determineAlertView(for: alert)
+    }
+    
+    
+    func determineAlertView(for alert: StrategyAlert) -> some View {
+        guard let type = TypesOfAlerts(rawValue: alert.typeOfAlert) else { return AnyView(EmptyView()) }
+        switch type {
+        case .yield:
+            return AnyView(yieldAlert(with: alert))
+        case .movingAverage:
+            return AnyView(movingAverageView(with: alert))
+        }
+    }
+    
+}
+
+extension AlertItem {
+    func yieldAlert(with alert: StrategyAlert) -> some View {
+        AnyView(HStack {
             Image(systemName: alert.action == "Buy" ? "arrow.down.circle.fill": "arrow.up.circle.fill" )
                 .resizable()
                 .frame(width: 35, height: 35)
                 .foregroundColor( alert.action == "Buy" ? .red : .green )
             VStack(alignment: .leading) {
                 HStack {
-                    Text(strategyName)
+                    Text(alert.typeOfAlert)
                         .font(.caption)
                         .multilineTextAlignment(.leading)
                 }
@@ -34,16 +51,41 @@ struct AlertItem: View {
                     .font(.caption)
                 Spacer()
             }
-        }
+        })
+    }
+    
+    func movingAverageView(with alert: StrategyAlert) -> some View {
+        AnyView(HStack {
+            Image(systemName: alert.action == "Buy" ? "arrow.down.circle.fill": "arrow.up.circle.fill" )
+                .resizable()
+                .frame(width: 35, height: 35)
+                .foregroundColor( alert.action == "Buy" ? .red : .green )
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(alert.typeOfAlert)
+                        .font(.caption)
+                        .multilineTextAlignment(.leading)
+                }
+                Text("\(alert.underlying) had a Guppy \(alert.action) signal.")
+                    .font(.headline)
+                    .multilineTextAlignment(.leading)
+            }
+            Spacer()
+            VStack(alignment: .leading) {
+                Text("1/1/2021 8:53am")
+                    .font(.caption)
+                Spacer()
+            }
+        })
     }
 }
 
 struct AlertItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            AlertItem(alert: StrategyAlert(action: "Buy", underlying: "AAPL"), strategyName: "Yield")
-            AlertItem(alert: StrategyAlert(action: "Buy", underlying: "DIS"), strategyName: "GMMA")
-            AlertItem(alert: StrategyAlert(action: "Sell", underlying: "F"), strategyName: "GMMA")
+            AlertItem(alert: StrategyAlert(typeOfAlert: "Moving Average", action: "Buy", underlying: "AAPL"))
+            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Buy", underlying: "DIS"))
+            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Sell", underlying: "F"))
         }
     }
 }

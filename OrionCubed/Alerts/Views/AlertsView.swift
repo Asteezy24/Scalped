@@ -17,7 +17,7 @@ struct AlertsView: View {
                 List {
                     Section(header: Text("Last 24 Hours")) {
                         ForEach(viewModel.alerts, id: \.self) { alerts in
-                            AlertItem(alert: StrategyAlert(action: alerts.action, underlying: alerts.underlying), strategyName: "Testing")
+                            AlertItem(alert: StrategyAlert(typeOfAlert: alerts.typeOfAlert, action: alerts.action, underlying: alerts.underlying))
                         }
                     }
                 }

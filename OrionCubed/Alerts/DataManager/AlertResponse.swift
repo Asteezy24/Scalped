@@ -14,6 +14,12 @@ struct AlertResponse: Decodable, Hashable {
 }
 
 struct StrategyAlert: Decodable, Hashable {
+    var typeOfAlert: String
     var action: String
     var underlying: String
+}
+
+enum TypesOfAlerts: String {
+    case yield = "Yield"
+    case movingAverage = "Moving Average"
 }
