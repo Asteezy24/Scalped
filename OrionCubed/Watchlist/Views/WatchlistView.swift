@@ -10,6 +10,13 @@ import SwiftUI
 struct WatchlistView: View {
     
     @ObservedObject var viewModel: WatchlistViewModel
+    @State private var shouldRefresh = true
+    @State var linkActive = false
+    
+    init( viewModel: WatchlistViewModel) {
+        self.viewModel = viewModel
+        print("huh")
+    }
     
     var body: some View {
         NavigationView {
@@ -24,18 +31,25 @@ struct WatchlistView: View {
                     .listStyle(InsetGroupedListStyle())
                     Spacer()
                 }
-            }.onAppear(perform: {
+            }
+            .background(NavigationLink(destination:
+                                        AddWatchlistItemView(viewModel: AddWatchlistItemViewModel()),
+                                       isActive: $linkActive) {})
+            .onAppear(perform: {
                 self.viewModel.getWatchlist()
             })
             .navigationTitle("Watchlist")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: AddWatchlistItemView(viewModel: AddWatchlistItemViewModel())) {
+                    Button(action: {
+                        linkActive = true
+                    }) {
                         Image(systemName:"plus").imageScale(.large)
                     }
                 }
             }
-        }
+        } 
+        
     }
     
     func delete(at offsets: IndexSet) {
