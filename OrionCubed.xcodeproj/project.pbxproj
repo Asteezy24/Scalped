@@ -25,6 +25,8 @@
 		FB6C260B25C3B80100D9355C /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C260A25C3B80100D9355C /* CreateAccountViewModel.swift */; };
 		FB6C261025C3B8E100D9355C /* CreateAccountDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C260F25C3B8E100D9355C /* CreateAccountDataManager.swift */; };
 		FB6C261525C3B92E00D9355C /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C261425C3B92E00D9355C /* NewUser.swift */; };
+		FB6C261D25C4ED0800D9355C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C261C25C4ED0800D9355C /* SignInViewModel.swift */; };
+		FB6C262225C4ED6B00D9355C /* SignInDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C262125C4ED6B00D9355C /* SignInDataManager.swift */; };
 		FB6C62AF258C1DB00022CB84 /* StrategySelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C62AE258C1DB00022CB84 /* StrategySelectionItem.swift */; };
 		FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB735DF7256B2DEE0026841A /* NetworkManager.swift */; };
 		FB8D244F25AB5FA500383627 /* YieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D244E25AB5FA500383627 /* YieldView.swift */; };
@@ -104,6 +106,8 @@
 		FB6C260A25C3B80100D9355C /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		FB6C260F25C3B8E100D9355C /* CreateAccountDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountDataManager.swift; sourceTree = "<group>"; };
 		FB6C261425C3B92E00D9355C /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
+		FB6C261C25C4ED0800D9355C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		FB6C262125C4ED6B00D9355C /* SignInDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDataManager.swift; sourceTree = "<group>"; };
 		FB6C62AE258C1DB00022CB84 /* StrategySelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySelectionItem.swift; sourceTree = "<group>"; };
 		FB735DF7256B2DEE0026841A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FB8D244E25AB5FA500383627 /* YieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YieldView.swift; sourceTree = "<group>"; };
@@ -190,9 +194,9 @@
 		FB09BD502560CD9600BD4B48 /* OrionCubed */ = {
 			isa = PBXGroup;
 			children = (
-				FBA573B625C3B0E700872361 /* CreateAccount */,
 				FBDDEC19259BD44800481D6B /* Alerts */,
 				FB09BD552560CD9700BD4B48 /* Assets.xcassets */,
+				FBA573B625C3B0E700872361 /* CreateAccount */,
 				FBBC6DE72564C86300590EA9 /* Extensions */,
 				FB09BD7F2560CDF200BD4B48 /* Home */,
 				FBBEB13B258991C9004BC2F9 /* Icon */,
@@ -476,6 +480,8 @@
 			isa = PBXGroup;
 			children = (
 				FBDEE99B25BE37EA009EEBB9 /* SignInView.swift */,
+				FB6C261C25C4ED0800D9355C /* SignInViewModel.swift */,
+				FB6C262125C4ED6B00D9355C /* SignInDataManager.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 				FBDEE9A425BE6364009EEBB9 /* ViewRouter.swift in Sources */,
 				FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */,
 				FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */,
+				FB6C261D25C4ED0800D9355C /* SignInViewModel.swift in Sources */,
 				FBBE94F925A3F7D900723274 /* AlertsDataManager.swift in Sources */,
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* MovingAverageView.swift in Sources */,
@@ -687,6 +694,7 @@
 				FB8D244F25AB5FA500383627 /* YieldView.swift in Sources */,
 				FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */,
 				FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */,
+				FB6C262225C4ED6B00D9355C /* SignInDataManager.swift in Sources */,
 				FBDDEC1F259BD52F00481D6B /* WatchlistView.swift in Sources */,
 				FBBE94F125A3F74E00723274 /* AlertsViewModel.swift in Sources */,
 				FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */,

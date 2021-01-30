@@ -8,64 +8,64 @@
 import SwiftUI
 
 struct SignInView: View {
+    @ObservedObject var viewModel: SignInViewModel
     @ObservedObject var viewRouter: ViewRouter
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var keyboard = KeyboardResponder()
     
+    @State var username = ""
+    @State var password = ""
+
+    
     var body: some View {
         NavigationView {
-            GeometryReader { geometry in
-                VStack(spacing: 0) {
-                    Spacer()
-                    VStack {
-                        VStack {
-                            HStack {
-                                Text("Username")
-                                Spacer()
-                            }
-                            TextField("", text: .constant(""))
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(6)
-                                .shadow(radius: 5)
-                        }.padding(16)
-                        VStack {
-                            HStack {
-                                Text("Password")
-                                Spacer()
-                            }
-                            SecureField("", text: .constant(""))
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(6)
-                                .shadow(radius: 5)
-                        }.padding(16)
-                    }
-                    Spacer()
+            VStack(spacing: 0) {
+                Image(systemName: "command.circle.fill")
+                    .resizable()
+                    .frame(width: 125, height: 125)
+                    .padding(.bottom)
+                
+                VStack(alignment: .center) {
+                    TextField("Username", text: $username)
+                        .multilineTextAlignment(TextAlignment.center)
+                        .padding(.vertical)
                     
                     VStack {
-                        NavigationLink(destination: CreateAccountView()) {
-                            Text("Create Account >")
-                                .frame(minWidth: 0, maxWidth: geometry.size.width / 1.5)
-                                .padding()
-                                .background(Color.gray)
-                                .cornerRadius(8)
-                                .foregroundColor(.white)
-                                .font(.headline)
-                        }
-                        Button(action: { viewRouter.currentPage = .home }) {
-                            Text("Log In")
-                                .padding()
-                                .foregroundColor(.gray)
-                                .font(.headline)
-                            
-                        }
+                        SecureField("Password", text: $password)
+                            .multilineTextAlignment(TextAlignment.center)
+                            .padding(.vertical)
+                        
                     }
-                    Spacer()
+                }.padding(.top)
+                
+                
+                Spacer()
+                
+                NavigationLink(destination: CreateAccountView()) {
+                    Text("Create Account")
+                        .padding()
+                        .background(Color.gray)
+                        .cornerRadius(8)
+                        .foregroundColor(.white)
+                        .font(.headline)
+                }
+                Button(action: { self.signIn() }) {
+                    Text("Log In")
+                        .padding()
+                        .foregroundColor(.gray)
+                        .font(.headline)
                 }
                 Spacer()
-                    .padding(.bottom, self.keyboard.currentHeight)
-                    .edgesIgnoringSafeArea(.all)
+            }
+            Spacer()
+        }
+    }
+    
+    private func signIn() {
+        self.viewModel.signIn(username: self.username,
+                              password: self.password) { success in
+            if success {
+                viewRouter.currentPage = .home
             }
         }
     }
@@ -73,6 +73,6 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView(viewRouter: ViewRouter())
+        SignInView(viewModel: SignInViewModel(), viewRouter: ViewRouter())
     }
 }

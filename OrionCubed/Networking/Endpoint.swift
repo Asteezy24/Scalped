@@ -61,4 +61,7 @@ extension Endpoint {
     static var createUser: Self {
         return Endpoint(path: "/api/users/signup")
     }
+    static var signIn: Self {
+        return Endpoint(path: "/api/users/signin")
+    }
 }

@@ -13,7 +13,8 @@ struct MotherView: View {
     var body: some View {
         VStack {
             if viewRouter.currentPage == .logIn {
-                SignInView(viewRouter: viewRouter)
+                SignInView(viewModel: SignInViewModel(),
+                           viewRouter: viewRouter)
             } else if viewRouter.currentPage == .home {
                 HomeView(viewRouter: viewRouter)
             }
