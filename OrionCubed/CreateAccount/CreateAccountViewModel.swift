@@ -12,7 +12,7 @@ class CreateAccountViewModel: ObservableObject {
     private var dataManager = CreateAccountDataManager()
     private var disposables = Set<AnyCancellable>()
     
-    func submitNewAccount(with user: NewUser, accessCode: String, completion: @escaping ((Bool) -> Void)) {
+    func submitNewAccount(with user: NewUser, accessCode: String, completion: @escaping ((Bool, String?) -> Void)) {
         self.dataManager.getCreateNewUserPublisher(user, accessCode: accessCode)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -25,9 +25,9 @@ class CreateAccountViewModel: ObservableObject {
                 print(httpResponse)
                 if httpResponse.error {
                     print("got error " + httpResponse.message)
-                    completion(false)
+                    completion(false, httpResponse.message)
                 } else {
-                    completion(true)
+                    completion(true, nil)
                 }
             })
             .store(in: &disposables)
