@@ -13,7 +13,7 @@ class WatchlistDataManager {
     
     func getPublisherForWatchlist() -> AnyPublisher<WatchlistResponse, Error> {
         let endpoint = Endpoint.getWatchlist
-        let parameters: [String: String] = ["username": "alex"]
+        let parameters: [String: String] = ["username": UserDefaults.standard.string(forKey: "CurrentUsername") ?? ""]
 
         return self.networkManager.request(type: WatchlistResponse.self,
                                            requestType: .post,
@@ -26,7 +26,7 @@ class WatchlistDataManager {
         let endpoint = Endpoint.addToWatchlist
         let parameters: [String: String] = [
             "stock": name,
-            "username": "alex"
+            "username": UserDefaults.standard.string(forKey: "CurrentUsername") ?? ""
         ]
 
         return self.networkManager.request(type: NetworkResponse.self,
@@ -39,7 +39,7 @@ class WatchlistDataManager {
         let endpoint = Endpoint.deleteFromWatchlist
         let parameters: [String: String] = [
             "stock": name,
-            "username": "alex"
+            "username": UserDefaults.standard.string(forKey: "CurrentUsername") ?? ""
         ]
 
         return self.networkManager.request(type: NetworkResponse.self,

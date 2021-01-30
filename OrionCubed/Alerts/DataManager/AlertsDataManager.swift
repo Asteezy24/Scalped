@@ -13,7 +13,7 @@ class AlertsDataManager {
     
     func getPublisherForAlerts() -> AnyPublisher<AlertResponse, Error> {
         let endpoint = Endpoint.getAlerts
-        let parameters: [String: String] = ["username": "alex"]
+        let parameters: [String: String] = ["username": UserDefaults.standard.string(forKey: "CurrentUsername") ?? ""]
 
         return self.networkManager.request(type: AlertResponse.self,
                                            requestType: .post,

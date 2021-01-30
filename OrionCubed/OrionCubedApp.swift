@@ -8,13 +8,27 @@
 import SwiftUI
 import Combine
 import UserNotifications
+import CoreData
 
 @main
 struct OrionCubedApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    @Environment(\.scenePhase) private var scenePhase
+
     var body: some Scene {
         WindowGroup {
             MotherView(viewRouter: ViewRouter())
+        }
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .active:
+                print("active")
+            case .inactive:
+                print("inactive")
+            case .background:
+                print("background")
+            default: break
+            }
         }
     }
 }
@@ -24,6 +38,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     private var disposables = Set<AnyCancellable>()
     private var networkManager = NetworkManager()
+    private var coreData = CoreDataContainer.main
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         registerForPushNotifications()
@@ -46,7 +61,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("Device Token: \(token)")
         let endpoint = Endpoint.sendDeviceId
         let parameterDictionary = [
-            "username": "alex",
+            "username": UserDefaults.standard.string(forKey: "CurrentUsername") ?? "",
             "deviceToken" : token
         ]
         

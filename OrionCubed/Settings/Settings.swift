@@ -32,7 +32,7 @@ struct Settings: View {
                 }.padding()
                 HStack {
                     Spacer()
-                    Button(action: { viewRouter.currentPage = .logIn }) {
+                    Button(action: { self.signOut() }) {
                         Text("Sign Out")
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -49,6 +49,11 @@ struct Settings: View {
             .navigationTitle("Settings")
             .listStyle(InsetListStyle())
         }
+    }
+    
+    private func signOut() {
+        UserDefaults.standard.set("", forKey: "CurrentUsername")
+        viewRouter.currentPage = .logIn
     }
 }
 

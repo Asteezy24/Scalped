@@ -6,13 +6,14 @@
 //
 
 import Combine
+import SwiftUI
 
 class HomeDataManager {
     public private(set) var networkManager = NetworkManager()
     
     func getPublisherForStrategies() -> AnyPublisher<StrategyResponse, Error> {
         let endpoint = Endpoint.getStrategies
-        let parameters: [String: String] = ["username": "alex"]
+        let parameters: [String: String] = ["username": UserDefaults.standard.string(forKey: "CurrentUsername") ?? ""]
         
         return self.networkManager.request(type: StrategyResponse.self,
                                            requestType: .post,
