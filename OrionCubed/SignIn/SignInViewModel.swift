@@ -12,7 +12,7 @@ class SignInViewModel: ObservableObject {
     private var dataManager = SignInDataManager()
     private var disposables = Set<AnyCancellable>()
     
-    func signIn(username: String, password: String, completion: @escaping ((Bool) -> Void)) {
+    func signIn(username: String, password: String, completion: @escaping ((Bool, String?) -> Void)) {
         self.dataManager.getSignInPublisher(username: username, password: password)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -25,9 +25,10 @@ class SignInViewModel: ObservableObject {
                 print(httpResponse)
                 if httpResponse.error {
                     print("got error " + httpResponse.message)
-                    completion(false)
+                    completion(false, httpResponse.message)
                 } else {
-                    completion(true)
+                    // success, no message
+                    completion(true, nil)
                 }
             })
             .store(in: &disposables)

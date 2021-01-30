@@ -23,7 +23,7 @@ struct CreateAccountView: View {
                     Section {
                         TextField("Username", text: $username)
                     }
-                    Section {
+                    Section(footer: Text("Password must be 8 characters.")) {
                         SecureField("Password", text: $password)
                         SecureField("Confirm Password", text: $confirmedPassword)
                     }

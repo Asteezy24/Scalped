@@ -22,6 +22,7 @@
 		FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41189F2580146C00F046D3 /* StrategySelectionView.swift */; };
 		FB4118A6258178B000F046D3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4118A5258178B000F046D3 /* Globals.swift */; };
 		FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */; };
+		FB61196E25C51AA400A8B573 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61196D25C51AA400A8B573 /* Data+Extensions.swift */; };
 		FB6C260B25C3B80100D9355C /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C260A25C3B80100D9355C /* CreateAccountViewModel.swift */; };
 		FB6C261025C3B8E100D9355C /* CreateAccountDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C260F25C3B8E100D9355C /* CreateAccountDataManager.swift */; };
 		FB6C261525C3B92E00D9355C /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C261425C3B92E00D9355C /* NewUser.swift */; };
@@ -104,6 +105,7 @@
 		FB41189F2580146C00F046D3 /* StrategySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySelectionView.swift; sourceTree = "<group>"; };
 		FB4118A5258178B000F046D3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		FB4522F52565DFB600880416 /* NewStrategyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrategyDataManager.swift; sourceTree = "<group>"; };
+		FB61196D25C51AA400A8B573 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		FB6C260A25C3B80100D9355C /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		FB6C260F25C3B8E100D9355C /* CreateAccountDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountDataManager.swift; sourceTree = "<group>"; };
 		FB6C261425C3B92E00D9355C /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 				FBBC6DE82564C87400590EA9 /* UIApplication+Extensions.swift */,
 				FBD1BC7325B7C88200217BDC /* Color+Extensions.swift */,
 				FBD1BC7825B7D98200217BDC /* View+Extensions.swift */,
+				FB61196D25C51AA400A8B573 /* Data+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				FBA2949425AFE52500554F36 /* HomeStrategyList.swift in Sources */,
 				FB8FAF102564C09600053D50 /* MovingAverageStrategy.swift in Sources */,
 				FBD1BC7425B7C88300217BDC /* Color+Extensions.swift in Sources */,
+				FB61196E25C51AA400A8B573 /* Data+Extensions.swift in Sources */,
 				FB3A20C925AA59D2000ADFF6 /* WatchlistViewModel.swift in Sources */,
 				FB9B52EC256F341F00FFED3B /* Endpoint.swift in Sources */,
 				FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */,
@@ -868,7 +872,7 @@
 				CODE_SIGN_ENTITLEMENTS = OrionCubed/OrionCubed.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"OrionCubed/Preview Content\"";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
 				ENABLE_PREVIEWS = YES;
@@ -894,7 +898,7 @@
 				CODE_SIGN_ENTITLEMENTS = OrionCubed/OrionCubed.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"OrionCubed/Preview Content\"";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
 				ENABLE_PREVIEWS = YES;

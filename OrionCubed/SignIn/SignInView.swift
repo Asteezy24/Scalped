@@ -16,7 +16,10 @@ struct SignInView: View {
     @State var username = ""
     @State var password = ""
     @State var isLoading = false
-
+    
+    @State private var alertMessage = ""
+    @State private var showingAlert = false
+    
     
     var body: some View {
         NavigationView {
@@ -43,7 +46,6 @@ struct SignInView: View {
                         }
                     }.padding(.top)
                     
-                    
                     Spacer()
                     
                     NavigationLink(destination: CreateAccountView()) {
@@ -65,17 +67,24 @@ struct SignInView: View {
                 .blur(radius: isLoading ? 4.0 : 0)
             }
             Spacer()
+        }.alert(isPresented: $showingAlert) {
+            Alert(title: Text("Sign In failed."),
+                  message: Text(alertMessage),
+                  dismissButton: .default(Text("Got it!")))
         }
     }
     
     private func signIn() {
         $isLoading.wrappedValue = true
-        self.viewModel.signIn(username: self.username,
-                              password: self.password) { success in
+        self.viewModel.signIn(username: self.username, password: self.password) { success, message in
             $isLoading.wrappedValue = false
+            
             if success {
                 UserDefaults.standard.set(self.username, forKey: "CurrentUsername")
                 viewRouter.currentPage = .home
+            } else {
+                self.alertMessage = message ?? "Error!"
+                self.showingAlert = true
             }
         }
     }

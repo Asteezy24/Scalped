@@ -10,13 +10,6 @@ import Combine
 import UserNotifications
 import CoreData
 
-extension Data {
-    var hexString: String {
-        let hexString = map { String(format: "%02.2hhx", $0) }.joined()
-        return hexString
-    }
-}
-
 @main
 struct OrionCubedApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
