@@ -12,8 +12,8 @@ class CreateAccountViewModel: ObservableObject {
     private var dataManager = CreateAccountDataManager()
     private var disposables = Set<AnyCancellable>()
     
-    func submitNewAccount(with user: NewUser, completion: @escaping ((Bool) -> Void)) {
-        self.dataManager.getCreateNewUserPublisher(user)
+    func submitNewAccount(with user: NewUser, accessCode: String, completion: @escaping ((Bool) -> Void)) {
+        self.dataManager.getCreateNewUserPublisher(user, accessCode: accessCode)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {

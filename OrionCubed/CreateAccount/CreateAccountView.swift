@@ -14,6 +14,7 @@ struct CreateAccountView: View {
     @State var username = ""
     @State var password = ""
     @State var confirmedPassword = ""
+    @State var accessCode = ""
     
     var body: some View {
         GeometryReader { geometry in
@@ -25,6 +26,9 @@ struct CreateAccountView: View {
                     Section {
                         SecureField("Password", text: $password)
                         SecureField("Confirm Password", text: $confirmedPassword)
+                    }
+                    Section {
+                        TextField("One time access code", text: $accessCode)
                     }
                     Section {
                         HStack {
@@ -55,7 +59,7 @@ struct CreateAccountView: View {
     }
     
     private func createAccount() {
-        self.viewModel.submitNewAccount(with: NewUser(username: $username.wrappedValue, password: $password.wrappedValue)) { success in
+        self.viewModel.submitNewAccount(with: NewUser(username: $username.wrappedValue, password: $password.wrappedValue), accessCode: $accessCode.wrappedValue) { success in
             if success {
                 self.presentationMode.wrappedValue.dismiss()
             }

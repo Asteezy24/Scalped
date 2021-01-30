@@ -11,11 +11,12 @@ class CreateAccountDataManager {
         
     let networkManager = NetworkManager()
     
-    func getCreateNewUserPublisher(_ user: NewUser) -> AnyPublisher<NetworkResponse, Error> {
+    func getCreateNewUserPublisher(_ user: NewUser, accessCode: String) -> AnyPublisher<NetworkResponse, Error> {
         let endpoint = Endpoint.createUser
         let parameters: [String: String] = [
             "username": user.username,
-            "password": user.password
+            "password": user.password,
+            "accessCode": accessCode
         ]
 
         return self.networkManager.request(type: NetworkResponse.self,
