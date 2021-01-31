@@ -53,6 +53,7 @@ struct Settings: View {
     
     private func signOut() {
         UserDefaults.standard.set("", forKey: "CurrentUsername")
+        UserDefaults.standard.setValue(false, forKey: "IsLoggedIn")
         viewRouter.currentPage = .logIn
     }
 }

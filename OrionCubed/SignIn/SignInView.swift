@@ -30,10 +30,7 @@ struct SignInView: View {
                 }
                 
                 VStack(spacing: 0) {
-                    Image(systemName: "command.circle.fill")
-                        .resizable()
-                        .frame(width: 125, height: 125)
-                        .padding(.bottom)
+                    BadgeSymbol(symbolColor: .purple).frame(width: 225, height: 225)
                     VStack(alignment: .center) {
                         TextField("Username", text: $username)
                             .multilineTextAlignment(TextAlignment.center)
@@ -82,6 +79,7 @@ struct SignInView: View {
             
             if success {
                 UserDefaults.standard.set(self.username, forKey: "CurrentUsername")
+                UserDefaults.standard.setValue(true, forKey: "IsLoggedIn")
                 viewRouter.currentPage = .home
             } else {
                 self.alertMessage = message ?? "Error!"

@@ -12,13 +12,12 @@ struct HomeDashboardContent: View {
     
     init(viewModel:HomeViewModel) {
         self.viewModel = viewModel
-//        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     var body: some View {
         NavigationView {
             ZStack {
-                Color.homeScreenBlue.edgesIgnoringSafeArea(.top)
+                LinearGradient(gradient: Gradient(colors: [.homeScreenBlue]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.top)
                 VStack {
                     HStack {
                         Text("Strategies")
@@ -33,7 +32,7 @@ struct HomeDashboardContent: View {
                     HomeStrategyList(strategies: $viewModel.strategies.wrappedValue)
                     
                 }
-                .background(Color.homeScreenBlue)
+                .background(LinearGradient(gradient: Gradient(colors: [.homeScreenBlue, .white]), startPoint: .top, endPoint: .bottom))
                 .navigationTitle(viewModel.determineBannerGreeting())
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -41,7 +40,8 @@ struct HomeDashboardContent: View {
                     }
                 })
             }
-        }.onAppear(perform: {
+        }
+        .onAppear(perform: {
             self.viewModel.getAllStrategies()
             self.viewModel.sendDeviceTokenToServer()
         })
@@ -52,6 +52,7 @@ struct HomeDashboardContent: View {
 
 struct HomeDashboardContent_Previews: PreviewProvider {
     static var previews: some View {
+    
         HomeDashboardContent(viewModel: HomeViewModel())
         HomeDashboardContent(viewModel: HomeViewModel())
             .preferredColorScheme(.dark)

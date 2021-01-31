@@ -68,7 +68,10 @@ struct CreateAccountView: View {
     }
     
     private func formValidation() -> Bool {
-        return !((self.password == self.confirmedPassword) && self.password != "")
+        return !(self.username != ""
+                    && ( self.password == self.confirmedPassword )
+                    && self.password != ""
+                    && self.password.count >= 8)
     }
     
     private func createAccount() {

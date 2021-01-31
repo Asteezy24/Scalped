@@ -15,7 +15,6 @@ struct WatchlistView: View {
     
     init( viewModel: WatchlistViewModel) {
         self.viewModel = viewModel
-        print("huh")
     }
     
     var body: some View {

@@ -15,10 +15,10 @@ class SignInViewModel: ObservableObject {
     func signIn(username: String, password: String, completion: @escaping ((Bool, String?) -> Void)) {
         self.dataManager.getSignInPublisher(username: username, password: password)
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
+            .sink(receiveCompletion: { receivedCompletion in
+                switch receivedCompletion {
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    completion(false, error.localizedDescription)
                 default: break
                 }
             }, receiveValue: { httpResponse in

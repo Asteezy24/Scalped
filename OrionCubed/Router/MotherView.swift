@@ -12,10 +12,10 @@ struct MotherView: View {
     
     var body: some View {
         VStack {
-            if viewRouter.currentPage == .logIn {
+            if viewRouter.currentPage == .logIn && !(UserDefaults.standard.value(forKey: "IsLoggedIn") as? Bool ?? false) {
                 SignInView(viewModel: SignInViewModel(),
                            viewRouter: viewRouter)
-            } else if viewRouter.currentPage == .home {
+            } else if viewRouter.currentPage == .home || UserDefaults.standard.value(forKey: "IsLoggedIn") as? Bool ?? false {
                 HomeView(viewRouter: viewRouter)
             }
         }
