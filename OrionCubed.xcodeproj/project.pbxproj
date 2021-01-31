@@ -52,6 +52,9 @@
 		FBD1BC7925B7D98200217BDC /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1BC7825B7D98200217BDC /* View+Extensions.swift */; };
 		FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD89CE6258415A800789F44 /* StrategyResponse.swift */; };
 		FBD8E7F325C64BE7008B69CA /* JustAppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8E7F225C64BE7008B69CA /* JustAppIcon.swift */; };
+		FBD8E7F825C65531008B69CA /* HomePortfolioList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8E7F725C65531008B69CA /* HomePortfolioList.swift */; };
+		FBD8E7FE25C655E7008B69CA /* PortfolioListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8E7FD25C655E7008B69CA /* PortfolioListItem.swift */; };
+		FBD8E80525C65CE5008B69CA /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD8E80425C65CE5008B69CA /* BottomSheetView.swift */; };
 		FBDDEC1F259BD52F00481D6B /* WatchlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC1E259BD52F00481D6B /* WatchlistView.swift */; };
 		FBDDEC24259BD53A00481D6B /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC23259BD53A00481D6B /* AlertsView.swift */; };
 		FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDEC2B259BD95300481D6B /* AlertItem.swift */; };
@@ -138,6 +141,9 @@
 		FBD1BC7825B7D98200217BDC /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		FBD89CE6258415A800789F44 /* StrategyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyResponse.swift; sourceTree = "<group>"; };
 		FBD8E7F225C64BE7008B69CA /* JustAppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustAppIcon.swift; sourceTree = "<group>"; };
+		FBD8E7F725C65531008B69CA /* HomePortfolioList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePortfolioList.swift; sourceTree = "<group>"; };
+		FBD8E7FD25C655E7008B69CA /* PortfolioListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioListItem.swift; sourceTree = "<group>"; };
+		FBD8E80425C65CE5008B69CA /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		FBDDEC1E259BD52F00481D6B /* WatchlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistView.swift; sourceTree = "<group>"; };
 		FBDDEC23259BD53A00481D6B /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
 		FBDDEC2B259BD95300481D6B /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
@@ -261,6 +267,7 @@
 		FB09BE0D25636F6E00BD4B48 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FBD8E7FC25C655CD008B69CA /* Portfolio Views */,
 				FB5E7A0825B2813C00994956 /* StrategyViews */,
 				FB09BD532560CD9600BD4B48 /* HomeView.swift */,
 				FBEADCC0258EF0AB00F9DC3A /* HomeDashboardContent.swift */,
@@ -301,6 +308,7 @@
 			children = (
 				FB4118A5258178B000F046D3 /* Globals.swift */,
 				FBDEE99025BE2F09009EEBB9 /* terms.html */,
+				FBD8E80425C65CE5008B69CA /* BottomSheetView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -462,6 +470,15 @@
 				FB9B52EB256F341F00FFED3B /* Endpoint.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		FBD8E7FC25C655CD008B69CA /* Portfolio Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBD8E7F725C65531008B69CA /* HomePortfolioList.swift */,
+				FBD8E7FD25C655E7008B69CA /* PortfolioListItem.swift */,
+			);
+			path = "Portfolio Views";
 			sourceTree = "<group>";
 		};
 		FBDDEC19259BD44800481D6B /* Alerts */ = {
@@ -686,6 +703,7 @@
 				FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */,
 				FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */,
 				FB6C261D25C4ED0800D9355C /* SignInViewModel.swift in Sources */,
+				FBD8E7F825C65531008B69CA /* HomePortfolioList.swift in Sources */,
 				FBBE94F925A3F7D900723274 /* AlertsDataManager.swift in Sources */,
 				FB4118A6258178B000F046D3 /* Globals.swift in Sources */,
 				FB8FAEFD2563777C00053D50 /* MovingAverageView.swift in Sources */,
@@ -703,7 +721,9 @@
 				FB3A20D825AA62AE000ADFF6 /* AddWatchlistItemViewModel.swift in Sources */,
 				FB3A20D325AA5A92000ADFF6 /* WatchlistResponse.swift in Sources */,
 				FB9B52E7256F2DB700FFED3B /* NetworkResponse.swift in Sources */,
+				FBD8E7FE25C655E7008B69CA /* PortfolioListItem.swift in Sources */,
 				FB8D244F25AB5FA500383627 /* YieldView.swift in Sources */,
+				FBD8E80525C65CE5008B69CA /* BottomSheetView.swift in Sources */,
 				FB4118A02580146C00F046D3 /* StrategySelectionView.swift in Sources */,
 				FBDDEC2C259BD95300481D6B /* AlertItem.swift in Sources */,
 				FB6C262225C4ED6B00D9355C /* SignInDataManager.swift in Sources */,
