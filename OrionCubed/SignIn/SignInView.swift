@@ -49,10 +49,11 @@ struct SignInView: View {
                     NavigationLink(destination: CreateAccountView()) {
                         Text("Create Account")
                             .padding()
+                            .frame(maxWidth: .infinity)
                             .background(Color.gray)
-                            .cornerRadius(8)
                             .foregroundColor(.white)
-                            .font(.headline)
+                            .cornerRadius(8)
+                            .padding()
                     }
                     Button(action: { self.signIn() }) {
                         Text("Log In")

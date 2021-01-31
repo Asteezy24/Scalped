@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeDashboardContent: View {
-    @State private var bottomSheetShown = true
+    @State private var bottomSheetShown = false
     @ObservedObject var viewModel: HomeViewModel
     
     init(viewModel:HomeViewModel) {
@@ -43,11 +43,12 @@ struct HomeDashboardContent: View {
                         .padding()
                         HomeStrategyList(strategies: $viewModel.strategies.wrappedValue)
                     }
+                    .background(LinearGradient(gradient: Gradient(colors: [.homeScreenBlue, .white, .homeScreenBlue, .white]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.top))
                     .navigationTitle(viewModel.determineBannerGreeting())
 
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            Text("App Name").foregroundColor(.white)
+                            Text("App Name")
                         }
                     })
                     .blur(radius: self.bottomSheetShown ? 4.0 : 0.0)
@@ -75,5 +76,7 @@ struct HomeDashboardContent_Previews: PreviewProvider {
         HomeDashboardContent(viewModel: HomeViewModel())
         HomeDashboardContent(viewModel: HomeViewModel())
             .preferredColorScheme(.dark)
+        SignInView(viewModel: SignInViewModel(), viewRouter: ViewRouter())
+
     }
 }

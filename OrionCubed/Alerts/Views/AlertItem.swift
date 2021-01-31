@@ -12,7 +12,30 @@ struct AlertItem: View {
     var alert: StrategyAlert
     
     var body: some View {
-        determineAlertView(for: alert)
+        VStack {
+            determineAlertView(for: alert)
+            HStack {
+                Button(action:{}) {
+                    Text("Buy")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .padding()
+                }
+                Button(action:{}) {
+                    Text("Sell")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .padding()
+                }
+            }
+            
+        }
     }
     
     
@@ -34,7 +57,7 @@ extension AlertItem {
             Image(systemName: alert.action == "Buy" ? "arrow.down.circle.fill": "arrow.up.circle.fill" )
                 .resizable()
                 .frame(width: 35, height: 35)
-                .foregroundColor( alert.action == "Buy" ? .red : .green )
+                .foregroundColor( .gray )
             VStack(alignment: .leading) {
                 HStack {
                     Text(alert.typeOfAlert)
@@ -59,7 +82,7 @@ extension AlertItem {
             Image(systemName: alert.action == "Buy" ? "arrow.down.circle.fill": "arrow.up.circle.fill" )
                 .resizable()
                 .frame(width: 35, height: 35)
-                .foregroundColor( alert.action == "Buy" ? .red : .green )
+                .foregroundColor( .gray )
             VStack(alignment: .leading) {
                 HStack {
                     Text(alert.typeOfAlert)
