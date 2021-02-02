@@ -14,27 +14,15 @@ struct AlertItem: View {
     var body: some View {
         VStack {
             determineAlertView(for: alert)
-            HStack {
-                Button(action:{}) {
-                    Text("Buy")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .padding()
-                }
-                Button(action:{}) {
-                    Text("Sell")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .padding()
-                }
+            Button(action:{}) {
+                Text(alert.action == "Buy" ? "Buy" : "Sell")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(alert.action == "Buy" ? Color.green : Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    .padding()
             }
-            
         }
     }
     

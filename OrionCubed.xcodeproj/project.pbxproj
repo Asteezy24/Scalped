@@ -30,6 +30,7 @@
 		FB6C262225C4ED6B00D9355C /* SignInDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C262125C4ED6B00D9355C /* SignInDataManager.swift */; };
 		FB6C62AF258C1DB00022CB84 /* StrategySelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C62AE258C1DB00022CB84 /* StrategySelectionItem.swift */; };
 		FB735DF8256B2DEE0026841A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB735DF7256B2DEE0026841A /* NetworkManager.swift */; };
+		FB78ABD225C8EAD5009B47E1 /* PortfolioResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78ABD125C8EAD5009B47E1 /* PortfolioResponse.swift */; };
 		FB8D244F25AB5FA500383627 /* YieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D244E25AB5FA500383627 /* YieldView.swift */; };
 		FB8D245725AE7ACA00383627 /* YieldStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D245625AE7ACA00383627 /* YieldStrategy.swift */; };
 		FB8FAEFD2563777C00053D50 /* MovingAverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAEFC2563777C00053D50 /* MovingAverageView.swift */; };
@@ -117,6 +118,7 @@
 		FB6C262125C4ED6B00D9355C /* SignInDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDataManager.swift; sourceTree = "<group>"; };
 		FB6C62AE258C1DB00022CB84 /* StrategySelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySelectionItem.swift; sourceTree = "<group>"; };
 		FB735DF7256B2DEE0026841A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FB78ABD125C8EAD5009B47E1 /* PortfolioResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioResponse.swift; sourceTree = "<group>"; };
 		FB8D244E25AB5FA500383627 /* YieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YieldView.swift; sourceTree = "<group>"; };
 		FB8D245625AE7ACA00383627 /* YieldStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YieldStrategy.swift; sourceTree = "<group>"; };
 		FB8FAEFC2563777C00053D50 /* MovingAverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageView.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 			children = (
 				FB8FAF0A2564AE8900053D50 /* HomeDataManager.swift */,
 				FBD89CE6258415A800789F44 /* StrategyResponse.swift */,
+				FB78ABD125C8EAD5009B47E1 /* PortfolioResponse.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				FB6C262225C4ED6B00D9355C /* SignInDataManager.swift in Sources */,
 				FBDDEC1F259BD52F00481D6B /* WatchlistView.swift in Sources */,
 				FBBE94F125A3F74E00723274 /* AlertsViewModel.swift in Sources */,
+				FB78ABD225C8EAD5009B47E1 /* PortfolioResponse.swift in Sources */,
 				FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */,
 				FBDDEC48259D579200481D6B /* WatchlistItem.swift in Sources */,
 				FBDDEC3E259CD87B00481D6B /* AddWatchlistItemView.swift in Sources */,

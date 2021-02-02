@@ -30,7 +30,7 @@ struct HomeDashboardContent: View {
                             Spacer()
                         }
                         .padding()
-                        HomePortfolioList(tapAction: {self.bottomSheetShown = true}).padding(.leading)
+                        HomePortfolioList(portfolio: $viewModel.portfolio.wrappedValue, tapAction: {self.bottomSheetShown = true}).padding(.leading)
                         HStack {
                             Text("Strategies")
                                 .font(.footnote)
@@ -63,6 +63,7 @@ struct HomeDashboardContent: View {
         }
         .onAppear(perform: {
             self.viewModel.getAllStrategies()
+            self.viewModel.getPortfolio()
             self.viewModel.sendDeviceTokenToServer()
         })
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)

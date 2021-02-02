@@ -8,24 +8,21 @@
 import SwiftUI
 
 struct PortfolioListItem: View {
+    
+    let item: PortfolioItem
+    
     var body: some View {
         VStack {
             VStack {
                 HStack {
                     Spacer()
-                    Text("NEO/BTC").font(.headline)
+                    Text(item.underlying).font(.headline)
                         .padding()
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text("Yield").font(.footnote)
-                        .padding(.bottom)
                     Spacer()
                 }
             }
         }
-        .background(Color.blue)
+        .background(Color.gray)
         .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
 
     }
@@ -33,6 +30,6 @@ struct PortfolioListItem: View {
 
 struct PortfolioListItem_Previews: PreviewProvider {
     static var previews: some View {
-        PortfolioListItem()
+        PortfolioListItem(item: PortfolioItem(underlying: "", currentPrice: "", currentPL: "", dateBought: "", purchasePrice: ""))
     }
 }

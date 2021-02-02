@@ -9,27 +9,22 @@ import SwiftUI
 
 struct HomePortfolioList: View {
     
+    let portfolio: [PortfolioItem]
     let tapAction: () -> Void
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 10) {
-                ForEach((0..<10), id: \.self, content: { index in
-                    PortfolioListItem().onTapGesture(perform: tapAction)
+                ForEach((0..<portfolio.count), id: \.self, content: { index in
+                    PortfolioListItem(item: portfolio[index]).onTapGesture(perform: tapAction)
                 })
             }
         }
-//        List {
-
-//        }
-//        .padding(.top,  16)
-//        .listStyle(InsetListStyle())
-        
     }
 }
 
 struct HomePortfolioList_Previews: PreviewProvider {
     static var previews: some View {
-        HomePortfolioList(tapAction: {})
+        HomePortfolioList(portfolio: [], tapAction: {})
     }
 }

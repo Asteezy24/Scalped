@@ -52,8 +52,8 @@ struct Icon : View {
     
     var body: some View {
         /// Note: All of these assume a canvas size of 1024.
-        let radius: CGFloat = 550
-        let pillLength: CGFloat = 600
+        let radius: CGFloat = 650
+        let pillLength: CGFloat = 700
         let background = Color.black//LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
         
         return IconStack { canvas in

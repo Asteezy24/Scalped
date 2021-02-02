@@ -22,4 +22,13 @@ class HomeDataManager {
                                            headers: [:])
     }
     
+    func getPortfolioPublisher() -> AnyPublisher<PortfolioResponse, Error> {
+        let endpoint = Endpoint.getPortfolio
+        let parameters: [String: String] = [
+            "username": UserDefaults.standard.string(forKey: "CurrentUsername") ?? ""
+        ]
+        
+        return self.networkManager.request(type: PortfolioResponse.self, requestType: .post, parameters: parameters, url: endpoint.url, headers: [:])
+    }
+    
 }
