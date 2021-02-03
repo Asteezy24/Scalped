@@ -8,12 +8,15 @@
 import Foundation
 
 struct BaseStrategy: Decodable, Hashable {
-    let timeframe: String
+    let username: String?
+    let timeframe: String?
     let underlyings: [String]
     let identifier: String
-    let action: String
-    let yieldBuyPercent: String
-    let yieldSellPercent: String
+    let action: String?
+    let isFullWatchlist: Bool?
+    let yieldBuyPercent: String?
+    let yieldSellPercent: String?
+    let priceWhenAdded: String?
 }
 
 struct StrategyResponse: Decodable, Hashable  {

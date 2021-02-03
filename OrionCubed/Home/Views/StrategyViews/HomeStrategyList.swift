@@ -42,12 +42,12 @@ struct HomeStrategyList: View {
                     HStack {
                         Text("Action: ")
                         Spacer()
-                        Text(strat.action)
+                        Text(strat.action ?? "")
                     }
                     HStack {
                         Text("Timeframe: ")
                         Spacer()
-                        Text(strat.timeframe)
+                        Text(strat.timeframe ?? "")
                     }
                 } label: {
                     Text("Multiple Moving Average")
@@ -78,12 +78,12 @@ struct HomeStrategyList: View {
                     HStack {
                         Text("Yield Buy Goal: ")
                         Spacer()
-                        Text("\(strat.yieldBuyPercent)%")
+                        Text("\(strat.yieldBuyPercent ?? "")%")
                     }
                     HStack {
                         Text("Yield Sell Goal: ")
                         Spacer()
-                        Text("\(strat.yieldSellPercent)%")
+                        Text("\(strat.yieldSellPercent ?? "")%")
                     }
                 } label: {
                     Text("Yield Strategy")
@@ -98,9 +98,9 @@ struct HomeStrategyList: View {
 struct HomeStrategyList_Previews: PreviewProvider {
     static var previews: some View {
         HomeStrategyList(strategies:[
-            BaseStrategy(timeframe: "", underlyings: ["AAPL", "SPY"], identifier: "Yield", action: "", yieldBuyPercent: "6", yieldSellPercent: "6"),
-            BaseStrategy(timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", yieldBuyPercent: "", yieldSellPercent: ""),
-            BaseStrategy(timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", yieldBuyPercent: "", yieldSellPercent: "")
+            BaseStrategy(username: "", timeframe: "", underlyings: ["AAPL", "SPY"], identifier: "Yield", action: "", isFullWatchlist: nil, yieldBuyPercent: "6", yieldSellPercent: "6", priceWhenAdded: nil),
+            BaseStrategy(username: "", timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", isFullWatchlist: nil, yieldBuyPercent: "", yieldSellPercent: "", priceWhenAdded: nil),
+            BaseStrategy(username: "", timeframe: "1H", underlyings: ["SPY"], identifier: "Moving Average", action: "Buy", isFullWatchlist: nil, yieldBuyPercent: "", yieldSellPercent: "", priceWhenAdded: nil)
         ])
     }
 }

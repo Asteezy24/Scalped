@@ -67,4 +67,7 @@ extension Endpoint {
     static var getPortfolio: Self {
         return Endpoint(path: "/api/portfolio")
     }
+    static var addToPortfolio: Self {
+        return Endpoint(path: "/api/portfolio/buy")
+    }
 }

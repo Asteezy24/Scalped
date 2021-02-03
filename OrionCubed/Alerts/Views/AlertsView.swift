@@ -16,8 +16,8 @@ struct AlertsView: View {
             VStack {
                 List {
                     Section(header: Text("Last 24 Hours")) {
-                        ForEach(viewModel.alerts, id: \.self) { alerts in
-                            AlertItem(alert: StrategyAlert(typeOfAlert: alerts.typeOfAlert, action: alerts.action, underlying: alerts.underlying))
+                        ForEach(viewModel.alerts, id: \.self) { alert in
+                            AlertItem(alert: alert, tapAction: { self.viewModel.actionSignaled(alert: alert) })
                         }
                     }
                 }

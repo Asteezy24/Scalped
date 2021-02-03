@@ -10,11 +10,12 @@ import SwiftUI
 struct AlertItem: View {
     
     var alert: StrategyAlert
+    let tapAction: () -> Void
     
     var body: some View {
         VStack {
             determineAlertView(for: alert)
-            Button(action:{}) {
+            Button(action:tapAction) {
                 Text(alert.action == "Buy" ? "Buy" : "Sell")
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -94,9 +95,9 @@ extension AlertItem {
 struct AlertItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            AlertItem(alert: StrategyAlert(typeOfAlert: "Moving Average", action: "Buy", underlying: "AAPL"))
-            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Buy", underlying: "DIS"))
-            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Sell", underlying: "F"))
+            AlertItem(alert: StrategyAlert(typeOfAlert: "Moving Average", action: "Buy", underlying: "AAPL"), tapAction: {})
+            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Buy", underlying: "DIS"), tapAction: {})
+            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Sell", underlying: "F"), tapAction: {})
         }
     }
 }

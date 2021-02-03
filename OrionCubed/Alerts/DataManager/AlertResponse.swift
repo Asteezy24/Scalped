@@ -14,6 +14,8 @@ struct AlertResponse: Decodable, Hashable {
 }
 
 struct StrategyAlert: Decodable, Hashable {
+    var actedUpon: Bool
+    var date: String
     var typeOfAlert: String
     var action: String
     var underlying: String

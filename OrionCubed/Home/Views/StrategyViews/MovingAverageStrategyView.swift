@@ -41,7 +41,7 @@ struct MovingAverageStrategyView: View {
 struct HomeStrategyItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            MovingAverageStrategyView(strategy: BaseStrategy(timeframe: "", underlyings: [], identifier: "", action: "", yieldBuyPercent: "", yieldSellPercent: ""))
+            MovingAverageStrategyView(strategy: BaseStrategy(username: "", timeframe: "", underlyings: [], identifier: "", action: "", isFullWatchlist: nil, yieldBuyPercent: "", yieldSellPercent: "", priceWhenAdded: nil))
                 .preferredColorScheme(.dark)
         }
     }

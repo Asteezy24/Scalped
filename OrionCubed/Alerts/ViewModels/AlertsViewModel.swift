@@ -33,4 +33,24 @@ class AlertsViewModel: ObservableObject {
             })
             .store(in: &disposables)
     }
+    
+    func actionSignaled(alert: StrategyAlert) {
+        if alert.action == "Buy" {
+            self.dataManager.getPublisherForBuySignal(alert: alert)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    default: break
+                    }
+                }, receiveValue: { httpResponse in
+                    print(httpResponse)
+                    if httpResponse.error {
+                        print("got error " + httpResponse.message)
+                    }
+                })
+                .store(in: &disposables)
+        }
+    }
 }
