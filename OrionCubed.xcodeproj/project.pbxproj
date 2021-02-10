@@ -48,6 +48,7 @@
 		FBBEB140258991CA004BC2F9 /* Icon+PreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13C258991C9004BC2F9 /* Icon+PreviewHelpers.swift */; };
 		FBBEB141258991CA004BC2F9 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB13D258991C9004BC2F9 /* Icon.swift */; };
 		FBBEB15D2589A931004BC2F9 /* SymbolsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */; };
+		FBC0BB3C25D3625700B710AA /* IndividualPortfolioItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC0BB3B25D3625700B710AA /* IndividualPortfolioItemView.swift */; };
 		FBCFC15825C4F6CF004A42AA /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBCFC15625C4F6CF004A42AA /* UserInfo.xcdatamodeld */; };
 		FBD1BC7425B7C88300217BDC /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1BC7325B7C88200217BDC /* Color+Extensions.swift */; };
 		FBD1BC7925B7D98200217BDC /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD1BC7825B7D98200217BDC /* View+Extensions.swift */; };
@@ -138,6 +139,7 @@
 		FBBEB13E258991C9004BC2F9 /* IconGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
 		FBBEB13F258991C9004BC2F9 /* generate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generate.swift; sourceTree = "<group>"; };
 		FBBEB15C2589A931004BC2F9 /* SymbolsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsNetworkResponse.swift; sourceTree = "<group>"; };
+		FBC0BB3B25D3625700B710AA /* IndividualPortfolioItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualPortfolioItemView.swift; sourceTree = "<group>"; };
 		FBCFC15725C4F6CF004A42AA /* UserInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfo.xcdatamodel; sourceTree = "<group>"; };
 		FBD1BC7325B7C88200217BDC /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		FBD1BC7825B7D98200217BDC /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 			children = (
 				FBD8E7F725C65531008B69CA /* HomePortfolioList.swift */,
 				FBD8E7FD25C655E7008B69CA /* PortfolioListItem.swift */,
+				FBC0BB3B25D3625700B710AA /* IndividualPortfolioItemView.swift */,
 			);
 			path = "Portfolio Views";
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				FBBEB12E25842938004BC2F9 /* AlertResponse.swift in Sources */,
 				FBBC6DE92564C87400590EA9 /* UIApplication+Extensions.swift in Sources */,
 				FBD89CE7258415A800789F44 /* StrategyResponse.swift in Sources */,
+				FBC0BB3C25D3625700B710AA /* IndividualPortfolioItemView.swift in Sources */,
 				FB8FAF0225638ACF00053D50 /* NewStrategyViewModel.swift in Sources */,
 				FB09BD8F2560D19400BD4B48 /* MovingAverageStrategyView.swift in Sources */,
 				FB4522F62565DFB600880416 /* NewStrategyDataManager.swift in Sources */,

@@ -30,6 +30,6 @@ struct PortfolioListItem: View {
 
 struct PortfolioListItem_Previews: PreviewProvider {
     static var previews: some View {
-        PortfolioListItem(item: PortfolioItem(underlying: "", currentPrice: "", currentPL: "", dateBought: "", purchasePrice: ""))
+        PortfolioListItem(item: PortfolioItem(underlying: "", currentPrice: "", currentPL: "", dateBought: "", purchasePrice: "", type: ""))
     }
 }

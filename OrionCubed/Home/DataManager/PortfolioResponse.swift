@@ -13,6 +13,7 @@ struct PortfolioItem: Decodable, Hashable {
     let currentPL: String
     let dateBought: String
     let purchasePrice: String
+    let type: String
 }
 
 struct PortfolioResponse: Decodable, Hashable  {

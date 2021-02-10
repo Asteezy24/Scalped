@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeDashboardContent: View {
     @State private var bottomSheetShown = false
+    @State private var currentPortfolioItem = PortfolioItem(underlying: "", currentPrice: "", currentPL: "", dateBought: "", purchasePrice: "", type: "")
     @ObservedObject var viewModel: HomeViewModel
     
     init(viewModel:HomeViewModel) {
@@ -20,17 +21,25 @@ struct HomeDashboardContent: View {
             GeometryReader { geometry in
                 ZStack {
                     VStack {
-                        HStack {
-                            Text("Portfolio")
-                                .font(.footnote)
-                                .padding(8)
-                                .foregroundColor(.white)
-                                .background(Color.blue)
-                                .cornerRadius(35)
-                            Spacer()
+                        if $viewModel.portfolio.wrappedValue.count > 0 {
+                            HStack {
+                                Text("Portfolio")
+                                    .font(.footnote)
+                                    .padding(8)
+                                    .foregroundColor(.white)
+                                    .background(Color.blue)
+                                    .cornerRadius(35)
+                                Spacer()
+                            }
+                            .padding()
+                            HomePortfolioList(portfolio: $viewModel.portfolio.wrappedValue,
+                                              tapAction: { item in
+                                                self.bottomSheetShown = true
+                                                self.currentPortfolioItem = item
+                                                
+                                              })
+                                .padding(.leading)
                         }
-                        .padding()
-                        HomePortfolioList(portfolio: $viewModel.portfolio.wrappedValue, tapAction: {self.bottomSheetShown = true}).padding(.leading)
                         HStack {
                             Text("Strategies")
                                 .font(.footnote)
@@ -54,8 +63,8 @@ struct HomeDashboardContent: View {
                     .blur(radius: self.bottomSheetShown ? 4.0 : 0.0)
 
                     BottomSheetView(isOpen: $bottomSheetShown,
-                                    maxHeight: self.bottomSheetShown ? 350 : 0) {
-                        Color.blue
+                                    maxHeight: self.bottomSheetShown ? 620 : 0) {
+                        IndividualPortfolioItemView(item: self.currentPortfolioItem)
                     }
                 }
                 

@@ -15,14 +15,19 @@ struct AlertItem: View {
     var body: some View {
         VStack {
             determineAlertView(for: alert)
-            Button(action:tapAction) {
-                Text(alert.action == "Buy" ? "Buy" : "Sell")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(alert.action == "Buy" ? Color.green : Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                    .padding()
+            
+            if alert.actedUpon {
+                Text("This underlying is already your portfolio.")
+            } else {
+                Button(action:tapAction) {
+                    Text(alert.action == "Buy" ? "Buy" : "Sell")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(alert.action == "Buy" ? Color.green : Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .padding()
+                }
             }
         }
     }
@@ -59,7 +64,7 @@ extension AlertItem {
             }
             Spacer()
             VStack(alignment: .leading) {
-                Text("1/1/2021 8:53am")
+                Text(alert.date)
                     .font(.caption)
                 Spacer()
             }
@@ -84,7 +89,7 @@ extension AlertItem {
             }
             Spacer()
             VStack(alignment: .leading) {
-                Text("1/1/2021 8:53am")
+                Text(alert.date)
                     .font(.caption)
                 Spacer()
             }
@@ -95,9 +100,9 @@ extension AlertItem {
 struct AlertItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            AlertItem(alert: StrategyAlert(typeOfAlert: "Moving Average", action: "Buy", underlying: "AAPL"), tapAction: {})
-            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Buy", underlying: "DIS"), tapAction: {})
-            AlertItem(alert: StrategyAlert(typeOfAlert: "Yield", action: "Sell", underlying: "F"), tapAction: {})
+            AlertItem(alert: StrategyAlert(actedUpon: true, date:"", typeOfAlert: "Moving Average", action: "Buy", underlying: "AAPL"), tapAction: { })
+            AlertItem(alert: StrategyAlert(actedUpon: false, date: "", typeOfAlert: "Yield", action: "Buy", underlying: "DIS"), tapAction: { })
+            AlertItem(alert: StrategyAlert(actedUpon: false, date: "", typeOfAlert: "Yield", action: "Sell", underlying: "F"), tapAction: { })
         }
     }
 }

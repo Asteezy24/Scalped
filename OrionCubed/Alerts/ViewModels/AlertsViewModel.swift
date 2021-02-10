@@ -35,6 +35,11 @@ class AlertsViewModel: ObservableObject {
     }
     
     func actionSignaled(alert: StrategyAlert) {
+        let matchIndex = self.alerts.firstIndex(of: alert)
+        if let index = matchIndex {
+            self.alerts[index].actedUpon = true
+        }
+//        self.alerts[0].actedUpon = true
         if alert.action == "Buy" {
             self.dataManager.getPublisherForBuySignal(alert: alert)
                 .receive(on: DispatchQueue.main)
