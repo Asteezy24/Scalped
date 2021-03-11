@@ -8,8 +8,8 @@
 import Foundation
 
 enum environments: String {
-    case dev = "192.168.0.184"
-    case prod = "104.237.146.89"
+    case dev = "192.168.0.89"
+    case prod = "45.33.91.40"
 }
 
 var currEnvironment: environments = .dev
