@@ -88,7 +88,7 @@ class HomeViewModel: ObservableObject {
         // *** create calendar object ***
         var calendar = Calendar.current
         // *** define calendar components to use as well Timezone to UTC ***
-        calendar.timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "")!
+        calendar.timeZone = TimeZone(identifier: TimeZone.current.abbreviation() ?? "") ?? .current
         // *** Get Individual components from date ***
         let hour = calendar.component(.hour, from: date)
         if (6 <= hour && hour <= 12) {

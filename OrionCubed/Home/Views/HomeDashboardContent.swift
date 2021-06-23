@@ -57,7 +57,7 @@ struct HomeDashboardContent: View {
 
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            Text("App Name")
+                            Text("Scalped")
                         }
                     })
                     .blur(radius: self.bottomSheetShown ? 4.0 : 0.0)
