@@ -26,52 +26,44 @@ struct CreateAccountView: View {
         if isLoading {
             ProgressView("Creating user...")
         }
-        //            GeometryReader { geometry in
-       //ZStack {
-            //                        if isLoading {
-            //                            ProgressView("Creating user...")
-            //                        }
-            VStack {
-                Form {
-                    Section {
-                        TextField("Username", text: $username)
-                    }
-                    Section(footer: Text("Password must be 8 characters.")) {
-                        SecureField("Password", text: $password)
-                        SecureField("Confirm Password", text: $confirmedPassword)
-                    }
-                    Section {
-                        TextField("One time access code", text: $accessCode)
-                    }
-                    Section {
-                        HStack {
-                            Spacer()
-                            Button(action: {self.createAccount()}) {
-                                Text("Submit")
-                                    // .frame(minWidth: 0, maxWidth: geometry.size.width / 1.5)
-                                    .padding()
-                                    .cornerRadius(8)
-                                    .font(.headline)
-                            }
-                            Spacer()
-                        }
-                    }.disabled(formValidation())
+        VStack {
+            Form {
+                Section {
+                    TextField("Username", text: $username).autocapitalization(.none)
                     
                 }
-                .navigationBarTitle(Text("Create an Account"))
+                Section(footer: Text("Password must be 8 characters.")) {
+                    SecureField("Password", text: $password)
+                    SecureField("Confirm Password", text: $confirmedPassword)
+                }
+                Section {
+                    TextField("One time access code", text: $accessCode).autocapitalization(.none)
+                    
+                }
+                Section {
+                    HStack {
+                        Spacer()
+                        Button(action: {self.createAccount()}) {
+                            Text("Submit")
+                                // .frame(minWidth: 0, maxWidth: geometry.size.width / 1.5)
+                                .padding()
+                                .cornerRadius(8)
+                                .font(.headline)
+                        }
+                        Spacer()
+                    }
+                }.disabled(formValidation())
+                
             }
             .navigationBarTitle(Text("Create an Account"))
-        //}
-                        .blur(radius: isLoading ? 4.0 : 0)
-                        .alert(isPresented: $showingAlert) {
-                            Alert(title: Text(alertTitle),
-                                  message: Text(alertMessage),
-                                  dismissButton: .default(Text("Got it!")))
-                        }
-        
-        
-        
-        
+        }
+        .navigationBarTitle(Text("Create an Account"))
+        .blur(radius: isLoading ? 4.0 : 0)
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text(alertTitle),
+                  message: Text(alertMessage),
+                  dismissButton: .default(Text("Got it!")))
+        }
     }
     
     private func formValidation() -> Bool {
@@ -104,6 +96,6 @@ struct CreateAccountView: View {
 
 struct CreateAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountView(viewModel: CreateAccountViewModel())
+        CreateAccountView(viewModel: CreateAccountViewModel()).colorScheme(.dark)
     }
 }

@@ -33,6 +33,7 @@ struct SignInView: View {
                     BadgeSymbol(symbolColor: .purple).frame(width: 225, height: 225)
                     VStack(alignment: .center) {
                         TextField("Username", text: $username)
+                            .autocapitalization(.none)
                             .multilineTextAlignment(TextAlignment.center)
                             .padding(.vertical)
                         
