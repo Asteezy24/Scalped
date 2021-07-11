@@ -1,0 +1,3 @@
+# Scalped
+
+Automated Stock Investing.
