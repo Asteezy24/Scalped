@@ -9,7 +9,7 @@ import Foundation
 
 enum environments: String {
     case dev = "192.168.0.89"
-    case prod = "45.33.91.40"
+    case prod = "api.tryscalped.com"
 }
 
-var currEnvironment: environments = .dev
+var currEnvironment: environments = .prod

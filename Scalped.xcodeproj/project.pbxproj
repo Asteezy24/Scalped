@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */; };
+		FB09BD522560CD9600BD4B48 /* ScalpedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD512560CD9600BD4B48 /* ScalpedApp.swift */; };
 		FB09BD542560CD9600BD4B48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD532560CD9600BD4B48 /* HomeView.swift */; };
 		FB09BD562560CD9700BD4B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB09BD552560CD9700BD4B48 /* Assets.xcassets */; };
 		FB09BD592560CD9700BD4B48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB09BD582560CD9700BD4B48 /* Preview Assets.xcassets */; };
-		FB09BD642560CD9700BD4B48 /* OrionCubedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD632560CD9700BD4B48 /* OrionCubedTests.swift */; };
-		FB09BD6F2560CD9700BD4B48 /* OrionCubedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */; };
+		FB09BD642560CD9700BD4B48 /* ScalpedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD632560CD9700BD4B48 /* ScalpedTests.swift */; };
+		FB09BD6F2560CD9700BD4B48 /* ScalpedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD6E2560CD9700BD4B48 /* ScalpedUITests.swift */; };
 		FB09BD8F2560D19400BD4B48 /* MovingAverageStrategyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BD8E2560D19400BD4B48 /* MovingAverageStrategyView.swift */; };
 		FB09BE1025636F9A00BD4B48 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */; };
 		FB3A20C925AA59D2000ADFF6 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A20C825AA59D2000ADFF6 /* WatchlistViewModel.swift */; };
@@ -90,16 +90,16 @@
 
 /* Begin PBXFileReference section */
 		FB09BD4E2560CD9600BD4B48 /* Scalped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scalped.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedApp.swift; sourceTree = "<group>"; };
+		FB09BD512560CD9600BD4B48 /* ScalpedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalpedApp.swift; sourceTree = "<group>"; };
 		FB09BD532560CD9600BD4B48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FB09BD552560CD9700BD4B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB09BD582560CD9700BD4B48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FB09BD5A2560CD9700BD4B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB09BD5F2560CD9700BD4B48 /* ScalpedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScalpedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB09BD632560CD9700BD4B48 /* OrionCubedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedTests.swift; sourceTree = "<group>"; };
+		FB09BD632560CD9700BD4B48 /* ScalpedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalpedTests.swift; sourceTree = "<group>"; };
 		FB09BD652560CD9700BD4B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB09BD6A2560CD9700BD4B48 /* ScalpedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScalpedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedUITests.swift; sourceTree = "<group>"; };
+		FB09BD6E2560CD9700BD4B48 /* ScalpedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalpedUITests.swift; sourceTree = "<group>"; };
 		FB09BD702560CD9700BD4B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB09BD8E2560D19400BD4B48 /* MovingAverageStrategyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageStrategyView.swift; sourceTree = "<group>"; };
 		FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				FBD8039D256A497A00F22ACB /* Networking */,
 				FB8FAEF82563774200053D50 /* NewStrategy */,
 				FB28430B2572C7B000881533 /* Scalped.entitlements */,
-				FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */,
+				FB09BD512560CD9600BD4B48 /* ScalpedApp.swift */,
 				FB09BD572560CD9700BD4B48 /* Preview Content */,
 				FBDEE9A225BE6325009EEBB9 /* Router */,
 				FBEADCAA258EEF6E00F9DC3A /* Settings */,
@@ -243,7 +243,7 @@
 		FB09BD622560CD9700BD4B48 /* ScalpedTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB09BD632560CD9700BD4B48 /* OrionCubedTests.swift */,
+				FB09BD632560CD9700BD4B48 /* ScalpedTests.swift */,
 				FB09BD652560CD9700BD4B48 /* Info.plist */,
 			);
 			path = ScalpedTests;
@@ -252,7 +252,7 @@
 		FB09BD6D2560CD9700BD4B48 /* ScalpedUITests */ = {
 			isa = PBXGroup;
 			children = (
-				FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */,
+				FB09BD6E2560CD9700BD4B48 /* ScalpedUITests.swift */,
 				FB09BD702560CD9700BD4B48 /* Info.plist */,
 			);
 			path = ScalpedUITests;
@@ -744,7 +744,7 @@
 				FB3A20CE25AA5A13000ADFF6 /* WatchlistDataManager.swift in Sources */,
 				FB6C62AF258C1DB00022CB84 /* StrategySelectionItem.swift in Sources */,
 				FBD1BC7925B7D98200217BDC /* View+Extensions.swift in Sources */,
-				FB09BD522560CD9600BD4B48 /* OrionCubedApp.swift in Sources */,
+				FB09BD522560CD9600BD4B48 /* ScalpedApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,7 +752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB09BD642560CD9700BD4B48 /* OrionCubedTests.swift in Sources */,
+				FB09BD642560CD9700BD4B48 /* ScalpedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,7 +760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB09BD6F2560CD9700BD4B48 /* OrionCubedUITests.swift in Sources */,
+				FB09BD6F2560CD9700BD4B48 /* ScalpedUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

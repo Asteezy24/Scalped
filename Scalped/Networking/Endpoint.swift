@@ -19,7 +19,6 @@ extension Endpoint {
         var components = URLComponents()
         components.scheme = "http"
         components.host = currEnvironment == .dev ? environments.dev.rawValue : environments.prod.rawValue
-        components.port = 3000
         components.path = path
         guard let url = components.url else {
             preconditionFailure("Invalid URL components: \(components)")

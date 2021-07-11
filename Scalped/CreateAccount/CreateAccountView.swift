@@ -45,7 +45,6 @@ struct CreateAccountView: View {
                         Spacer()
                         Button(action: {self.createAccount()}) {
                             Text("Submit")
-                                // .frame(minWidth: 0, maxWidth: geometry.size.width / 1.5)
                                 .padding()
                                 .cornerRadius(8)
                                 .font(.headline)
