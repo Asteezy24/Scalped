@@ -1,6 +1,6 @@
 //
 //  NetworkManager.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 11/22/20.
 //

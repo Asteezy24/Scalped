@@ -1,6 +1,6 @@
 //
 //  AlertsDataManager.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 1/4/21.
 //

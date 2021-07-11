@@ -1,6 +1,6 @@
 //
 //  CreateAccountView.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 1/28/21.
 //

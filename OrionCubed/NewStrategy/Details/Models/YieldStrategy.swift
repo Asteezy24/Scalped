@@ -1,6 +1,6 @@
 //
 //  YieldStrategy.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 1/12/21.
 //

@@ -1,6 +1,6 @@
 //
 //  View+Extensions.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 1/19/21.
 //

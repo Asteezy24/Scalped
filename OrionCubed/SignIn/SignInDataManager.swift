@@ -1,6 +1,6 @@
 //
 //  SignInDataManager.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 1/29/21.
 //

@@ -1,6 +1,6 @@
 //
 //  Globals.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 12/9/20.
 //

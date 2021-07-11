@@ -1,6 +1,6 @@
 //
-//  OrionCubedUITests.swift
-//  OrionCubedUITests
+//  ScalpedUITests.swift
+//  ScalpedUITests
 //
 //  Created by Alexander Stevens on 11/14/20.
 //

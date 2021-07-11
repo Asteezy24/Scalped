@@ -1,6 +1,6 @@
 //
 //  IndividualPortfolioItemView.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 2/9/21.
 //

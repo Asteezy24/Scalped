@@ -1,6 +1,6 @@
 //
 //  JustAppIcon.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 1/30/21.
 //

@@ -1,6 +1,6 @@
 //
 //  NetworkResponse.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 11/25/20.
 //

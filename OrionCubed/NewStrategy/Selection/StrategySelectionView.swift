@@ -1,6 +1,6 @@
 //
 //  StrategySelectionView.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 12/8/20.
 //

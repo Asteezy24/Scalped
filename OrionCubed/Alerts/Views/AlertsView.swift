@@ -1,6 +1,6 @@
 //
 //  AlertsView.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 12/29/20.
 //

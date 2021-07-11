@@ -1,6 +1,6 @@
 //
 //  AlertsViewModel.swift
-//  OrionCubed
+//  Scalped
 //
 //  Created by Alexander Stevens on 1/4/21.
 //
@@ -39,7 +39,7 @@ class AlertsViewModel: ObservableObject {
         if let index = matchIndex {
             self.alerts[index].actedUpon = true
         }
-//        self.alerts[0].actedUpon = true
+
         if alert.action == "Buy" {
             self.dataManager.getPublisherForBuySignal(alert: alert)
                 .receive(on: DispatchQueue.main)
