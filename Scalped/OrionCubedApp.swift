@@ -1,6 +1,6 @@
 //
-//  OrionCubedApp.swift
-//  OrionCubed
+//  ScalpedApp.swift
+//  Scalped
 //
 //  Created by Alexander Stevens on 11/14/20.
 //
@@ -11,7 +11,7 @@ import UserNotifications
 import CoreData
 
 @main
-struct OrionCubedApp: App {
+struct ScalpedApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     @Environment(\.scenePhase) private var scenePhase
     

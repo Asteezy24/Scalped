@@ -89,21 +89,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FB09BD4E2560CD9600BD4B48 /* OrionCubed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrionCubed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB09BD4E2560CD9600BD4B48 /* Scalped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scalped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedApp.swift; sourceTree = "<group>"; };
 		FB09BD532560CD9600BD4B48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FB09BD552560CD9700BD4B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB09BD582560CD9700BD4B48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FB09BD5A2560CD9700BD4B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB09BD5F2560CD9700BD4B48 /* OrionCubedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrionCubedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB09BD5F2560CD9700BD4B48 /* ScalpedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScalpedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB09BD632560CD9700BD4B48 /* OrionCubedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedTests.swift; sourceTree = "<group>"; };
 		FB09BD652560CD9700BD4B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB09BD6A2560CD9700BD4B48 /* OrionCubedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrionCubedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB09BD6A2560CD9700BD4B48 /* ScalpedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScalpedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrionCubedUITests.swift; sourceTree = "<group>"; };
 		FB09BD702560CD9700BD4B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB09BD8E2560D19400BD4B48 /* MovingAverageStrategyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAverageStrategyView.swift; sourceTree = "<group>"; };
 		FB09BE0F25636F9A00BD4B48 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		FB28430B2572C7B000881533 /* OrionCubed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OrionCubed.entitlements; sourceTree = "<group>"; };
+		FB28430B2572C7B000881533 /* Scalped.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scalped.entitlements; sourceTree = "<group>"; };
 		FB3A20C825AA59D2000ADFF6 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
 		FB3A20CD25AA5A13000ADFF6 /* WatchlistDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistDataManager.swift; sourceTree = "<group>"; };
 		FB3A20D225AA5A92000ADFF6 /* WatchlistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistResponse.swift; sourceTree = "<group>"; };
@@ -190,9 +190,9 @@
 		FB09BD452560CD9600BD4B48 = {
 			isa = PBXGroup;
 			children = (
-				FB09BD502560CD9600BD4B48 /* OrionCubed */,
-				FB09BD622560CD9700BD4B48 /* OrionCubedTests */,
-				FB09BD6D2560CD9700BD4B48 /* OrionCubedUITests */,
+				FB09BD502560CD9600BD4B48 /* Scalped */,
+				FB09BD622560CD9700BD4B48 /* ScalpedTests */,
+				FB09BD6D2560CD9700BD4B48 /* ScalpedUITests */,
 				FB09BD4F2560CD9600BD4B48 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -200,14 +200,14 @@
 		FB09BD4F2560CD9600BD4B48 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB09BD4E2560CD9600BD4B48 /* OrionCubed.app */,
-				FB09BD5F2560CD9700BD4B48 /* OrionCubedTests.xctest */,
-				FB09BD6A2560CD9700BD4B48 /* OrionCubedUITests.xctest */,
+				FB09BD4E2560CD9600BD4B48 /* Scalped.app */,
+				FB09BD5F2560CD9700BD4B48 /* ScalpedTests.xctest */,
+				FB09BD6A2560CD9700BD4B48 /* ScalpedUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FB09BD502560CD9600BD4B48 /* OrionCubed */ = {
+		FB09BD502560CD9600BD4B48 /* Scalped */ = {
 			isa = PBXGroup;
 			children = (
 				FBDDEC19259BD44800481D6B /* Alerts */,
@@ -219,7 +219,7 @@
 				FB09BD5A2560CD9700BD4B48 /* Info.plist */,
 				FBD8039D256A497A00F22ACB /* Networking */,
 				FB8FAEF82563774200053D50 /* NewStrategy */,
-				FB28430B2572C7B000881533 /* OrionCubed.entitlements */,
+				FB28430B2572C7B000881533 /* Scalped.entitlements */,
 				FB09BD512560CD9600BD4B48 /* OrionCubedApp.swift */,
 				FB09BD572560CD9700BD4B48 /* Preview Content */,
 				FBDEE9A225BE6325009EEBB9 /* Router */,
@@ -229,7 +229,7 @@
 				FBDDEC1A259BD45000481D6B /* Watchlist */,
 				FBCFC15625C4F6CF004A42AA /* UserInfo.xcdatamodeld */,
 			);
-			path = OrionCubed;
+			path = Scalped;
 			sourceTree = "<group>";
 		};
 		FB09BD572560CD9700BD4B48 /* Preview Content */ = {
@@ -240,22 +240,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		FB09BD622560CD9700BD4B48 /* OrionCubedTests */ = {
+		FB09BD622560CD9700BD4B48 /* ScalpedTests */ = {
 			isa = PBXGroup;
 			children = (
 				FB09BD632560CD9700BD4B48 /* OrionCubedTests.swift */,
 				FB09BD652560CD9700BD4B48 /* Info.plist */,
 			);
-			path = OrionCubedTests;
+			path = ScalpedTests;
 			sourceTree = "<group>";
 		};
-		FB09BD6D2560CD9700BD4B48 /* OrionCubedUITests */ = {
+		FB09BD6D2560CD9700BD4B48 /* ScalpedUITests */ = {
 			isa = PBXGroup;
 			children = (
 				FB09BD6E2560CD9700BD4B48 /* OrionCubedUITests.swift */,
 				FB09BD702560CD9700BD4B48 /* Info.plist */,
 			);
-			path = OrionCubedUITests;
+			path = ScalpedUITests;
 			sourceTree = "<group>";
 		};
 		FB09BD7F2560CDF200BD4B48 /* Home */ = {
@@ -539,9 +539,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB09BD4D2560CD9600BD4B48 /* OrionCubed */ = {
+		FB09BD4D2560CD9600BD4B48 /* Scalped */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB09BD732560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "OrionCubed" */;
+			buildConfigurationList = FB09BD732560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "Scalped" */;
 			buildPhases = (
 				FBBEB15125899214004BC2F9 /* ShellScript */,
 				FB09BD4A2560CD9600BD4B48 /* Sources */,
@@ -552,14 +552,14 @@
 			);
 			dependencies = (
 			);
-			name = OrionCubed;
+			name = Scalped;
 			productName = OrionCubed;
-			productReference = FB09BD4E2560CD9600BD4B48 /* OrionCubed.app */;
+			productReference = FB09BD4E2560CD9600BD4B48 /* Scalped.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB09BD5E2560CD9700BD4B48 /* OrionCubedTests */ = {
+		FB09BD5E2560CD9700BD4B48 /* ScalpedTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB09BD762560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "OrionCubedTests" */;
+			buildConfigurationList = FB09BD762560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "ScalpedTests" */;
 			buildPhases = (
 				FB09BD5B2560CD9700BD4B48 /* Sources */,
 				FB09BD5C2560CD9700BD4B48 /* Frameworks */,
@@ -570,14 +570,14 @@
 			dependencies = (
 				FB09BD612560CD9700BD4B48 /* PBXTargetDependency */,
 			);
-			name = OrionCubedTests;
+			name = ScalpedTests;
 			productName = OrionCubedTests;
-			productReference = FB09BD5F2560CD9700BD4B48 /* OrionCubedTests.xctest */;
+			productReference = FB09BD5F2560CD9700BD4B48 /* ScalpedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FB09BD692560CD9700BD4B48 /* OrionCubedUITests */ = {
+		FB09BD692560CD9700BD4B48 /* ScalpedUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB09BD792560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "OrionCubedUITests" */;
+			buildConfigurationList = FB09BD792560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "ScalpedUITests" */;
 			buildPhases = (
 				FB09BD662560CD9700BD4B48 /* Sources */,
 				FB09BD672560CD9700BD4B48 /* Frameworks */,
@@ -588,9 +588,9 @@
 			dependencies = (
 				FB09BD6C2560CD9700BD4B48 /* PBXTargetDependency */,
 			);
-			name = OrionCubedUITests;
+			name = ScalpedUITests;
 			productName = OrionCubedUITests;
-			productReference = FB09BD6A2560CD9700BD4B48 /* OrionCubedUITests.xctest */;
+			productReference = FB09BD6A2560CD9700BD4B48 /* ScalpedUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -615,7 +615,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FB09BD492560CD9600BD4B48 /* Build configuration list for PBXProject "OrionCubed" */;
+			buildConfigurationList = FB09BD492560CD9600BD4B48 /* Build configuration list for PBXProject "Scalped" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -628,9 +628,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB09BD4D2560CD9600BD4B48 /* OrionCubed */,
-				FB09BD5E2560CD9700BD4B48 /* OrionCubedTests */,
-				FB09BD692560CD9700BD4B48 /* OrionCubedUITests */,
+				FB09BD4D2560CD9600BD4B48 /* Scalped */,
+				FB09BD5E2560CD9700BD4B48 /* ScalpedTests */,
+				FB09BD692560CD9700BD4B48 /* ScalpedUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -769,12 +769,12 @@
 /* Begin PBXTargetDependency section */
 		FB09BD612560CD9700BD4B48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FB09BD4D2560CD9600BD4B48 /* OrionCubed */;
+			target = FB09BD4D2560CD9600BD4B48 /* Scalped */;
 			targetProxy = FB09BD602560CD9700BD4B48 /* PBXContainerItemProxy */;
 		};
 		FB09BD6C2560CD9700BD4B48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FB09BD4D2560CD9600BD4B48 /* OrionCubed */;
+			target = FB09BD4D2560CD9600BD4B48 /* Scalped */;
 			targetProxy = FB09BD6B2560CD9700BD4B48 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -901,14 +901,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = OrionCubed/OrionCubed.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Scalped/Scalped.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_ASSET_PATHS = "\"OrionCubed/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Scalped/Preview Content\"";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = OrionCubed/Info.plist;
+				INFOPLIST_FILE = Scalped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -927,14 +927,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = OrionCubed/OrionCubed.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Scalped/Scalped.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_ASSET_PATHS = "\"OrionCubed/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Scalped/Preview Content\"";
 				DEVELOPMENT_TEAM = C7HGN23NTW;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = OrionCubed/Info.plist;
+				INFOPLIST_FILE = Scalped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -955,18 +955,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7HGN23NTW;
-				INFOPLIST_FILE = OrionCubedTests/Info.plist;
+				INFOPLIST_FILE = ScalpedTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.OrionCubedTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.ScalpedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrionCubed.app/OrionCubed";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scalped.app/Scalped";
 			};
 			name = Debug;
 		};
@@ -977,18 +977,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7HGN23NTW;
-				INFOPLIST_FILE = OrionCubedTests/Info.plist;
+				INFOPLIST_FILE = ScalpedTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.OrionCubedTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.ScalpedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrionCubed.app/OrionCubed";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scalped.app/Scalped";
 			};
 			name = Release;
 		};
@@ -998,17 +998,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7HGN23NTW;
-				INFOPLIST_FILE = OrionCubedUITests/Info.plist;
+				INFOPLIST_FILE = ScalpedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.OrionCubedUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.ScalpedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OrionCubed;
+				TEST_TARGET_NAME = Scalped;
 			};
 			name = Debug;
 		};
@@ -1018,24 +1018,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7HGN23NTW;
-				INFOPLIST_FILE = OrionCubedUITests/Info.plist;
+				INFOPLIST_FILE = ScalpedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.OrionCubedUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlexStevens.ScalpedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OrionCubed;
+				TEST_TARGET_NAME = Scalped;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB09BD492560CD9600BD4B48 /* Build configuration list for PBXProject "OrionCubed" */ = {
+		FB09BD492560CD9600BD4B48 /* Build configuration list for PBXProject "Scalped" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB09BD712560CD9700BD4B48 /* Debug */,
@@ -1044,7 +1044,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB09BD732560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "OrionCubed" */ = {
+		FB09BD732560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "Scalped" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB09BD742560CD9700BD4B48 /* Debug */,
@@ -1053,7 +1053,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB09BD762560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "OrionCubedTests" */ = {
+		FB09BD762560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "ScalpedTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB09BD772560CD9700BD4B48 /* Debug */,
@@ -1062,7 +1062,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB09BD792560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "OrionCubedUITests" */ = {
+		FB09BD792560CD9700BD4B48 /* Build configuration list for PBXNativeTarget "ScalpedUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB09BD7A2560CD9700BD4B48 /* Debug */,
